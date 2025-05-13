@@ -49,6 +49,7 @@ func check_eligible(quest_def:QuestDef) -> bool:
 	return true
 	
 
+# return a list of eligible for a ... location? point of interest?
 func get_eligible_quests() -> Array[QuestDef]:
 	var ret:Array[QuestDef]
 	for quest_def:QuestDef in quest_defs:
@@ -58,6 +59,7 @@ func get_eligible_quests() -> Array[QuestDef]:
 	return ret
 
 
+# Auto trigger when starting a quest line and at that location?
 func serve_quest(quest_def:QuestDef) -> void:
 	pending_quest = quest_def
 	# TODO: Start Dialogic Tree

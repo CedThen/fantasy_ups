@@ -15,6 +15,7 @@ color = Color(2.31028e-06, 0.701723, 0.904603, 0.588235)
 
 [node name="LocationLabel" type="Label" parent="ColorRect"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 11.0
 offset_top = 8.0
 offset_right = 69.0
