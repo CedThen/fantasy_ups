@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="QuestDef" load_steps=3 format=3 uid="uid://c6hdb4yxcjvlc"]
 
-[ext_resource type="Script" uid="uid://cmqlrln467ark" path="res://scripts/quest_def.gd" id="1_gxktd"]
+[ext_resource type="Script" uid="uid://cmqlrln467ark" path="res://scripts/defs/quest_def.gd" id="1_gxktd"]
 [ext_resource type="Resource" uid="uid://bsumobqngerjj" path="res://timelines/test_timeline.dtl" id="2_gwmgi"]
 
 [resource]

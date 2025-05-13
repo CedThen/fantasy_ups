@@ -1,23 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://doxwbfg3pfc73"]
+[gd_scene load_steps=6 format=3 uid="uid://doxwbfg3pfc73"]
 
 [ext_resource type="Script" uid="uid://bmi3ifaa5xjhy" path="res://scripts/map/location.gd" id="1_hccqc"]
+[ext_resource type="FontFile" uid="uid://dcgxo43er1f5n" path="res://assets/fonts/magical-world/Magical World.ttf" id="2_643j3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_643j3"]
+radius = 28.84
+
+[sub_resource type="Gradient" id="Gradient_643j3"]
+offsets = PackedFloat32Array(0.503759, 0.823308)
+colors = PackedColorArray(0.99, 1, 0.4, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tmhpo"]
+gradient = SubResource("Gradient_643j3")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.91453, 0.123932)
 
 [node name="Location" type="Node2D"]
 script = ExtResource("1_hccqc")
-label = "Sample"
+location_name = "Test"
 metadata/_custom_type_script = "uid://bmi3ifaa5xjhy"
 
-[node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(80, 20)
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(2.31028e-06, 0.701723, 0.904603, 0.588235)
-
-[node name="LocationLabel" type="Label" parent="ColorRect"]
+[node name="LocationLabel" type="Label" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 11.0
-offset_top = 8.0
-offset_right = 69.0
-offset_bottom = 31.0
-text = "Sample"
+custom_minimum_size = Vector2(10, 10)
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 1060.0
+offset_bottom = 434.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_643j3")
+theme_override_font_sizes/font_size = 408
+text = "Test"
+
+[node name="HighlightArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HighlightArea"]
+shape = SubResource("CircleShape2D_643j3")
+
+[node name="HaloLight" type="PointLight2D" parent="HighlightArea"]
+visible = false
+position = Vector2(-1, 9.53674e-07)
+scale = Vector2(0.204248, 0.194036)
+texture = SubResource("GradientTexture2D_tmhpo")
+texture_scale = 4.59
+
+[connection signal="mouse_entered" from="HighlightArea" to="." method="_on_highlight_area_mouse_entered"]
+[connection signal="mouse_exited" from="HighlightArea" to="." method="_on_highlight_area_mouse_exited"]

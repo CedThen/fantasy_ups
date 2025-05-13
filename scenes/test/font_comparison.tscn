@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bootphw6i1ou3"]
+
+[ext_resource type="FontFile" uid="uid://b302h0rkfy4nn" path="res://assets/fonts/legendary-runes-free-trial/Legendary Runes Free Trial.otf" id="1_ij31j"]
+[ext_resource type="FontFile" uid="uid://dym61d2hhvhxw" path="res://assets/fonts/magical-world/Magical World.otf" id="2_ew5hp"]
+[ext_resource type="FontFile" uid="uid://d3f3vapm0x16y" path="res://assets/fonts/morris-roman/MorrisRoman-Black.ttf" id="3_feb8c"]
+[ext_resource type="FontFile" uid="uid://bxrrwjkomt7n7" path="res://assets/fonts/starlight-rune-personal-use/StarlightRune-Personal Use.ttf" id="4_x6xn3"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_ij31j")
+theme_override_font_sizes/font_size = 30
+text = "Hello world"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_top = 41.0
+offset_right = 89.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_ew5hp")
+theme_override_font_sizes/font_size = 30
+text = "Hello world"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_top = 74.0
+offset_right = 89.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("3_feb8c")
+theme_override_font_sizes/font_size = 30
+text = "Hello world"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_top = 97.0
+offset_right = 89.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("4_x6xn3")
+theme_override_font_sizes/font_size = 30
+text = "Hello world"

@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://1l725le05o1t"]
+
+[ext_resource type="Texture2D" uid="uid://cf2cdterudytr" path="res://assets/Dalu/Map_Hestia01.png" id="1_4mxxn"]
+[ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/map.gd" id="2_4mxxn"]
+[ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="3_p3hjx"]
+[ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="4_jw7gq"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("2_4mxxn")
+
+[node name="MapImage" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.721569)
+scale = Vector2(0.436035, 0.425781)
+texture = ExtResource("1_4mxxn")
+centered = false
+
+[node name="Locations" type="Node" parent="."]
+script = ExtResource("2_4mxxn")
+
+[node name="Cropsby" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(737, 224)
+location_name = "Cropsby"
+
+[node name="RiversEnd" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(374, 261)
+location_name = "River's End"
+
+[node name="Telarys" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(196, 245)
+location_name = "Telarys"
+
+[node name="Immalia" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(665, 575)
+location_name = "Immalia"
+
+[node name="Varmecht" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(411, 407)
+location_name = "Varmecht"
+
+[node name="Routes" type="Node2D" parent="."]
+
+[node name="Varmecht_Telarys" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("4_jw7gq")]
+visible = true
+points = PackedVector2Array(411, 407, 196, 245)
+default_color = Color(0.70133, 0.582432, 0.767253, 1)
+origin = NodePath("../../Locations/Varmecht")
+destination = NodePath("../../Locations/Telarys")
+line_color = Color(0.70133, 0.582432, 0.767253, 1)
+weight = 2.0
+isVisible = true
+
+[node name="RiversEnd_Varmecht" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("4_jw7gq")]
+visible = true
+points = PackedVector2Array(374, 261, 411, 407)
+origin = NodePath("../../Locations/RiversEnd")
+destination = NodePath("../../Locations/Varmecht")
+isVisible = true
+
+[node name="Varmecht_Immalia" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("4_jw7gq")]
+visible = true
+points = PackedVector2Array(411, 407, 665, 575)
+origin = NodePath("../../Locations/Varmecht")
+destination = NodePath("../../Locations/Immalia")
+weight = 4.0
+isTraversable = false
+isVisible = true
+
+[node name="Cropsby_RiversEnd" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("4_jw7gq")]
+visible = true
+position = Vector2(8, 7)
+points = PackedVector2Array(729, 217, 366, 254)
+origin = NodePath("../../Locations/Cropsby")
+destination = NodePath("../../Locations/RiversEnd")
+weight = 6.0
+isVisible = true

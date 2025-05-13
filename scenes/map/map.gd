@@ -1,5 +1,10 @@
 extends Node
 
+enum MapMode {Plotting, Selecting}
+
+@export var mode: MapMode = MapMode.Selecting
+
+# handles highlights, selecting nodes and routing
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
