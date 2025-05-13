@@ -11,6 +11,7 @@ points = PackedVector2Array(185, 190, 0, 0)
 width = 3.0
 default_color = Color(0.51, 0, 0, 1)
 script = ExtResource("1_vidnp")
+isTraversable = null
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(40, 40)

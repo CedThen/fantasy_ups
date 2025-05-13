@@ -7,7 +7,7 @@ class_name Route extends Line2D
 @export var destination: Location
 @export var line_color: Color = Color(1, 0, 0)
 @export var weight: float = 1.0
-
+@export var isTraversable = true
 # need to query some source to check if prereqs are met
 var prereqs
 
@@ -15,8 +15,9 @@ func _ready() -> void:
 	render_route()
 
 func _process(delta: float) -> void:
+	# to render in editor mode
 	if Engine.is_editor_hint():
-		render_route()
+		render_route() 
 
 func render_route():
 	if destination:
