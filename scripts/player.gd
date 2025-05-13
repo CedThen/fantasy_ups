@@ -1,7 +1,7 @@
 class_name Player extends Node
 
 @export var current_location:int	# Type TBD
-@export var point:int				# Type TBD
+@export var current_place:int		# Type TBD
 
 var inventory:Array[String]			# Type TBD
 

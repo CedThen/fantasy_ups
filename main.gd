@@ -4,8 +4,12 @@ extends Node
 
 var player:Player
 
+var time:int		# Some global time? in game time, hours? minutes?
+
 func _ready() -> void:
 	player = Player.new()
+	
+	# Test picking up a quest
 	pick_up_random_quest()
 	
 	Dialogic.signal_event.connect(_on_dialogic_signal)

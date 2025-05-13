@@ -11,7 +11,7 @@ default_color = Color(0.347183, 0.74, 0.259, 1)
 script = ExtResource("1_vidnp")
 line_color = Color(0.347183, 0.74, 0.259, 1)
 isTraversable = null
-isVisible = null
+isVisible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(20, 20)

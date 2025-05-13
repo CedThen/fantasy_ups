@@ -1,12 +1,16 @@
 class_name QuestManager extends Node
 
 enum QuestStatus {NONE, ACTIVE, REJECTED, FAILED, COMPLETED}
+
+# I think I need REQVAL simply so I can use a typed dictionary
 enum ReqType {ITEM, DURATION}
 enum ReqVal {STRING, TIME}
 
 var quest_defs:Array[QuestDef]
 
-var pending_quest:QuestDef		# The current quest that is in use for accepting/completing
+var active_quests:Array[QuestInstance]
+
+var pending_quest:QuestDef		# The current quest that is in use for accepting/rejecting/completing
 
 
 func _init() -> void:
@@ -73,7 +77,7 @@ func serve_quest(quest_def:QuestDef) -> void:
 func accept_quest() -> void:
 	var quest_instance = QuestInstance.new(pending_quest)
 	print("Accepting Quest:" + quest_instance.quest_def.title)
-	
+	active_quests.append(quest_instance)
 	pending_quest = null
 	
 
@@ -85,4 +89,5 @@ func on_quest_accepted() -> void:
 	
 func on_quest_rejected() -> void:
 	# reject
+	# Don't know if I need this, but maybe, if we want to say reject but can't restart?
 	pass
