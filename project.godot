@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="fantasy_UPS"
-run/main_scene="uid://xecnd1uo1uvp"
+run/main_scene="res://scenes/test/map.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+SignalBus="*res://scripts/autoloads/signal_bus.gd"
 
 [dialogic]
 

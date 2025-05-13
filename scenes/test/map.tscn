@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://1l725le05o1t"]
+
+[ext_resource type="Texture2D" uid="uid://4thva17ont2x" path="res://assets/sample_map2.png" id="1_4mxxn"]
+[ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/locations_graph.gd" id="2_ehrsh"]
+[ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="3_p3hjx"]
+[ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="4_jw7gq"]
+
+[node name="Map" type="Node2D"]
+
+[node name="MapImage" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.721569)
+texture = ExtResource("1_4mxxn")
+centered = false
+
+[node name="Locations" type="Node" parent="."]
+script = ExtResource("2_ehrsh")
+
+[node name="QueensWood" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(662, 179)
+
+[node name="Route" parent="Locations/QueensWood" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
+points = PackedVector2Array(0, 0, -338, 158)
+default_color = Color(1, 0, 0, 1)
+destination = NodePath("../../Bitterwood")
+
+[node name="Bitterwood" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(324, 337)
+label = "Bitterwood"
+
+[node name="Route" parent="Locations/Bitterwood" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
+points = PackedVector2Array(0, 0, -239, -140)
+default_color = Color(0.833314, 0.135095, 0.878831, 1)
+destination = NodePath("../../HellMarsh")
+line_color = Color(0.833314, 0.135095, 0.878831, 1)
+
+[node name="HellMarsh" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(85, 197)
+label = "Hell Marsh"
+
+[node name="Route" parent="Locations/HellMarsh" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
+points = PackedVector2Array(0, 0, 132, 379)
+default_color = Color(1, 0, 0, 1)
+destination = NodePath("../../DireWood")
+
+[node name="WildWood" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(747, 573)
+label = "Wild Wood"
+
+[node name="DireWood" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(217, 576)
+label = "Dire Wood"
