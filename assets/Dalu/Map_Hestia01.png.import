@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qs253xbcy7ea"
-path="res://.godot/imported/sample_map2.png-bc7e64ddb5155085a75afa6c458b66a8.ctex"
+uid="uid://cf2cdterudytr"
+path="res://.godot/imported/Map_Hestia01.png-1a67542b50a739206832cc7610a034b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sample_map2.png"
-dest_files=["res://.godot/imported/sample_map2.png-bc7e64ddb5155085a75afa6c458b66a8.ctex"]
+source_file="res://assets/Dalu/Map_Hestia01.png"
+dest_files=["res://.godot/imported/Map_Hestia01.png-1a67542b50a739206832cc7610a034b9.ctex"]
 
 [params]
 
