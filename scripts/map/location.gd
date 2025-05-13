@@ -18,8 +18,9 @@ func get_neighbors():
 		if child is Route:
 			neighbors[child.destination] = child.weight
 	
+	print(label)
 	for neighbor in neighbors:
-		print(neighbor.location_label, neighbors[neighbor])
+		print(neighbor.label," ", neighbors[neighbor])
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
