@@ -1,1 +1,7 @@
-This file is being played from quest manager - from a quest resource that has a timeline associated to it
+Luis over in River's End wants a potion, will you take it to them?
+- Yes
+	Great you have 4 hours!
+	[signal arg_type="dict" arg="{"cmd":"accept_quest","quest_def_name":"test_quest"}"]
+- Nah
+	You Lazy...
+	[signal arg_type="dict" arg="{"cmd":"reject_quest"}"]

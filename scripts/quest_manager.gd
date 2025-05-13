@@ -10,6 +10,8 @@ var pending_quest:QuestDef		# The current quest that is in use for accepting/com
 
 
 func _init() -> void:
+	SignalBus.dialogic_quest_accepted.connect(on_quest_accepted)
+	SignalBus.dialogic_quest_rejected.connect(on_quest_rejected)
 	load_all_quests()
 	pass
 	
@@ -70,12 +72,17 @@ func serve_quest(quest_def:QuestDef) -> void:
 
 func accept_quest() -> void:
 	var quest_instance = QuestInstance.new(pending_quest)
+	print("Accepting Quest:" + quest_instance.quest_def.title)
+	
+	pending_quest = null
 	
 
 # Funcs to be triggered from Dialogic signals
-func quest_accepted() -> void:
+func on_quest_accepted() -> void:
+	accept_quest()
 	pass
-
-
-func quest_rejected() -> void:
+	
+	
+func on_quest_rejected() -> void:
+	# reject
 	pass
