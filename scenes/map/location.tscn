@@ -4,7 +4,7 @@
 
 [node name="Location" type="Node2D"]
 script = ExtResource("1_hccqc")
-label = "Queen's Wood"
+label = "Sample"
 metadata/_custom_type_script = "uid://bmi3ifaa5xjhy"
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -15,9 +15,8 @@ color = Color(2.31028e-06, 0.701723, 0.904603, 0.588235)
 
 [node name="LocationLabel" type="Label" parent="ColorRect"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_left = 11.0
 offset_top = 8.0
 offset_right = 69.0
 offset_bottom = 31.0
-text = "Queen's Wood"
+text = "Sample"

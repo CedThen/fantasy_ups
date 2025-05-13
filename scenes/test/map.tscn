@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://1l725le05o1t"]
 
-[ext_resource type="Texture2D" uid="uid://4thva17ont2x" path="res://assets/sample_map2.png" id="1_4mxxn"]
-[ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/locations_graph.gd" id="2_ehrsh"]
+[ext_resource type="Texture2D" uid="uid://cf2cdterudytr" path="res://assets/Dalu/Map_Hestia01.png" id="1_4mxxn"]
+[ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/map.gd" id="2_4mxxn"]
 [ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="3_p3hjx"]
 [ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="4_jw7gq"]
 
@@ -9,43 +9,78 @@
 
 [node name="MapImage" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.721569)
+scale = Vector2(0.436035, 0.425781)
 texture = ExtResource("1_4mxxn")
 centered = false
 
 [node name="Locations" type="Node" parent="."]
-script = ExtResource("2_ehrsh")
+script = ExtResource("2_4mxxn")
 
-[node name="QueensWood" parent="Locations" instance=ExtResource("3_p3hjx")]
+[node name="Cropby" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(662, 179)
+label = "Cropby"
 
-[node name="Route" parent="Locations/QueensWood" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
-points = PackedVector2Array(0, 0, -338, 158)
+[node name="Route" parent="Locations/Cropby" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
+points = PackedVector2Array(0, 0, -288, 82)
 default_color = Color(1, 0, 0, 1)
-destination = NodePath("../../Bitterwood")
+destination = NodePath("../../RiversEnd")
+weight = 6.0
+isTraversable = null
 
-[node name="Bitterwood" parent="Locations" instance=ExtResource("3_p3hjx")]
-position = Vector2(324, 337)
-label = "Bitterwood"
+[node name="RiversEnd" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(374, 261)
+label = "River's End"
 
-[node name="Route" parent="Locations/Bitterwood" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
-points = PackedVector2Array(0, 0, -239, -140)
-default_color = Color(0.833314, 0.135095, 0.878831, 1)
+[node name="Route" parent="Locations/RiversEnd" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
+points = PackedVector2Array(0, 0, -178, -16)
+default_color = Color(0.0204138, 0.611469, 0.617975, 1)
 destination = NodePath("../../HellMarsh")
-line_color = Color(0.833314, 0.135095, 0.878831, 1)
+line_color = Color(0.0204138, 0.611469, 0.617975, 1)
+weight = 1.5
+isTraversable = null
+
+[node name="Route2" parent="Locations/RiversEnd" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
+points = PackedVector2Array(0, 0, 288, -82)
+default_color = Color(1, 0, 0, 1)
+destination = NodePath("../../Cropby")
+isTraversable = null
+
+[node name="Route3" parent="Locations/RiversEnd" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
+points = PackedVector2Array(0, 0, 37, 146)
+default_color = Color(1, 0, 0, 1)
+destination = NodePath("../../KingsLanding")
+isTraversable = null
 
 [node name="HellMarsh" parent="Locations" instance=ExtResource("3_p3hjx")]
-position = Vector2(85, 197)
+position = Vector2(196, 245)
 label = "Hell Marsh"
 
 [node name="Route" parent="Locations/HellMarsh" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
-points = PackedVector2Array(0, 0, 132, 379)
-default_color = Color(1, 0, 0, 1)
-destination = NodePath("../../DireWood")
+points = PackedVector2Array(0, 0, 215, 162)
+default_color = Color(0.568267, 0.465344, 0.796777, 1)
+destination = NodePath("../../KingsLanding")
+line_color = Color(0.568267, 0.465344, 0.796777, 1)
+weight = 3.0
+isTraversable = null
 
 [node name="WildWood" parent="Locations" instance=ExtResource("3_p3hjx")]
-position = Vector2(747, 573)
+position = Vector2(660, 509)
 label = "Wild Wood"
 
-[node name="DireWood" parent="Locations" instance=ExtResource("3_p3hjx")]
-position = Vector2(217, 576)
-label = "Dire Wood"
+[node name="Route" parent="Locations/WildWood" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
+points = PackedVector2Array(0, 0, -249, -102)
+default_color = Color(1, 0, 0, 1)
+destination = NodePath("../../KingsLanding")
+weight = 4.0
+isTraversable = null
+
+[node name="KingsLanding" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(411, 407)
+label = "King's Landing"
+
+[node name="Route" parent="Locations/KingsLanding" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
+points = PackedVector2Array(0, 0, -37, -146)
+default_color = Color(1, 0, 0, 1)
+destination = NodePath("../../RiversEnd")
+weight = 2.0
+isTraversable = null
