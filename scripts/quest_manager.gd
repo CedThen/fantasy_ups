@@ -62,7 +62,10 @@ func get_eligible_quests() -> Array[QuestDef]:
 # Auto trigger when starting a quest line and at that location?
 func serve_quest(quest_def:QuestDef) -> void:
 	pending_quest = quest_def
+	
 	# TODO: Start Dialogic Tree
+	Dialogic.start(pending_quest.timeline_name)
+	
 
 
 func accept_quest() -> void:

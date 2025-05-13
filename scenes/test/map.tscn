@@ -25,7 +25,6 @@ points = PackedVector2Array(0, 0, -288, 82)
 default_color = Color(1, 0, 0, 1)
 destination = NodePath("../../RiversEnd")
 weight = 6.0
-isTraversable = null
 
 [node name="RiversEnd" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(374, 261)
@@ -37,19 +36,16 @@ default_color = Color(0.0204138, 0.611469, 0.617975, 1)
 destination = NodePath("../../HellMarsh")
 line_color = Color(0.0204138, 0.611469, 0.617975, 1)
 weight = 1.5
-isTraversable = null
 
 [node name="Route2" parent="Locations/RiversEnd" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
 points = PackedVector2Array(0, 0, 288, -82)
 default_color = Color(1, 0, 0, 1)
 destination = NodePath("../../Cropby")
-isTraversable = null
 
 [node name="Route3" parent="Locations/RiversEnd" node_paths=PackedStringArray("destination") instance=ExtResource("4_jw7gq")]
 points = PackedVector2Array(0, 0, 37, 146)
 default_color = Color(1, 0, 0, 1)
 destination = NodePath("../../KingsLanding")
-isTraversable = null
 
 [node name="HellMarsh" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(196, 245)
@@ -61,7 +57,6 @@ default_color = Color(0.568267, 0.465344, 0.796777, 1)
 destination = NodePath("../../KingsLanding")
 line_color = Color(0.568267, 0.465344, 0.796777, 1)
 weight = 3.0
-isTraversable = null
 
 [node name="WildWood" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(660, 509)
@@ -72,7 +67,6 @@ points = PackedVector2Array(0, 0, -249, -102)
 default_color = Color(1, 0, 0, 1)
 destination = NodePath("../../KingsLanding")
 weight = 4.0
-isTraversable = null
 
 [node name="KingsLanding" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(411, 407)
@@ -83,4 +77,3 @@ points = PackedVector2Array(0, 0, -37, -146)
 default_color = Color(1, 0, 0, 1)
 destination = NodePath("../../RiversEnd")
 weight = 2.0
-isTraversable = null

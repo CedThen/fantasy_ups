@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="QuestDef" load_steps=2 format=3 uid="uid://c6hdb4yxcjvlc"]
+[gd_resource type="Resource" script_class="QuestDef" load_steps=3 format=3 uid="uid://c6hdb4yxcjvlc"]
 
 [ext_resource type="Script" uid="uid://cmqlrln467ark" path="res://scripts/quest_def.gd" id="1_gxktd"]
+[ext_resource type="Resource" uid="uid://bsumobqngerjj" path="res://timelines/test_timeline.dtl" id="2_gwmgi"]
 
 [resource]
 script = ExtResource("1_gxktd")
 title = "Winner Winner"
 desc = "[Name] wants a chicken dinner!"
-reqs = {}
+eligible_reqs = Dictionary[int, int]({})
+timeline_name = ExtResource("2_gwmgi")
 location = 0
 point_of_interest = 0
-timeline_name = ""
+duration = 0
+complete_reqs = {}
 metadata/_custom_type_script = "uid://cmqlrln467ark"
