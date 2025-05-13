@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://1l725le05o1t"]
-
-[ext_resource type="Texture2D" uid="uid://4thva17ont2x" path="res://assets/sample_map2.png" id="1_sxf4j"]
-
-[node name="Map" type="Node2D"]
-
-[node name="MapImage" type="Sprite2D" parent="."]
-texture = ExtResource("1_sxf4j")
-centered = false
