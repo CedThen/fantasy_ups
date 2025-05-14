@@ -4,7 +4,6 @@ enum QuestStatus {NONE, ACTIVE, REJECTED, FAILED, COMPLETED}
 
 enum ReqType {ITEM}
 
-
 var quest_defs:Array[QuestDef]	# all quest defs
 
 var active_quests:Array[QuestInstance]
@@ -15,7 +14,13 @@ var pending_quest:QuestInstance		# The current quest that is in use for acceptin
 func _init() -> void:
 	SignalBus.dialogic_quest_accepted.connect(on_quest_accepted)
 	SignalBus.dialogic_quest_rejected.connect(on_quest_rejected)
+	SignalBus.dialogic_quest_completed.connect(on_quest_completed)
 	load_all_quest_defs()
+	pass
+	
+
+func _ready() -> void:
+	SignalBus.player_location_updated.connect(on_player_location_updated)
 	pass
 	
 	
@@ -49,7 +54,7 @@ func check_reqs(reqs:Array) -> bool:
 		
 		var params:Dictionary = req.params
 		if req.type == ReqDef.ReqType.ITEM:
-			if params[ReqDef.ITEM_NAME] is not NPCDef:
+			if params[ReqDef.ITEM_NAME] is not ItemDef:
 				printerr(ReqDef.ITEM_NAME + " is not correct type for Item")
 				continue
 				
@@ -93,26 +98,32 @@ func check_eligible(quest_def:QuestDef) -> bool:
 	if check_reqs(quest_def.eligible_reqs):
 		return true
 			
-	return true
+	return false
 	
 
 func check_quest_complete():
 	var current_time:int = 0
 	var player:Player = Global.get_player()
+	var npc_manager:NPCManager = Global.get_npc_manager()
 	for quest:QuestInstance in active_quests:
 		if quest.status == QuestManager.QuestStatus.COMPLETED:
 			continue
 		
-		if quest.expiry_time > current_time:
-			# too late
-			pass
-		
 		var quest_def:QuestDef = quest.quest_def
+		# Quest finished by location/place
 		if quest_def.dest_place_of_interest and quest_def.dest_place_of_interest != player.current_place:
 			continue
-			
+		
+		# Quest finished by location/place
 		if quest_def.dest_place_of_interest != player.current_place:
 			continue
+		
+		# Quest finished by npc
+		if quest_def.end_npc:
+			var npc_instance = npc_manager.get_npc_instance_by_def(quest_def.end_npc)
+			if not npc_manager.is_npc_instance_at_location(npc_instance, player.current_location):
+				continue
+			pass
 		
 		var has_all_reqs = true
 		if not check_reqs(quest_def.complete_reqs):
@@ -129,8 +140,30 @@ func check_quest_complete():
 
 # return a list of eligible for a ... location? point of interest?
 func get_eligible_quests() -> Array[QuestDef]:
+	var player:Player = Global.get_player()
+	var npc_manager:NPCManager = Global.get_npc_manager()
 	var ret:Array[QuestDef]
 	for quest_def:QuestDef in quest_defs:
+		
+		# Skip quest if already on it
+		var has_quest:bool = false
+		for quest in active_quests:
+			if quest.quest_def == quest_def:
+				has_quest = true
+				break
+				
+		if has_quest:
+			continue
+		
+		# Quest given by npc
+		if quest_def.start_npc:
+			var npc_instance = npc_manager.get_npc_instance_by_def(quest_def.start_npc)
+			if not npc_manager.is_npc_instance_at_location(npc_instance, player.current_location):
+				continue
+		else:	# Quest given by location/place
+			continue
+			pass	
+		
 		if check_eligible(quest_def):
 			ret.append(quest_def)
 			
@@ -141,7 +174,6 @@ func get_eligible_quests() -> Array[QuestDef]:
 func serve_quest(quest_def:QuestDef) -> void:
 	var quest = QuestInstance.new(quest_def)
 	pending_quest = quest
-	
 	Dialogic.start(quest.quest_def.start_timeline)
 
 
@@ -154,6 +186,8 @@ func accept_quest() -> void:
 
 func complete_quest(quest:QuestInstance):
 	print("Hooray! You've completed the quest")
+	quest.status = QuestStatus.COMPLETED
+	active_quests.erase(quest)
 	SignalBus.quest_completed.emit(quest)
 
 	
@@ -167,4 +201,12 @@ func on_quest_accepted() -> void:
 func on_quest_rejected() -> void:
 	# reject
 	# Don't know if I need this, but maybe, if we want to say reject but can't restart?
+	pass
+	
+
+func on_quest_completed() -> void:
+	complete_quest(pending_quest)
+	pending_quest = null
+
+func on_player_location_updated() -> void:
 	pass

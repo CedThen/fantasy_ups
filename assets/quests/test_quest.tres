@@ -1,21 +1,42 @@
-[gd_resource type="Resource" script_class="QuestDef" load_steps=6 format=3 uid="uid://c6hdb4yxcjvlc"]
+[gd_resource type="Resource" script_class="QuestDef" load_steps=12 format=3 uid="uid://c6hdb4yxcjvlc"]
 
 [ext_resource type="Script" uid="uid://b407s51qncg8f" path="res://scripts/defs/item_def.gd" id="1_554so"]
 [ext_resource type="Script" uid="uid://cmqlrln467ark" path="res://scripts/defs/quest_def.gd" id="1_gxktd"]
 [ext_resource type="Resource" uid="uid://bsumobqngerjj" path="res://timelines/test_timeline.dtl" id="2_gwmgi"]
 [ext_resource type="Resource" uid="uid://dqtvu1inpq0wc" path="res://assets/items/test_potion.tres" id="2_kfk3o"]
+[ext_resource type="Resource" uid="uid://c2s0c2ou32o2p" path="res://assets/npcs/luis_shopkeep.tres" id="2_lnhmh"]
+[ext_resource type="Resource" uid="uid://dha704gsleytf" path="res://assets/locations/immalia.tres" id="3_46k65"]
+[ext_resource type="Resource" uid="uid://dnl0suy71cj6t" path="res://timelines/test_timeline_end.dtl" id="3_lql0e"]
 [ext_resource type="Script" uid="uid://b1j22sthjw83y" path="res://scripts/defs/req_def.gd" id="5_d4yd8"]
+[ext_resource type="Resource" uid="uid://dmvhv37p0fkba" path="res://assets/npcs/mary_alchemist.tres" id="6_46k65"]
+[ext_resource type="Resource" uid="uid://gqus4bllen1g" path="res://assets/items/coin.tres" id="6_t5pcm"]
+
+[sub_resource type="Resource" id="Resource_t5pcm"]
+script = ExtResource("5_d4yd8")
+type = 1
+params = {
+"comp": "=",
+"item": ExtResource("2_kfk3o"),
+"qty": 1
+}
+metadata/_custom_type_script = "uid://b1j22sthjw83y"
 
 [resource]
 script = ExtResource("1_gxktd")
-title = "Winner Winner"
+title = "First Delivery"
 desc = "[Name] wants a chicken dinner!"
+start_place = 0
+start_npc = ExtResource("6_46k65")
 eligible_reqs = Array[ExtResource("5_d4yd8")]([])
 start_timeline = ExtResource("2_gwmgi")
 quest_items = Array[ExtResource("1_554so")]([ExtResource("2_kfk3o")])
-dest_location = 0
+end_npc = ExtResource("2_lnhmh")
+dest_location = ExtResource("3_46k65")
 dest_place_of_interest = 0
 duration = 0
-complete_reqs = Array[ExtResource("5_d4yd8")]([])
-rewards = Dictionary[ExtResource("1_554so"), int]({})
+complete_reqs = Array[ExtResource("5_d4yd8")]([SubResource("Resource_t5pcm")])
+complete_timeline = ExtResource("3_lql0e")
+rewards = Dictionary[ExtResource("1_554so"), int]({
+ExtResource("6_t5pcm"): 5
+})
 metadata/_custom_type_script = "uid://cmqlrln467ark"

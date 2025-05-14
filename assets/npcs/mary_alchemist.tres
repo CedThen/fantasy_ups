@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="NPCDef" load_steps=2 format=3 uid="uid://dmvhv37p0fkba"]
+[gd_resource type="Resource" script_class="NPCDef" load_steps=3 format=3 uid="uid://dmvhv37p0fkba"]
 
 [ext_resource type="Script" uid="uid://8abwmc64t2f0" path="res://scripts/defs/npc_def.gd" id="1_4h81d"]
+[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/locations/varmecht.tres" id="1_fqjfk"]
 
 [resource]
 script = ExtResource("1_4h81d")
 title = ""
 name = "Mary"
 job = "Potion Master"
+initial_location_def = ExtResource("1_fqjfk")
 initial_affection = 0
 metadata/_custom_type_script = "uid://8abwmc64t2f0"

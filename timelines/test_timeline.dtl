@@ -1,4 +1,4 @@
-Luis over in River's End wants a potion, will you take it to them?
+Luis over in Immalia wants a potion, will you take it to them?
 - Yes
 	Great you have 4 hours!
 	[signal arg_type="dict" arg="{"cmd":"accept_quest","quest_def_name":"test_quest"}"]

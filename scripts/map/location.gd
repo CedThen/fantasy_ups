@@ -62,7 +62,8 @@ func _on_highlight_area_mouse_exited() -> void:
 func _on_highlight_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if isMouseHovering and event is InputEventMouseButton and event.pressed \
 	and event.button_index == MOUSE_BUTTON_LEFT:
-		print("Area clicked " + location_def.location_name)
+		SignalBus.location_clicked.emit(self)
+		print("Area clicked " + location_def.name)
 	
 
 func check_is_reachable():

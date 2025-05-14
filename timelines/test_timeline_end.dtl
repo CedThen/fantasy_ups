@@ -1,0 +1,2 @@
+Luis doesn't exist as a Dialogic Character atm, so we'll leave this here and take the reward
+[signal arg_type="dict" arg="{"cmd":"complete_quest","quest_def_name":"test_quest"}"]

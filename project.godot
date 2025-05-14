@@ -25,7 +25,8 @@ SignalBus="*res://scripts/autoloads/signal_bus.gd"
 
 directories/dch_directory={}
 directories/dtl_directory={
-"test_timeline": "res://timelines/test_timeline.dtl"
+"test_timeline": "res://timelines/test_timeline.dtl",
+"test_timeline_end": "res://timelines/test_timeline_end.dtl"
 }
 glossary/default_case_sensitive=true
 

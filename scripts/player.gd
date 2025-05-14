@@ -33,6 +33,8 @@ func add_item(item_def:ItemDef, count:int = 1):
 		inventory[item_def] = count
 
 	print("Added " + str(count) + " " + item_def.name + " to your inventory")
+	print_inventory()
+
 
 func use_item(item_def:ItemDef, count:int = 1) -> bool:
 	if not has_item(item_def):
@@ -50,6 +52,12 @@ func use_item(item_def:ItemDef, count:int = 1) -> bool:
 	return true
 
 
+func entered_location(dest_location:Location):
+	current_location = dest_location
+	print("Player just entered:" + current_location.location_def.name)
+	SignalBus.player_location_updated.emit()
+
+
 # Signals emitted from QuestManager
 func on_quest_accepted(quest:QuestInstance):
 	# Pick up quest items
@@ -62,3 +70,9 @@ func on_quest_completed(quest:QuestInstance):
 	for reward:ItemDef in quest.quest_def.rewards:
 		var amt = quest.quest_def.rewards[reward]
 		add_item(reward, amt)
+		
+
+func print_inventory():
+	print("INVENTORY")
+	for item in inventory.keys():
+		print(item.name + ":" + str(inventory[item]))

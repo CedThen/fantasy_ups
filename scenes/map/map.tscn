@@ -12,10 +12,10 @@
 [ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/locations/varmecht.tres" id="9_mrjnl"]
 [ext_resource type="Resource" uid="uid://brkjtqckyqsy" path="res://assets/locations/colbyjack.tres" id="10_rqo2c"]
 
-[node name="Map" type="Node2D" node_paths=PackedStringArray("current_location")]
+[node name="Map" type="Node2D" node_paths=PackedStringArray("starting_location")]
 script = ExtResource("2_4mxxn")
-current_location = NodePath("Locations/RiversEnd")
 mode = 0
+starting_location = NodePath("Locations/RiversEnd")
 
 [node name="Control" type="Control" parent="."]
 z_index = 1

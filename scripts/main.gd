@@ -1,6 +1,7 @@
 extends Node
 
 @onready var quest_manager: QuestManager = %QuestManager
+@onready var map: Map = %Map
 
 @export var player:Player
 
@@ -14,17 +15,21 @@ func _ready() -> void:
 	var coin_def = load("res://assets/items/coin.tres")
 	player.add_item(coin_def)
 
-	# Test picking up a quest
-	pick_up_random_quest()
+	player.entered_location(map.get_starting_location())	
 	
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	SignalBus.player_location_updated.connect(on_player_location_updated)
 	pass
 
 
-func pick_up_random_quest():
+func on_player_location_updated():
+	
+	quest_manager.check_quest_complete()
+	
 	var quest_defs = quest_manager.get_eligible_quests()
-	quest_defs.shuffle()
-	quest_manager.serve_quest(quest_defs[0])
+	if quest_defs.size() > 0:
+		quest_defs.shuffle()
+		quest_manager.serve_quest(quest_defs[0])
 
 
 # For dialogic to send signals generically back
@@ -32,7 +37,9 @@ func pick_up_random_quest():
 func _on_dialogic_signal(params:Dictionary):
 	var cmd = params.get("cmd")
 	if cmd == "accept_quest":
-		#var quest_def = params.get("quest_def_name")
 		SignalBus.dialogic_quest_accepted.emit()
+		pass
+	elif cmd == "complete_quest":
+		SignalBus.dialogic_quest_completed.emit()
 		pass
 	pass

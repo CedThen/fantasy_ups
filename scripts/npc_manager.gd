@@ -7,6 +7,10 @@ var npc_instances:Array[NPCInstance]	# SERIALIZED: not sure if this should get s
 
 func _init():
 	load_all_npc_defs()
+	
+
+func _ready():
+	Global.npc_manager = self
 	load_npcs()
 	generate_npcs()
 
@@ -55,9 +59,43 @@ func generate_npcs():
 			continue
 			
 		var npc_instance:NPCInstance = NPCInstance.new(npc_def)
+		move_npc(npc_instance, npc_def.initial_location_def)
 		npc_instances.append(npc_instance)
+		
+
+func move_npc(npc_instance:NPCInstance, loc_def:LocationDef):
+	var map:Map = Global.get_map()
+	if not loc_def:
+		printerr("No location def specified")
+		return
+		
+	var location = map.get_location_by_def(loc_def)
+	if not location:
+		printerr("Failed to move NPC to location:" + loc_def.name + " No location found in map")
+		return
+		
+	npc_instance.location = location
+	print("Placed " + npc_instance.def.name + " at " + loc_def.name)
 
 
-# Maybe called from map code for intial placement?
-func make_instance():
-	pass
+func get_npc_instance_by_def(npc_def:NPCDef) -> NPCInstance:
+	for npc_instance in npc_instances:
+		if npc_instance.def == npc_def:
+			return npc_instance
+
+	return
+
+func get_npcs_at_location(loc:Location) -> Array[NPCInstance]:
+	var ret:Array[NPCInstance]
+	for npc_instance:NPCInstance in npc_instances:
+		if npc_instance.location == loc:
+			ret.append(npc_instance)
+			
+	return ret
+	
+func is_npc_instance_at_location(npc_instance:NPCInstance, loc:Location) -> bool:
+	var npc_instances:Array[NPCInstance] = get_npcs_at_location(loc)
+	if npc_instances.has(npc_instance):
+		return true
+		
+	return false
