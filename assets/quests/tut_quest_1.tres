@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="QuestDef" load_steps=7 format=3 uid="uid://77lnn7tfh7t"]
+
+[ext_resource type="Script" uid="uid://b1j22sthjw83y" path="res://scripts/defs/req_def.gd" id="1_hjpx6"]
+[ext_resource type="Resource" uid="uid://bpp1l41wehjnt" path="res://assets/locations/riversend.tres" id="2_18ohf"]
+[ext_resource type="Script" uid="uid://b407s51qncg8f" path="res://scripts/defs/item_def.gd" id="2_ul2j8"]
+[ext_resource type="Resource" uid="uid://dbuajmg2ifiwp" path="res://assets/items/danie_letter_tutorial.tres" id="3_18ohf"]
+[ext_resource type="Script" uid="uid://cmqlrln467ark" path="res://scripts/defs/quest_def.gd" id="4_d7spk"]
+[ext_resource type="Resource" uid="uid://kdjgoalpf2ul" path="res://timelines/tut_danie_letter_1.dtl" id="5_ul2j8"]
+
+[resource]
+script = ExtResource("4_d7spk")
+title = "Danie's Letter"
+desc = "Danie wants me to deliver a letter to the next town over, River's Edge. "
+quest_box = true
+eligible_reqs = Array[ExtResource("1_hjpx6")]([])
+start_timeline = ExtResource("5_ul2j8")
+quest_items = Array[ExtResource("2_ul2j8")]([ExtResource("3_18ohf")])
+dest_location = ExtResource("2_18ohf")
+dest_place_of_interest = 0
+duration = 0
+complete_reqs = Array[ExtResource("1_hjpx6")]([])
+rewards = Dictionary[ExtResource("2_ul2j8"), int]({})
+metadata/_custom_type_script = "uid://cmqlrln467ark"

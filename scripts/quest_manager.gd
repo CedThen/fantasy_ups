@@ -115,7 +115,7 @@ func check_quest_complete():
 			continue
 		
 		# Quest finished by location/place
-		if quest_def.dest_place_of_interest != player.current_place:
+		if quest_def.dest_location != player.current_location:
 			continue
 		
 		# Quest finished by npc
@@ -160,9 +160,12 @@ func get_eligible_quests() -> Array[QuestDef]:
 			var npc_instance = npc_manager.get_npc_instance_by_def(quest_def.start_npc)
 			if not npc_manager.is_npc_instance_at_location(npc_instance, player.current_location):
 				continue
-		else:	# Quest given by location/place
+		elif quest_def.quest_box:
+			if not player.current_location.location_def.has_quest_box:
+				continue
+		else:
 			continue
-			pass	
+			
 		
 		if check_eligible(quest_def):
 			ret.append(quest_def)

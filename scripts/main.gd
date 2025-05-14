@@ -19,6 +19,8 @@ func _ready() -> void:
 	
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	SignalBus.player_location_updated.connect(on_player_location_updated)
+	
+	#Dialogic.start("intro_1")
 	pass
 
 

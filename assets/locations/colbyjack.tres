@@ -6,4 +6,5 @@
 script = ExtResource("1_usyvw")
 name = "Colby Jack"
 size = 0
+has_quest_box = true
 metadata/_custom_type_script = "uid://k2ffxolblejc"

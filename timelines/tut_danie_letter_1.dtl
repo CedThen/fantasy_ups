@@ -1,0 +1,6 @@
+[background fade="0.0"]
+join  center
+Renicia: Looks like we've got one request today.
+Renicia: Danie wants me to deliver a letter to the next town over, River's Edge. \
+Let's accept the request for now.
+[signal arg_type="dict" arg="{"cmd":"accept_quest"}"]

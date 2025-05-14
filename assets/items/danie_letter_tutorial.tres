@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDef" load_steps=2 format=3 uid="uid://dbuajmg2ifiwp"]
+
+[ext_resource type="Script" uid="uid://b407s51qncg8f" path="res://scripts/defs/item_def.gd" id="1_x0uja"]
+
+[resource]
+script = ExtResource("1_x0uja")
+name = "Danie's Letter"
+singular = ""
+plural = ""
+desc = "Danie's Letter (you really shouldn't peek)"
+metadata/_custom_type_script = "uid://b407s51qncg8f"

@@ -2,7 +2,7 @@ class_name QuestDef extends Resource
 
 @export var title:String
 @export var desc:String
-@export var start_place:int
+@export var quest_box:bool
 @export var start_npc:NPCDef
 @export var eligible_reqs:Array[ReqDef]			# List of Reqs to be eligible for quest
 @export var start_timeline:DialogicTimeline			# Dialogic timeline name to play when being served quest

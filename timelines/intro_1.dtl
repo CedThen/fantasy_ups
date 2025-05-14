@@ -1,0 +1,37 @@
+[background fade="0.0"]
+join Renicia center
+Renicia: Yawn~
+Renicia: Ugh, I'm still so sleepy. Did I have any deliveries scheduled?
+Renicia: ...?
+Renicia: Oh! It looks like we have a new friend today. What's your name?
+[text_input text="Enter your name" var="PLAYER" placeholder="Jane"]
+Renicia: Pronouns?
+- He/Him
+	set {HESHE} = "he"
+	set {HIMHER} = "him"
+	set {HISHERS} = "his"
+- She/Her
+	set {HESHE} = "she"
+	set {HIMHER} = "her"
+	set {HISHERS} = "hers"
+- They/Them
+	set {HESHE} = "they"
+	set {HIMHER} = "them"
+	set {HISHERS} = "theirs"
+Renicia: Welcome to my home, {PLAYER}! My name is Renicia, it's nice to meet you!
+Renicia: Feel free to hang out for as long as you wish!
+Renicia: Okay, it's time to get ready for the day.
+Renicia: Gotta earn that money so I can eat some treats! \
+Hehe~
+label quest box pickup 
+[background fade="0.0"]
+join Renicia center
+Renicia: Okay, let's see if there are any clients today.
+Renicia: Hm? What's my job?
+Renicia: I'm a courier!\
+"If you have a delivery, come to Renicia's Deliveries!"
+Renicia: Sorry, was that too cheesy? I had to come up with it on the spot, and it just kind of stuck.
+Renicia: Anyway, we should go and check the quest box to see if I have any requests.
+Renicia is a courier who makes deliveries for a living.\
+Client requests can sometimes be found in the quest box.\
+Tap it to see if there are any new deliveries that Renicia needs to make.
