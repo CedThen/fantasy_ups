@@ -11,6 +11,8 @@ class_name Route extends Line2D
 @export var isTraversable = true
 @export var isVisible = true
 
+var hazards
+
 # need to query some source to check if prereqs are met
 #var prereqs
 
@@ -20,7 +22,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# to render in editor mode
 	if Engine.is_editor_hint():
-		render_route() 
+		render_route()
+	
+	render_route()
 
 func render_route():
 	visible = isVisible

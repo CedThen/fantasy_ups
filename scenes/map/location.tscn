@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://dcgxo43er1f5n" path="res://assets/fonts/magical-world/Magical World.ttf" id="2_643j3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_643j3"]
-radius = 28.84
+radius = 15.0
 
 [sub_resource type="Gradient" id="Gradient_643j3"]
 offsets = PackedFloat32Array(0.503759, 0.823308)
@@ -14,7 +14,6 @@ colors = PackedColorArray(0.99, 1, 0.4, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_643j3")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.91453, 0.123932)
 
 [node name="Location" type="Node2D"]
 script = ExtResource("1_hccqc")
@@ -39,7 +38,7 @@ text = "Test"
 
 [node name="HighlightArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HighlightArea"]
+[node name="MouseCollisionShape" type="CollisionShape2D" parent="HighlightArea"]
 shape = SubResource("CircleShape2D_643j3")
 
 [node name="HaloLight" type="PointLight2D" parent="HighlightArea"]
@@ -47,7 +46,8 @@ visible = false
 position = Vector2(-1, 9.53674e-07)
 scale = Vector2(0.204248, 0.194036)
 texture = SubResource("GradientTexture2D_tmhpo")
-texture_scale = 4.59
+texture_scale = 2.11
 
+[connection signal="input_event" from="HighlightArea" to="." method="_on_highlight_area_input_event"]
 [connection signal="mouse_entered" from="HighlightArea" to="." method="_on_highlight_area_mouse_entered"]
 [connection signal="mouse_exited" from="HighlightArea" to="." method="_on_highlight_area_mouse_exited"]

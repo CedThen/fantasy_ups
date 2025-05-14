@@ -1,75 +1,128 @@
-[gd_scene load_steps=5 format=3 uid="uid://1l725le05o1t"]
+[gd_scene load_steps=6 format=3 uid="uid://1l725le05o1t"]
 
 [ext_resource type="Texture2D" uid="uid://cf2cdterudytr" path="res://assets/Dalu/Map_Hestia01.png" id="1_4mxxn"]
 [ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/map.gd" id="2_4mxxn"]
+[ext_resource type="FontFile" uid="uid://dym61d2hhvhxw" path="res://assets/fonts/magical-world/Magical World.otf" id="2_fcby6"]
 [ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="3_p3hjx"]
 [ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="4_jw7gq"]
 
-[node name="Map" type="Node2D"]
+[node name="Map" type="Node2D" node_paths=PackedStringArray("current_location")]
 script = ExtResource("2_4mxxn")
+current_location = NodePath("Locations/RiversEnd")
+
+[node name="Control" type="Control" parent="."]
+z_index = 1
+custom_minimum_size = Vector2(900, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 489.0
+offset_top = 19.0
+offset_right = 1914.0
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MapModeLabel" type="RichTextLabel" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0133779
+anchor_right = 0.830877
+anchor_bottom = 0.200669
+offset_left = 58.0
+offset_top = 37.0
+offset_right = 98.0
+offset_bottom = 77.0
+theme_override_fonts/normal_font = ExtResource("2_fcby6")
+theme_override_font_sizes/normal_font_size = 80
+text = "Plotting Routes"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ToggleModeButton" type="CheckButton" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 30
+text = "Toggle Map Mode"
 
 [node name="MapImage" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.721569)
-scale = Vector2(0.436035, 0.425781)
+position = Vector2(487, 0)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_4mxxn")
 centered = false
 
 [node name="Locations" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("2_4mxxn")
 
 [node name="Cropsby" parent="Locations" instance=ExtResource("3_p3hjx")]
-position = Vector2(737, 224)
+position = Vector2(1669, 371)
 location_name = "Cropsby"
+location_size = 1
 
 [node name="RiversEnd" parent="Locations" instance=ExtResource("3_p3hjx")]
-position = Vector2(374, 261)
+position = Vector2(1089, 436)
 location_name = "River's End"
+location_size = 1
 
 [node name="Telarys" parent="Locations" instance=ExtResource("3_p3hjx")]
-position = Vector2(196, 245)
+position = Vector2(798, 416)
 location_name = "Telarys"
+location_size = 2
 
 [node name="Immalia" parent="Locations" instance=ExtResource("3_p3hjx")]
-position = Vector2(665, 575)
+position = Vector2(1548, 963)
 location_name = "Immalia"
+location_size = 2
 
 [node name="Varmecht" parent="Locations" instance=ExtResource("3_p3hjx")]
-position = Vector2(411, 407)
+position = Vector2(1150, 654)
 location_name = "Varmecht"
+location_size = 2
 
-[node name="Routes" type="Node2D" parent="."]
+[node name="ColbyJack" parent="Locations" instance=ExtResource("3_p3hjx")]
+position = Vector2(783, 675)
+location_name = "ColbyJack"
+
+[node name="Routes" type="Node" parent="."]
+unique_name_in_owner = true
 
 [node name="Varmecht_Telarys" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("4_jw7gq")]
-visible = true
-points = PackedVector2Array(411, 407, 196, 245)
+points = PackedVector2Array(1150, 654, 798, 416)
 default_color = Color(0.70133, 0.582432, 0.767253, 1)
 origin = NodePath("../../Locations/Varmecht")
 destination = NodePath("../../Locations/Telarys")
 line_color = Color(0.70133, 0.582432, 0.767253, 1)
 weight = 2.0
-isVisible = true
 
 [node name="RiversEnd_Varmecht" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("4_jw7gq")]
-visible = true
-points = PackedVector2Array(374, 261, 411, 407)
+points = PackedVector2Array(1089, 436, 1150, 654)
 origin = NodePath("../../Locations/RiversEnd")
 destination = NodePath("../../Locations/Varmecht")
-isVisible = true
 
 [node name="Varmecht_Immalia" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("4_jw7gq")]
-visible = true
-points = PackedVector2Array(411, 407, 665, 575)
+points = PackedVector2Array(1150, 654, 1548, 963)
 origin = NodePath("../../Locations/Varmecht")
 destination = NodePath("../../Locations/Immalia")
 weight = 4.0
 isTraversable = false
-isVisible = true
 
 [node name="Cropsby_RiversEnd" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("4_jw7gq")]
-visible = true
 position = Vector2(8, 7)
-points = PackedVector2Array(729, 217, 366, 254)
+points = PackedVector2Array(1661, 364, 1081, 429)
 origin = NodePath("../../Locations/Cropsby")
 destination = NodePath("../../Locations/RiversEnd")
 weight = 6.0
-isVisible = true
+
+[node name="Route" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("4_jw7gq")]
+points = PackedVector2Array(783, 675, 798, 416)
+origin = NodePath("../../Locations/ColbyJack")
+destination = NodePath("../../Locations/Telarys")
+weight = 1.5
+
+[connection signal="toggled" from="Control/ToggleModeButton" to="." method="_on_toggle_mode_button_toggled"]
