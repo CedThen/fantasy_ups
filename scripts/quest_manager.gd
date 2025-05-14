@@ -2,11 +2,10 @@ class_name QuestManager extends Node
 
 enum QuestStatus {NONE, ACTIVE, REJECTED, FAILED, COMPLETED}
 
-# I think I need REQVAL simply so I can use a typed dictionary
 enum ReqType {ITEM}
 
 
-var quest_defs:Array[QuestDef]
+var quest_defs:Array[QuestDef]	# all quest defs
 
 var active_quests:Array[QuestInstance]
 
@@ -43,7 +42,7 @@ func load_all_quests() -> void:
 
 
 func check_reqs(reqs:Array) -> bool:
-	var player:Player
+	var player:Player = Global.get_player()
 	for req:ReqDef in reqs:
 		if req.type == ReqDef.ReqType.NONE:
 			continue
@@ -99,7 +98,7 @@ func check_eligible(quest_def:QuestDef) -> bool:
 
 func check_quest_complete():
 	var current_time:int = 0
-	var player:Player = null
+	var player:Player = Global.get_player()
 	for quest:QuestInstance in active_quests:
 		if quest.status == QuestManager.QuestStatus.COMPLETED:
 			continue

@@ -8,6 +8,9 @@ var time:int		# Some global time? in game time, hours? minutes?
 
 func _ready() -> void:
 	player = Player.new()
+	Global.player = player
+	
+	# Temp
 	var coin_def = load("res://assets/items/coin.tres")
 	player.add_item(coin_def)
 

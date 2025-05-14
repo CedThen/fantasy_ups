@@ -11,6 +11,14 @@ func _init() -> void:
 	pass
 
 
+func load_data() -> void:
+	pass
+	
+
+func save_data() -> void:
+	pass
+
+
 func has_item(item_def:ItemDef) -> int:
 	if inventory.has(item_def):
 		return inventory[item_def]
