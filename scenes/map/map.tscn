@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://1l725le05o1t"]
+[gd_scene load_steps=12 format=3 uid="uid://1l725le05o1t"]
 
 [ext_resource type="Texture2D" uid="uid://cf2cdterudytr" path="res://assets/Dalu/Map_Hestia01.png" id="1_4mxxn"]
 [ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/map.gd" id="2_4mxxn"]
 [ext_resource type="FontFile" uid="uid://dym61d2hhvhxw" path="res://assets/fonts/magical-world/Magical World.otf" id="2_fcby6"]
 [ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="3_p3hjx"]
 [ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="4_jw7gq"]
+[ext_resource type="Resource" uid="uid://bqbonpy0etsaw" path="res://assets/locations/cropsby.tres" id="5_b56te"]
+[ext_resource type="Resource" uid="uid://bpp1l41wehjnt" path="res://assets/locations/riversend.tres" id="6_x2kg6"]
+[ext_resource type="Resource" uid="uid://mdre481ot0l6" path="res://assets/locations/telarys.tres" id="7_cumk7"]
+[ext_resource type="Resource" uid="uid://dha704gsleytf" path="res://assets/locations/immalia.tres" id="8_mgs8m"]
+[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/locations/varmecht.tres" id="9_mrjnl"]
+[ext_resource type="Resource" uid="uid://brkjtqckyqsy" path="res://assets/locations/colbyjack.tres" id="10_rqo2c"]
 
 [node name="Map" type="Node2D" node_paths=PackedStringArray("current_location")]
 script = ExtResource("2_4mxxn")
@@ -62,32 +68,27 @@ script = ExtResource("2_4mxxn")
 
 [node name="Cropsby" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(1669, 371)
-location_name = "Cropsby"
-location_size = 1
+location_def = ExtResource("5_b56te")
 
 [node name="RiversEnd" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(1089, 436)
-location_name = "River's End"
-location_size = 1
+location_def = ExtResource("6_x2kg6")
 
 [node name="Telarys" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(798, 416)
-location_name = "Telarys"
-location_size = 2
+location_def = ExtResource("7_cumk7")
 
 [node name="Immalia" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(1548, 963)
-location_name = "Immalia"
-location_size = 2
+location_def = ExtResource("8_mgs8m")
 
 [node name="Varmecht" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(1150, 654)
-location_name = "Varmecht"
-location_size = 2
+location_def = ExtResource("9_mrjnl")
 
 [node name="ColbyJack" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(783, 675)
-location_name = "ColbyJack"
+location_def = ExtResource("10_rqo2c")
 
 [node name="Routes" type="Node" parent="."]
 unique_name_in_owner = true

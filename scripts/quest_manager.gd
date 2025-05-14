@@ -15,11 +15,11 @@ var pending_quest:QuestInstance		# The current quest that is in use for acceptin
 func _init() -> void:
 	SignalBus.dialogic_quest_accepted.connect(on_quest_accepted)
 	SignalBus.dialogic_quest_rejected.connect(on_quest_rejected)
-	load_all_quests()
+	load_all_quest_defs()
 	pass
 	
 	
-func load_all_quests() -> void:
+func load_all_quest_defs() -> void:
 	var path:String = "res://assets/quests/"
 	var quest_dir = DirAccess.open(path)
 

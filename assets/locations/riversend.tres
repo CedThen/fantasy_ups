@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LocationDef" load_steps=2 format=3 uid="uid://bpp1l41wehjnt"]
+
+[ext_resource type="Script" uid="uid://k2ffxolblejc" path="res://scripts/defs/location_def.gd" id="1_wx01y"]
+
+[resource]
+script = ExtResource("1_wx01y")
+name = "River's End"
+size = 2
+metadata/_custom_type_script = "uid://k2ffxolblejc"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LocationDef" load_steps=2 format=3 uid="uid://bqbonpy0etsaw"]
+
+[ext_resource type="Script" uid="uid://k2ffxolblejc" path="res://scripts/defs/location_def.gd" id="1_3icka"]
+
+[resource]
+script = ExtResource("1_3icka")
+name = "Cropsby"
+size = 0
+metadata/_custom_type_script = "uid://k2ffxolblejc"

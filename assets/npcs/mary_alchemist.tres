@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NPCDef" load_steps=2 format=3 uid="uid://dmvhv37p0fkba"]
+
+[ext_resource type="Script" uid="uid://8abwmc64t2f0" path="res://scripts/defs/npc_def.gd" id="1_4h81d"]
+
+[resource]
+script = ExtResource("1_4h81d")
+title = ""
+name = "Mary"
+job = "Potion Master"
+initial_affection = 0
+metadata/_custom_type_script = "uid://8abwmc64t2f0"
