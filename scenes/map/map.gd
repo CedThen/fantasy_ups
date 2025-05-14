@@ -18,6 +18,10 @@ var adjacency_graph = {} # Dictionary[Location, Array[Route]]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	build_graph()
+	if mode == MapMode.SelectingDestination:
+		enter_select_mode()
+	else:
+		enter_plot_mode()
 	SignalBus.location_hovered.connect(on_location_hovered)
 	SignalBus.location_exited.connect(on_location_exited)
 
@@ -30,10 +34,6 @@ func on_location_exited(location: Location):
 	if mode == MapMode.PlottingRoutes:
 		var neighboring_routes = adjacency_graph[location]
 		set_route_visibility(neighboring_routes, false)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_toggle_mode_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -58,7 +58,6 @@ func set_route_visibility(routes_array: Array, visible: bool):
 
 func build_graph():
 	adjacency_graph.clear()
-
 	for route in routes.get_children():
 		if route is Route and route.origin and route.destination:
 			# Add route to origin
