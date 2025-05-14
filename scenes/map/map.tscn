@@ -9,6 +9,7 @@
 [node name="Map" type="Node2D" node_paths=PackedStringArray("current_location")]
 script = ExtResource("2_4mxxn")
 current_location = NodePath("Locations/RiversEnd")
+mode = 0
 
 [node name="Control" type="Control" parent="."]
 z_index = 1
@@ -58,7 +59,6 @@ centered = false
 
 [node name="Locations" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("2_4mxxn")
 
 [node name="Cropsby" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(1669, 371)

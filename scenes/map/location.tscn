@@ -46,7 +46,7 @@ visible = false
 position = Vector2(-1, 9.53674e-07)
 scale = Vector2(0.204248, 0.194036)
 texture = SubResource("GradientTexture2D_tmhpo")
-texture_scale = 2.11
+texture_scale = 3.0
 
 [connection signal="input_event" from="HighlightArea" to="." method="_on_highlight_area_input_event"]
 [connection signal="mouse_entered" from="HighlightArea" to="." method="_on_highlight_area_mouse_entered"]
