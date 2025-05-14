@@ -3,14 +3,14 @@ class_name QuestManager extends Node
 enum QuestStatus {NONE, ACTIVE, REJECTED, FAILED, COMPLETED}
 
 # I think I need REQVAL simply so I can use a typed dictionary
-enum ReqType {ITEM, DURATION}
-enum ReqVal {STRING, TIME}
+enum ReqType {ITEM}
+
 
 var quest_defs:Array[QuestDef]
 
 var active_quests:Array[QuestInstance]
 
-var pending_quest:QuestDef		# The current quest that is in use for accepting/rejecting/completing
+var pending_quest:QuestInstance		# The current quest that is in use for accepting/rejecting/completing
 
 
 func _init() -> void:
@@ -42,17 +42,90 @@ func load_all_quests() -> void:
 		push_error("Failed to open directory: " + path)
 
 
-func check_eligible(quest_def:QuestDef) -> bool:
-	for req_key in quest_def.eligible_reqs:
-		if req_key == QuestManager.ReqType.ITEM:
-			var key_item  = quest_def.eligible_reqs[req_key]
-			# check if player owns key_item
-			return false
-		elif req_key == QuestManager.ReqType.DURATION:
-			var time  = quest_def.eligible_reqs[req_key]
-			return false
+func check_reqs(reqs:Array) -> bool:
+	var player:Player
+	for req:ReqDef in reqs:
+		if req.type == ReqDef.ReqType.NONE:
+			continue
+		
+		var params:Dictionary = req.params
+		if req.type == ReqDef.ReqType.ITEM:
+			if params[ReqDef.ITEM_NAME] is not NPCDef:
+				printerr(ReqDef.ITEM_NAME + " is not correct type for Item")
+				continue
+				
+			var item_def:ItemDef = params[ReqDef.ITEM_NAME]
+			var inequality:String = params[ReqDef.COMP]
+			if not [">","<","="].has(inequality):
+				printerr("INVALID INEQUALITY IN REQS FOR ITEM")
+				continue
+				
+			if inequality == "<" and player.has_item(item_def) >= params[ReqDef.QTY]:
+				return false
+			elif inequality == ">" and player.has_item(item_def) <= params[ReqDef.QTY]:
+				return false
+			elif inequality == "=" and player.has_item(item_def) != params[ReqDef.QTY]:
+				return false
+			pass
+		elif req.type == ReqDef.ReqType.AFFECTION:
+			if params[ReqDef.NPC_NAME] is not NPCDef:
+				printerr(ReqDef.NPC_NAME + " is not correct type for Affection")
+				continue
+				
+			var npc_def:NPCDef = params[ReqDef.NPC_NAME]
+			var npc:NPCInstance # Get Instance by Def
+			var inequality:String = params[ReqDef.COMP]
+			if not [">","<","="].has(inequality):
+				printerr("INVALID INEQUALITY IN REQS FOR AFFECTION")
+				continue
+				
+			if inequality == "<" and npc.affection >= params[ReqDef.QTY]:
+				return false
+			elif inequality == ">" and npc.affection <= params[ReqDef.QTY]:
+				return false
+			elif inequality == "=" and npc.affection != params[ReqDef.QTY]:
+				return false
+			pass
 			
 	return true
+
+
+func check_eligible(quest_def:QuestDef) -> bool:
+	if check_reqs(quest_def.eligible_reqs):
+		return true
+			
+	return true
+	
+
+func check_quest_complete():
+	var current_time:int = 0
+	var player:Player = null
+	for quest:QuestInstance in active_quests:
+		if quest.status == QuestManager.QuestStatus.COMPLETED:
+			continue
+		
+		if quest.expiry_time > current_time:
+			# too late
+			pass
+		
+		var quest_def:QuestDef = quest.quest_def
+		if quest_def.dest_place_of_interest and quest_def.dest_place_of_interest != player.current_place:
+			continue
+			
+		if quest_def.dest_place_of_interest != player.current_place:
+			continue
+		
+		var has_all_reqs = true
+		if not check_reqs(quest_def.complete_reqs):
+			continue
+		
+		# At the current location/place and have everything needed, and done in time
+		if quest_def.complete_timeline:
+			pending_quest = quest
+			Dialogic.start(quest_def.complete_timeline)
+		else:
+			complete_quest(quest)
+		return
 	
 
 # return a list of eligible for a ... location? point of interest?
@@ -67,18 +140,23 @@ func get_eligible_quests() -> Array[QuestDef]:
 
 # Auto trigger when starting a quest line and at that location?
 func serve_quest(quest_def:QuestDef) -> void:
-	pending_quest = quest_def
+	var quest = QuestInstance.new(quest_def)
+	pending_quest = quest
 	
-	# TODO: Start Dialogic Tree
-	Dialogic.start(pending_quest.timeline_name)
-	
+	Dialogic.start(quest.quest_def.start_timeline)
 
 
 func accept_quest() -> void:
-	var quest_instance = QuestInstance.new(pending_quest)
-	print("Accepting Quest:" + quest_instance.quest_def.title)
-	active_quests.append(quest_instance)
+	print("Accepting Quest:" + pending_quest.quest_def.title)
+	active_quests.append(pending_quest)
+	SignalBus.quest_accepted.emit(pending_quest)
 	pending_quest = null
+
+
+func complete_quest(quest:QuestInstance):
+	print("Hooray! You've completed the quest")
+	SignalBus.quest_completed.emit(quest)
+
 	
 
 # Funcs to be triggered from Dialogic signals

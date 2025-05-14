@@ -2,13 +2,15 @@ extends Node
 
 @onready var quest_manager: QuestManager = %QuestManager
 
-var player:Player
+@export var player:Player
 
 var time:int		# Some global time? in game time, hours? minutes?
 
 func _ready() -> void:
 	player = Player.new()
-	
+	var coin_def = load("res://assets/items/coin.tres")
+	player.add_item(coin_def)
+
 	# Test picking up a quest
 	pick_up_random_quest()
 	
@@ -27,7 +29,7 @@ func pick_up_random_quest():
 func _on_dialogic_signal(params:Dictionary):
 	var cmd = params.get("cmd")
 	if cmd == "accept_quest":
-		var quest_def = params.get("quest_def_name")
+		#var quest_def = params.get("quest_def_name")
 		SignalBus.dialogic_quest_accepted.emit()
 		pass
 	pass

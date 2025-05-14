@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPCDef" load_steps=2 format=3 uid="uid://c2s0c2ou32o2p"]
+
+[ext_resource type="Script" uid="uid://8abwmc64t2f0" path="res://scripts/defs/npc_def.gd" id="1_4n8qo"]
+
+[resource]
+script = ExtResource("1_4n8qo")
+title = ""
+name = "Luis Hallowood"
+affection = 0
+metadata/_custom_type_script = "uid://8abwmc64t2f0"

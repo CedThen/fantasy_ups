@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDef" load_steps=2 format=3 uid="uid://gqus4bllen1g"]
+
+[ext_resource type="Script" uid="uid://b407s51qncg8f" path="res://scripts/defs/item_def.gd" id="1_605kh"]
+
+[resource]
+script = ExtResource("1_605kh")
+name = "Coin"
+singular = "coin"
+plural = "coins"
+desc = "A shiny metal coin"
+metadata/_custom_type_script = "uid://b407s51qncg8f"

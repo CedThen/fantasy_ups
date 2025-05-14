@@ -1,16 +1,21 @@
-[gd_resource type="Resource" script_class="QuestDef" load_steps=3 format=3 uid="uid://c6hdb4yxcjvlc"]
+[gd_resource type="Resource" script_class="QuestDef" load_steps=6 format=3 uid="uid://c6hdb4yxcjvlc"]
 
+[ext_resource type="Script" uid="uid://b407s51qncg8f" path="res://scripts/defs/item_def.gd" id="1_554so"]
 [ext_resource type="Script" uid="uid://cmqlrln467ark" path="res://scripts/defs/quest_def.gd" id="1_gxktd"]
 [ext_resource type="Resource" uid="uid://bsumobqngerjj" path="res://timelines/test_timeline.dtl" id="2_gwmgi"]
+[ext_resource type="Resource" uid="uid://dqtvu1inpq0wc" path="res://assets/items/test_potion.tres" id="2_kfk3o"]
+[ext_resource type="Script" uid="uid://b1j22sthjw83y" path="res://scripts/defs/req_def.gd" id="5_d4yd8"]
 
 [resource]
 script = ExtResource("1_gxktd")
 title = "Winner Winner"
 desc = "[Name] wants a chicken dinner!"
-eligible_reqs = Dictionary[int, int]({})
-timeline_name = ExtResource("2_gwmgi")
-location = 0
-point_of_interest = 0
+eligible_reqs = Array[ExtResource("5_d4yd8")]([])
+start_timeline = ExtResource("2_gwmgi")
+quest_items = Array[ExtResource("1_554so")]([ExtResource("2_kfk3o")])
+dest_location = 0
+dest_place_of_interest = 0
 duration = 0
-complete_reqs = {}
+complete_reqs = Array[ExtResource("5_d4yd8")]([])
+rewards = Dictionary[ExtResource("1_554so"), int]({})
 metadata/_custom_type_script = "uid://cmqlrln467ark"

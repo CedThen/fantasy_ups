@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDef" load_steps=2 format=3 uid="uid://dqtvu1inpq0wc"]
+
+[ext_resource type="Script" uid="uid://b407s51qncg8f" path="res://scripts/defs/item_def.gd" id="1_4md8h"]
+
+[resource]
+script = ExtResource("1_4md8h")
+name = "Bubbly Potion"
+singular = ""
+plural = ""
+desc = "It seems to bubble endlessly"
+metadata/_custom_type_script = "uid://b407s51qncg8f"
