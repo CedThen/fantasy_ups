@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjeahv10ohem1"]
+
+[ext_resource type="Texture2D" uid="uid://bu8mo8lfwsgmv" path="res://assets/Images/HUD/town_map.png" id="1_dh1uv"]
+[ext_resource type="Texture2D" uid="uid://bbb2jb6deabbe" path="res://assets/Images/HUD/town_map_hover.png" id="2_jc8cs"]
+[ext_resource type="Script" uid="uid://svm86mg7vuen" path="res://scripts/hud_location_map_button.gd" id="3_jc1w3"]
+[ext_resource type="Script" uid="uid://b7rpout8nbs1m" path="res://scripts/hud_animation_player.gd" id="4_h1aes"]
+
+[sub_resource type="Animation" id="Animation_h1aes"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-300, 480), Vector2(0, 480)]
+}
+
+[sub_resource type="Animation" id="Animation_g0mdj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-300, 480)]
+}
+
+[sub_resource type="Animation" id="Animation_h6cf6"]
+resource_name = "outro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 480), Vector2(-300, 480)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0fqej"]
+_data = {
+&"RESET": SubResource("Animation_g0mdj"),
+&"intro": SubResource("Animation_h1aes"),
+&"outro": SubResource("Animation_h6cf6")
+}
+
+[node name="LocationMapButton" type="TextureButton"]
+offset_left = -300.0
+offset_top = 480.0
+offset_bottom = 780.0
+texture_normal = ExtResource("1_dh1uv")
+texture_hover = ExtResource("2_jc8cs")
+script = ExtResource("3_jc1w3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_0fqej")
+}
+script = ExtResource("4_h1aes")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://dsag0gnxk58x8"]
+
+[ext_resource type="Texture2D" uid="uid://do6ye5mxtiyvj" path="res://assets/Images/HUD/calendar.png" id="1_h1wwp"]
+[ext_resource type="Script" uid="uid://n4amsvmv2fga" path="res://scripts/hud_calendar_button.gd" id="1_yt5nh"]
+[ext_resource type="Texture2D" uid="uid://dmh04bp2q6lps" path="res://assets/Images/HUD/calendar_hover.png" id="2_2e0s7"]
+[ext_resource type="Script" uid="uid://b7rpout8nbs1m" path="res://scripts/hud_animation_player.gd" id="4_kciv2"]
+
+[sub_resource type="Animation" id="Animation_uyes7"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-300, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bt1ro"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-300, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qy48s"]
+resource_name = "outro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-300, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bjpy"]
+_data = {
+&"RESET": SubResource("Animation_bt1ro"),
+&"intro": SubResource("Animation_uyes7"),
+&"outro": SubResource("Animation_qy48s")
+}
+
+[node name="CalendarButton" type="TextureButton"]
+offset_right = 300.0
+offset_bottom = 300.0
+texture_normal = ExtResource("1_h1wwp")
+texture_hover = ExtResource("2_2e0s7")
+script = ExtResource("1_yt5nh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_8bjpy")
+}
+script = ExtResource("4_kciv2")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

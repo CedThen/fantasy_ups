@@ -5,6 +5,8 @@ class_name MainHud extends CanvasLayer
 @onready var inventory_button: TextureButton = %InventoryButton
 @onready var quest_log_button: TextureButton = %QuestLogButton
 @onready var journal_button: TextureButton = %JournalButton
+@onready var location_map_button: TextureButton = %LocationMapButton
+@onready var calendar_button: TextureButton = %CalendarButton
 
 var show_quest_box:bool = true
 var show_location_map:bool = true
@@ -32,6 +34,8 @@ func is_everything_out() -> bool:
 		world_map_button.is_out() and \
 		quest_log_button.is_out() and \
 		inventory_button.is_out() and \
+		location_map_button.is_out() and \
+		calendar_button.is_out() and \
 		journal_button.is_out():
 		return true
 		
@@ -42,7 +46,9 @@ func is_everything_in() -> bool:
 	if world_map_button.is_in() and \
 		inventory_button.is_in() and \
 		quest_log_button.is_in() and \
-		journal_button.is_in():
+		journal_button.is_in() and \
+		calendar_button.is_in() and \
+		location_map_button.is_in():
 		if show_quest_box:
 			if quest_box_button.is_in():
 				return true
@@ -62,10 +68,13 @@ func open(quest_box:bool = true, location_map:bool = true) -> void:
 	anim_state = Global.AnimState.ANIMATING
 	if show_quest_box:
 		quest_box_button.intro()
+		
 	world_map_button.intro()
 	inventory_button.intro()
 	quest_log_button.intro()
 	journal_button.intro()
+	location_map_button.intro()
+	calendar_button.intro()
 
 
 func close() -> void:
@@ -75,6 +84,8 @@ func close() -> void:
 	inventory_button.outro()
 	quest_log_button.outro()
 	journal_button.outro()
+	location_map_button.outro()
+	calendar_button.outro()
 
 
 func on_world_map_pressed():

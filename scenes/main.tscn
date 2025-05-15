@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvmkml3g4fb5p"]
+[gd_scene load_steps=17 format=3 uid="uid://dvmkml3g4fb5p"]
 
 [ext_resource type="Script" uid="uid://jbu7ts4fegu" path="res://scripts/main.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://xecnd1uo1uvp" path="res://scenes/quest_manager.tscn" id="2"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://b1pvm4pyyy08c" path="res://scenes/hud_inventory_button.tscn" id="12_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cppk8wcsqrohx" path="res://scenes/hud_quest_log_button.tscn" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://ddbihxsbp23c2" path="res://scenes/hud_journal_button.tscn" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://bjeahv10ohem1" path="res://scenes/hud_location_map_button.tscn" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://dsag0gnxk58x8" path="res://scenes/hud_calendar_button.tscn" id="16_muem4"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1")
@@ -86,6 +88,13 @@ offset_bottom = 0.0
 [node name="JournalButton" parent="MainHudLayer/Control" instance=ExtResource("14_a8y0u")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1020.0
-offset_right = 1320.0
-offset_bottom = 300.0
+offset_top = -300.0
+offset_bottom = 0.0
+
+[node name="LocationMapButton" parent="MainHudLayer/Control" instance=ExtResource("15_jkv2x")]
+unique_name_in_owner = true
+layout_mode = 0
+
+[node name="CalendarButton" parent="MainHudLayer/Control" instance=ExtResource("16_muem4")]
+unique_name_in_owner = true
+layout_mode = 0
