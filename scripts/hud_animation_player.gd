@@ -28,5 +28,3 @@ func on_finished(anim_name:String):
 		anim_state = Global.AnimState.IN
 	elif anim_name == Global.ANIM_NAME_OUTRO:
 		anim_state = Global.AnimState.OUT
-	
-	print(get_parent().position)

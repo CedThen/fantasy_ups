@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwnm5s0iupeql"]
+[gd_scene load_steps=9 format=3 uid="uid://cwnm5s0iupeql"]
 
-[ext_resource type="Texture2D" uid="uid://dee3yd8jfsosg" path="res://assets/Images/HUD/journal.png" id="1_dd2rv"]
+[ext_resource type="Texture2D" uid="uid://b1frrfr23hdql" path="res://assets/Images/HUD/world_map.png" id="1_si2wp"]
 [ext_resource type="Script" uid="uid://c3bscrtobmo80" path="res://scripts/hud_world_map_button.gd" id="2_ersyh"]
+[ext_resource type="Texture2D" uid="uid://d2i3ubllfvar1" path="res://assets/Images/HUD/world_map_hover.png" id="2_ooq44"]
 [ext_resource type="Script" uid="uid://b7rpout8nbs1m" path="res://scripts/hud_animation_player.gd" id="3_si2wp"]
 
 [sub_resource type="Animation" id="Animation_jkv2x"]
@@ -63,7 +64,8 @@ anchor_bottom = 1.0
 offset_left = -300.0
 offset_top = -300.0
 grow_vertical = 0
-texture_normal = ExtResource("1_dd2rv")
+texture_normal = ExtResource("1_si2wp")
+texture_hover = ExtResource("2_ooq44")
 script = ExtResource("2_ersyh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

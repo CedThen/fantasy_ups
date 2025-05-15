@@ -2,6 +2,12 @@ class_name MainHud extends CanvasLayer
 
 @onready var quest_box_button: TextureButton = %QuestBoxButton
 @onready var world_map_button: TextureButton = %WorldMapButton
+@onready var inventory_button: TextureButton = %InventoryButton
+@onready var quest_log_button: TextureButton = %QuestLogButton
+@onready var journal_button: TextureButton = %JournalButton
+
+var show_quest_box:bool = true
+var show_location_map:bool = true
 
 var anim_state:Global.AnimState = Global.AnimState.OUT
 
@@ -10,6 +16,7 @@ func _ready() -> void:
 	
 	SignalBus.world_map_pressed.connect(on_world_map_pressed)
 	pass
+	
 
 func _process(delta: float) -> void:
 	if anim_state == Global.AnimState.ANIMATING:
@@ -18,36 +25,56 @@ func _process(delta: float) -> void:
 			hide()
 		elif is_everything_in():
 			anim_state = Global.AnimState.IN
-			
-		
-			
-		
+
 
 func is_everything_out() -> bool:
-	if quest_box_button.is_out() and world_map_button.is_out():
+	if quest_box_button.is_out() and \
+		world_map_button.is_out() and \
+		quest_log_button.is_out() and \
+		inventory_button.is_out() and \
+		journal_button.is_out():
 		return true
 		
 	return false
 	
 
 func is_everything_in() -> bool:
-	if quest_box_button.is_in() and world_map_button.is_in():
+	if world_map_button.is_in() and \
+		inventory_button.is_in() and \
+		quest_log_button.is_in() and \
+		journal_button.is_in():
+		if show_quest_box:
+			if quest_box_button.is_in():
+				return true
+			else:
+				return false
+				
 		return true
 		
 	return false
 	
 
-func open() -> void:
+func open(quest_box:bool = true, location_map:bool = true) -> void:
 	show()
+	show_quest_box = quest_box
+	show_location_map = location_map
+	
 	anim_state = Global.AnimState.ANIMATING
-	quest_box_button.intro()
+	if show_quest_box:
+		quest_box_button.intro()
 	world_map_button.intro()
+	inventory_button.intro()
+	quest_log_button.intro()
+	journal_button.intro()
 
 
 func close() -> void:
 	anim_state = Global.AnimState.ANIMATING
 	quest_box_button.outro()
 	world_map_button.outro()
+	inventory_button.outro()
+	quest_log_button.outro()
+	journal_button.outro()
 
 
 func on_world_map_pressed():

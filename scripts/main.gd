@@ -41,6 +41,7 @@ func on_quest_box_pressed():
 		quest_defs.shuffle()
 		quest_manager.serve_quest(quest_defs[0])
 
+
 # For dialogic to send signals generically back
 # params in the form of "cmd":[Command name], [contextual val]:[val]
 func _on_dialogic_signal(params:Dictionary):
