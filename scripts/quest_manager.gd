@@ -139,7 +139,7 @@ func check_quest_complete():
 	
 
 # return a list of eligible for a ... location? point of interest?
-func get_eligible_quests() -> Array[QuestDef]:
+func get_eligible_quests(quest_box:bool = false) -> Array[QuestDef]:
 	var player:Player = Global.get_player()
 	var npc_manager:NPCManager = Global.get_npc_manager()
 	var ret:Array[QuestDef]
@@ -155,13 +155,13 @@ func get_eligible_quests() -> Array[QuestDef]:
 		if has_quest:
 			continue
 		
-		# Quest given by npc
-		if quest_def.start_npc:
+		
+		if quest_box:
+			if not quest_def.quest_box: # Quest given by THE BOX
+				continue
+		elif quest_def.start_npc: 	# Quest given by npc
 			var npc_instance = npc_manager.get_npc_instance_by_def(quest_def.start_npc)
 			if not npc_manager.is_npc_instance_at_location(npc_instance, player.current_location):
-				continue
-		elif quest_def.quest_box:
-			if not player.current_location.location_def.has_quest_box:
 				continue
 		else:
 			continue

@@ -1,16 +1,10 @@
-[gd_resource type="Resource" script_class="LocationDef" load_steps=5 format=3 uid="uid://boxef2vsy281f"]
+[gd_resource type="Resource" script_class="LocationDef" load_steps=2 format=3 uid="uid://boxef2vsy281f"]
 
-[ext_resource type="Texture2D" uid="uid://db5rpfis4yb3y" path="res://assets/Images/Maps/Map Icons/Capital_click.png" id="1_u0ous"]
 [ext_resource type="Script" uid="uid://k2ffxolblejc" path="res://scripts/defs/location_def.gd" id="1_wcs1m"]
-[ext_resource type="Texture2D" uid="uid://cj2t61qlbowol" path="res://assets/Images/Maps/Map Icons/Capital_hover.png" id="2_qdute"]
-[ext_resource type="Texture2D" uid="uid://bt2b0c3qycp2r" path="res://assets/Images/Maps/Map Icons/Capital_normal.png" id="3_hvg0b"]
 
 [resource]
 script = ExtResource("1_wcs1m")
 name = "Varmecht"
 size = 2
 has_quest_box = false
-default_texture = ExtResource("3_hvg0b")
-hover_texture = ExtResource("2_qdute")
-click_texture = ExtResource("1_u0ous")
 metadata/_custom_type_script = "uid://k2ffxolblejc"
