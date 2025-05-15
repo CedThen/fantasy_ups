@@ -17,7 +17,7 @@ var LocationSizeDict: Dictionary[LocationDef.Size, int] = {
 	LocationDef.Size.MEDIUM: 25,
 	LocationDef.Size.LARGE: 45
 }
-
+var zoom_level := 1.0
 # may be dependant on key items 
 #var is_reachable = false
 # var prereqs = [] # check if pc has required key items 
@@ -38,6 +38,10 @@ func render_on_map():
 
 func _ready() -> void:
 	render_on_map()
+	SignalBus.zoom_updated.connect(on_zoom_update)
+
+func on_zoom_update(new_zoom: Vector2):
+	pass
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():

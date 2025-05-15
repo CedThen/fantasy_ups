@@ -10,7 +10,6 @@ width = 2.0
 default_color = Color(0.347183, 0.74, 0.259, 1)
 script = ExtResource("1_vidnp")
 line_color = Color(0.347183, 0.74, 0.259, 1)
-isTraversable = null
 isVisible = false
 
 [node name="InfoPanel" type="PanelContainer" parent="."]

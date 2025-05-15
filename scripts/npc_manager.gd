@@ -64,7 +64,9 @@ func generate_npcs():
 		
 
 func move_npc(npc_instance:NPCInstance, loc_def:LocationDef):
-	var map:Map = Global.get_map()
+	var map:WorldMap = Global.get_map()
+	if not map:
+		return
 	if not loc_def:
 		printerr("No location def specified")
 		return

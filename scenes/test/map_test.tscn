@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxnqbdoesdoer"]
 
-[ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/map.gd" id="1_sh4kj"]
+[ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/world_map.gd" id="1_sh4kj"]
 [ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="2_fvi2e"]
 [ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="3_erra1"]
 [ext_resource type="Texture2D" uid="uid://bl4u4m3rxhoc1" path="res://assets/Dalu/Map_Hestia03.png" id="4_jakkr"]
