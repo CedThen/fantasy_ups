@@ -6,6 +6,13 @@ var player:Player
 var map:Map
 var npc_manager:NPCManager
 
+
+# Hud Animation Stuff
+enum AnimState{ ANIMATING, IN, OUT}
+const ANIM_NAME_INTRO = "intro"
+const ANIM_NAME_OUTRO = "outro"
+
+
 func get_player() -> Player:
 	return player
 	
