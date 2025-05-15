@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxnqbdoesdoer"]
+
+[ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/map.gd" id="1_sh4kj"]
+[ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="2_fvi2e"]
+[ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="3_erra1"]
+[ext_resource type="Texture2D" uid="uid://bl4u4m3rxhoc1" path="res://assets/Dalu/Map_Hestia03.png" id="4_jakkr"]
+
+[node name="Map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Locations" type="Node" parent="."]
+script = ExtResource("1_sh4kj")
+
+[node name="Cropby" parent="Locations" instance=ExtResource("2_fvi2e")]
+position = Vector2(662, 179)
+
+[node name="RiversEnd" parent="Locations" instance=ExtResource("2_fvi2e")]
+position = Vector2(374, 261)
+
+[node name="HellMarsh" parent="Locations" instance=ExtResource("2_fvi2e")]
+position = Vector2(196, 245)
+
+[node name="WildWood" parent="Locations" instance=ExtResource("2_fvi2e")]
+position = Vector2(660, 509)
+
+[node name="KingsLanding" parent="Locations" instance=ExtResource("2_fvi2e")]
+position = Vector2(411, 407)
+
+[node name="Routes" type="Node" parent="."]
+
+[node name="Cropby_RiversEnd" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("3_erra1")]
+position = Vector2(662, 179)
+points = PackedVector2Array(0, 0, -288, 82)
+origin = NodePath("../../Locations/Cropby")
+destination = NodePath("../../Locations/RiversEnd")
+weight = 6.0
+
+[node name="RiversEnd_HellMarsh" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("3_erra1")]
+position = Vector2(374, 261)
+points = PackedVector2Array(0, 0, -178, -16)
+default_color = Color(0.0204138, 0.611469, 0.617975, 1)
+origin = NodePath("../../Locations/RiversEnd")
+destination = NodePath("../../Locations/HellMarsh")
+line_color = Color(0.0204138, 0.611469, 0.617975, 1)
+weight = 1.5
+
+[node name="RiversEnd_KingsLanding" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("3_erra1")]
+position = Vector2(374, 261)
+points = PackedVector2Array(0, 0, 37, 146)
+origin = NodePath("../../Locations/RiversEnd")
+destination = NodePath("../../Locations/KingsLanding")
+
+[node name="KingsLanding_HellMarsh" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("3_erra1")]
+position = Vector2(196, 245)
+points = PackedVector2Array(0, 0, 215, 162)
+default_color = Color(0.568267, 0.465344, 0.796777, 1)
+origin = NodePath("../../Locations/HellMarsh")
+destination = NodePath("../../Locations/KingsLanding")
+line_color = Color(0.568267, 0.465344, 0.796777, 1)
+weight = 3.0
+
+[node name="WildWood_KingsLanding" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("3_erra1")]
+position = Vector2(660, 509)
+points = PackedVector2Array(0, 0, -249, -102)
+origin = NodePath("../../Locations/WildWood")
+destination = NodePath("../../Locations/KingsLanding")
+weight = 4.0
+
+[node name="MapImage" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.721569)
+scale = Vector2(0.436035, 0.425781)
+texture = ExtResource("4_jakkr")
+centered = false

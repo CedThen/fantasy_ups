@@ -5,7 +5,7 @@ extends Node
 
 @export var player:Player
 
-var time:int		# Some global time? in game time, hours? minutes?
+var time:int # Some global time? in game time, hours? minutes?
 
 func _ready() -> void:
 	player = Player.new()

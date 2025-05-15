@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmew1ypnbxmml"]
+
+[ext_resource type="Texture2D" uid="uid://ccc3h0jmlehhv" path="res://assets/Dalu/worldmap_UI_draftblank.png" id="1_0hapb"]
+[ext_resource type="Theme" uid="uid://csby7h0aegpyx" path="res://assets/main_theme.tres" id="2_ghicc"]
+
+[node name="MapMenuLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="RoutesMenu" type="NinePatchRect" parent="Control"]
+custom_minimum_size = Vector2(404, 600)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+texture = ExtResource("1_0hapb")
+region_rect = Rect2(1474, 867, 404, 354)
+patch_margin_left = 28
+patch_margin_top = 111
+patch_margin_right = 28
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/RoutesMenu"]
+layout_mode = 0
+offset_left = 1.5
+offset_right = 41.5
+offset_bottom = 23.0
+text = "Routes"
+horizontal_alignment = 1
+
+[node name="QuestsMenu" type="NinePatchRect" parent="Control"]
+custom_minimum_size = Vector2(404, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.6
+grow_horizontal = 0
+texture = ExtResource("1_0hapb")
+region_rect = Rect2(1474, 867, 404, 354)
+patch_margin_left = 28
+patch_margin_top = 111
+patch_margin_right = 28
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="InventoryMenu" type="NinePatchRect" parent="Control"]
+custom_minimum_size = Vector2(404, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+texture = ExtResource("1_0hapb")
+region_rect = Rect2(1474, 867, 404, 354)
+patch_margin_left = 28
+patch_margin_top = 111
+patch_margin_right = 28
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Control"]
+custom_minimum_size = Vector2(177.415, 50)
+layout_mode = 0
+offset_left = 64.0
+offset_top = -86.0
+offset_right = 241.415
+offset_bottom = -36.0
+theme = ExtResource("2_ghicc")
+theme_type_variation = &"ParchmentButton"
+text = "Test Button"
