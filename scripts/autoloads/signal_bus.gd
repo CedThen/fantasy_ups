@@ -18,3 +18,5 @@ signal location_exited(location: Location)
 signal location_clicked(location: Location)
 
 signal player_location_updated()
+
+signal zoom_updated(new_zoom: Vector2)

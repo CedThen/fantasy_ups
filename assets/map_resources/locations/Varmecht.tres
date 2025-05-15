@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="PlaceDef" load_steps=2 format=3 uid="uid://x20jrlfdj3pv"]
-
-[ext_resource type="Script" uid="uid://dwnrgtmng1x5f" path="res://scripts/defs/place_def.gd" id="1_v2dug"]
-
-[resource]
-script = ExtResource("1_v2dug")
-id = "Varmecht"
-size = 2
-metadata/_custom_type_script = "uid://dwnrgtmng1x5f"

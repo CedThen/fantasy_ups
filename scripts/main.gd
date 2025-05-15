@@ -1,7 +1,7 @@
 extends Node
 
 @onready var quest_manager: QuestManager = %QuestManager
-@onready var map: Map = %Map
+@onready var world_map: WorldMap = %WorldMap
 
 @export var player:Player
 
@@ -15,7 +15,7 @@ func _ready() -> void:
 	var coin_def = load("res://assets/items/coin.tres")
 	player.add_item(coin_def)
 
-	player.entered_location(map.get_starting_location())	
+	player.entered_location(world_map.get_starting_location())	
 	
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	SignalBus.player_location_updated.connect(on_player_location_updated)

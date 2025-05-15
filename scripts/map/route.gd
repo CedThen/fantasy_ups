@@ -8,8 +8,10 @@ class_name Route extends Line2D
 @export var destination: Location
 @export var line_color: Color = Color(1, 0, 0)
 @export var weight: float = 1.0
-@export var isTraversable = true
+#@export var isTraversable = true
 @export var isVisible = true
+
+@export var route_def: RouteDef
 
 const OFFSET_DISTANCE := 30.0
 var hazards
@@ -21,13 +23,17 @@ func _ready() -> void:
 	render_route()
 	isVisible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# to render in editor mode
 	if Engine.is_editor_hint():
 		render_route()
 		isVisible = false
-	
 	render_route()
+
+# initialize vars from route resource
+func init_route() -> void:
+	
+	pass
 
 func render_route():
 	visible = isVisible

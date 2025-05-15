@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc7ijrqyd1q04"]
+
+[ext_resource type="Script" uid="uid://8amy4kxsh08r" path="res://scenes/map/zoom_controller.gd" id="1_vhpi5"]
+
+[node name="ZoomController" type="Node"]
+script = ExtResource("1_vhpi5")
