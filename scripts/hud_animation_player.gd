@@ -1,6 +1,5 @@
 extends AnimationPlayer
 
-
 var anim_state:Global.AnimState = Global.AnimState.OUT
 
 func _ready():
