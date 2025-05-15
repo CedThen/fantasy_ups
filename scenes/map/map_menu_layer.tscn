@@ -14,31 +14,57 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="RoutesMenu" type="NinePatchRect" parent="Control"]
-custom_minimum_size = Vector2(404, 600)
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_ghicc")
+
+[node name="Control" type="Control" parent="Control/MarginContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="RoutesMenu" type="NinePatchRect" parent="Control/MarginContainer/Control"]
+custom_minimum_size = Vector2(330, 600)
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 1.0
+theme = ExtResource("2_ghicc")
 texture = ExtResource("1_0hapb")
 region_rect = Rect2(1474, 867, 404, 354)
-patch_margin_left = 28
+patch_margin_left = 59
 patch_margin_top = 111
-patch_margin_right = 28
+patch_margin_right = 68
 patch_margin_bottom = 32
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Control/RoutesMenu"]
-layout_mode = 0
-offset_left = 1.5
-offset_right = 41.5
-offset_bottom = 23.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/Control/RoutesMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/RoutesMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
 text = "Routes"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="QuestsMenu" type="NinePatchRect" parent="Control"]
-custom_minimum_size = Vector2(404, 0)
+[node name="Button" type="Button" parent="Control/MarginContainer/Control/RoutesMenu/VBoxContainer"]
+layout_mode = 2
+text = "Hello"
+
+[node name="QuestsMenu" type="NinePatchRect" parent="Control/MarginContainer/Control"]
+custom_minimum_size = Vector2(330, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -47,34 +73,35 @@ anchor_bottom = 0.6
 grow_horizontal = 0
 texture = ExtResource("1_0hapb")
 region_rect = Rect2(1474, 867, 404, 354)
-patch_margin_left = 28
+patch_margin_left = 70
 patch_margin_top = 111
-patch_margin_right = 28
+patch_margin_right = 66
 patch_margin_bottom = 32
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="InventoryMenu" type="NinePatchRect" parent="Control"]
-custom_minimum_size = Vector2(404, 0)
+[node name="InventoryMenu" type="NinePatchRect" parent="Control/MarginContainer/Control"]
+custom_minimum_size = Vector2(330, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 0.6
+anchor_top = 0.62
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 texture = ExtResource("1_0hapb")
 region_rect = Rect2(1474, 867, 404, 354)
-patch_margin_left = 28
+patch_margin_left = 72
 patch_margin_top = 111
-patch_margin_right = 28
+patch_margin_right = 72
 patch_margin_bottom = 32
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Control"]
+visible = false
 custom_minimum_size = Vector2(177.415, 50)
 layout_mode = 0
 offset_left = 64.0

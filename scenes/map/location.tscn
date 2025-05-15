@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://doxwbfg3pfc73"]
+[gd_scene load_steps=7 format=3 uid="uid://doxwbfg3pfc73"]
 
 [ext_resource type="Script" uid="uid://bmi3ifaa5xjhy" path="res://scripts/map/location.gd" id="1_hccqc"]
 [ext_resource type="Theme" uid="uid://csby7h0aegpyx" path="res://assets/main_theme.tres" id="2_643j3"]
+[ext_resource type="Resource" uid="uid://brkjtqckyqsy" path="res://assets/locations/colbyjack.tres" id="2_tmhpo"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_643j3"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmhpo"]
 radius = 15.0
 
 [sub_resource type="Gradient" id="Gradient_643j3"]
@@ -17,6 +18,7 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="Location" type="Node2D"]
 script = ExtResource("1_hccqc")
+location_def = ExtResource("2_tmhpo")
 metadata/_custom_type_script = "uid://bmi3ifaa5xjhy"
 
 [node name="LocationLabel" type="Label" parent="."]
@@ -29,12 +31,12 @@ offset_bottom = 434.0
 scale = Vector2(0.05, 0.05)
 theme = ExtResource("2_643j3")
 theme_type_variation = &"LocationLabel"
-text = "Test"
+text = "Colby Jack"
 
 [node name="HighlightArea" type="Area2D" parent="."]
 
 [node name="MouseCollisionShape" type="CollisionShape2D" parent="HighlightArea"]
-shape = SubResource("CircleShape2D_643j3")
+shape = SubResource("CircleShape2D_tmhpo")
 
 [node name="HaloLight" type="PointLight2D" parent="HighlightArea"]
 visible = false

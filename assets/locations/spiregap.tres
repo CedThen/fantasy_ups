@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LocationDef" load_steps=2 format=3 uid="uid://b0arv51yvow0i"]
+
+[ext_resource type="Script" uid="uid://k2ffxolblejc" path="res://scripts/defs/location_def.gd" id="1_ijlxu"]
+
+[resource]
+script = ExtResource("1_ijlxu")
+name = "SpireGap"
+size = 1
+has_quest_box = false
+metadata/_custom_type_script = "uid://k2ffxolblejc"

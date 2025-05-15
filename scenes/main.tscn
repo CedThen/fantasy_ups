@@ -14,9 +14,12 @@ unique_name_in_owner = true
 
 [node name="QuestManager" parent="." instance=ExtResource("2")]
 unique_name_in_owner = true
+visible = false
 
 [node name="NpcManager" parent="." instance=ExtResource("3")]
 unique_name_in_owner = true
+visible = false
 
 [node name="MapMenuLayer" parent="." instance=ExtResource("4")]
 unique_name_in_owner = true
+visible = false

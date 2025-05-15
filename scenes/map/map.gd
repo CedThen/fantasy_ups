@@ -6,6 +6,7 @@ enum MapMode {PlottingRoutes, SelectingDestination, Traveling}
 @onready var locations: Node = %Locations
 @onready var routes: Node = %Routes
 @onready var toggle_mode_button: CheckButton = %ToggleModeButton
+@onready var map_camera: Camera2D = %MapCamera
 
 @export var mode: MapMode = MapMode.SelectingDestination
 
@@ -15,10 +16,6 @@ var locations_list:Array[Location]
 
 var adjacency_graph = {} # Dictionary[Location, Array[Route]]
 
-
-# handles selecting nodes and routing
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.map = self
 	build_graph()
@@ -32,12 +29,12 @@ func _ready() -> void:
 	SignalBus.location_clicked.connect(on_location_clicked)
 
 func on_location_hovered(location: Location):
-	if mode == MapMode.PlottingRoutes:
+	if mode == MapMode.PlottingRoutes and adjacency_graph.has(location):
 		var neighboring_routes = adjacency_graph[location]
 		set_route_visibility(neighboring_routes, true)
 
 func on_location_exited(location: Location):
-	if mode == MapMode.PlottingRoutes:
+	if mode == MapMode.PlottingRoutes and adjacency_graph.has(location):
 		var neighboring_routes = adjacency_graph[location]
 		set_route_visibility(neighboring_routes, false)
 
