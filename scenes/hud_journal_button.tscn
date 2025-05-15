@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddbihxsbp23c2"]
+
+[ext_resource type="Texture2D" uid="uid://dee3yd8jfsosg" path="res://assets/Images/HUD/journal.png" id="1_rinnm"]
+[ext_resource type="Texture2D" uid="uid://g14upqjfkh2g" path="res://assets/Images/HUD/journal_hover.png" id="2_a7jtv"]
+[ext_resource type="Script" uid="uid://xs0nhsln38v6" path="res://scripts/hud_journal_button.gd" id="3_a7jtv"]
+[ext_resource type="Script" uid="uid://b7rpout8nbs1m" path="res://scripts/hud_animation_player.gd" id="4_mtg67"]
+
+[sub_resource type="Animation" id="Animation_duy8e"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1020, -300), Vector2(1020, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3o586"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1020, -300)]
+}
+
+[sub_resource type="Animation" id="Animation_b1usm"]
+resource_name = "outro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1020, 0), Vector2(1020, -300)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8a80u"]
+_data = {
+&"RESET": SubResource("Animation_3o586"),
+&"intro": SubResource("Animation_duy8e"),
+&"outro": SubResource("Animation_b1usm")
+}
+
+[node name="JournalButton" type="TextureButton"]
+offset_left = 1020.0
+offset_right = 1320.0
+offset_bottom = 300.0
+texture_normal = ExtResource("1_rinnm")
+texture_hover = ExtResource("2_a7jtv")
+script = ExtResource("3_a7jtv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_8a80u")
+}
+script = ExtResource("4_mtg67")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

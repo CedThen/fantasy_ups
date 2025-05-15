@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://cppk8wcsqrohx"]
+
+[ext_resource type="Texture2D" uid="uid://c3xggshktxj2f" path="res://assets/Images/HUD/quest_log.png" id="1_3v4g2"]
+[ext_resource type="Texture2D" uid="uid://dckyl3e10lc7j" path="res://assets/Images/HUD/quest_log_hover.png" id="2_x8ykq"]
+[ext_resource type="Script" uid="uid://b31trdbk6ear" path="res://scripts/hud_quest_log_button.gd" id="3_x8ykq"]
+[ext_resource type="Script" uid="uid://b7rpout8nbs1m" path="res://scripts/hud_animation_player.gd" id="4_t8wr8"]
+
+[sub_resource type="Animation" id="Animation_hcgvu"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1320, -300), Vector2(1320, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2iaq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1320, -300)]
+}
+
+[sub_resource type="Animation" id="Animation_u4bsk"]
+resource_name = "outro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1320, 0), Vector2(1320, -300)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ug6kk"]
+_data = {
+&"RESET": SubResource("Animation_2iaq8"),
+&"intro": SubResource("Animation_hcgvu"),
+&"outro": SubResource("Animation_u4bsk")
+}
+
+[node name="QuestLogButton" type="TextureButton"]
+offset_left = 1320.0
+offset_right = 1620.0
+offset_bottom = 300.0
+texture_normal = ExtResource("1_3v4g2")
+texture_hover = ExtResource("2_x8ykq")
+script = ExtResource("3_x8ykq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_ug6kk")
+}
+script = ExtResource("4_t8wr8")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
