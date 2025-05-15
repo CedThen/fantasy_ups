@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmrlquspbbibp"]
+[gd_scene load_steps=12 format=3 uid="uid://dbgfluksyrlnq"]
 
-[ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/world_map.gd" id="1_n07vy"]
+[ext_resource type="Script" path="res://scenes/map/world_map.gd" id="1_rke7p"]
 [ext_resource type="Script" uid="uid://bi74skiv3gv57" path="res://scenes/map/map_camera.gd" id="2_34u3e"]
 [ext_resource type="Texture2D" uid="uid://srd6pdcmbqu8" path="res://assets/Images/Maps/Hestia/Hestia_empty.png" id="3_mp47u"]
 [ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="4_077py"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bt2b0c3qycp2r" path="res://assets/Images/Maps/Map Icons/Capital_normal.png" id="7_p7cqt"]
 [ext_resource type="Script" uid="uid://k2ffxolblejc" path="res://scripts/defs/location_def.gd" id="8_ets3u"]
 [ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="9_mvgwk"]
-[ext_resource type="PackedScene" uid="uid://cc7ijrqyd1q04" path="res://scenes/map/zoom_controller.tscn" id="10_odxk7"]
+[ext_resource type="PackedScene" path="res://scenes/map/zoom_controller.tscn" id="10_odxk7"]
 
 [sub_resource type="Resource" id="Resource_nrve7"]
 script = ExtResource("8_ets3u")
@@ -20,8 +20,9 @@ default_texture = ExtResource("7_p7cqt")
 metadata/_custom_type_script = "uid://k2ffxolblejc"
 
 [node name="WorldMap" type="Node2D" node_paths=PackedStringArray("starting_location")]
-script = ExtResource("1_n07vy")
-starting_location = NodePath("Locations/NorthRiverview")
+script = ExtResource("1_rke7p")
+mode = 1
+starting_location = NodePath("Locations/Varmecht")
 
 [node name="MapCamera" type="Camera2D" parent="."]
 z_index = 1

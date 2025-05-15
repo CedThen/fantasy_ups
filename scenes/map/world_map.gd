@@ -5,8 +5,6 @@ enum MapMode {PlottingRoutes, SelectingDestination, Traveling}
 #@onready var map_mode_label: RichTextLabel = %MapModeLabel
 @onready var locations: Node = %Locations
 @onready var routes: Node = %Routes
-@onready var toggle_mode_button: CheckButton = %ToggleModeButton
-@onready var map_camera: Camera2D = %MapCamera
 
 @export var mode: MapMode = MapMode.PlottingRoutes
 

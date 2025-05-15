@@ -1,24 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dsag0gnxk58x8"]
 
-[ext_resource type="Texture2D" uid="uid://do6ye5mxtiyvj" path="res://assets/Images/HUD/calendar.png" id="1_h1wwp"]
+[ext_resource type="Texture2D" uid="uid://i5vrealti8vn" path="res://assets/Images/HUD/calendar.png" id="1_h1wwp"]
 [ext_resource type="Script" uid="uid://n4amsvmv2fga" path="res://scripts/hud_calendar_button.gd" id="1_yt5nh"]
-[ext_resource type="Texture2D" uid="uid://dmh04bp2q6lps" path="res://assets/Images/HUD/calendar_hover.png" id="2_2e0s7"]
+[ext_resource type="Texture2D" uid="uid://dq5m6sbe3hon5" path="res://assets/Images/HUD/calendar_hover.png" id="2_2e0s7"]
 [ext_resource type="Script" uid="uid://b7rpout8nbs1m" path="res://scripts/hud_animation_player.gd" id="4_kciv2"]
-
-[sub_resource type="Animation" id="Animation_uyes7"]
-resource_name = "intro"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-300, 0), Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_bt1ro"]
 length = 0.001
@@ -33,6 +18,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-300, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uyes7"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-300, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_qy48s"]

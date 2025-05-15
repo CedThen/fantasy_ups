@@ -25,10 +25,10 @@ metadata/_custom_type_script = "uid://bmi3ifaa5xjhy"
 [node name="LocationLabel" type="Label" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 10)
-offset_left = 22.0
-offset_top = -14.0
-offset_right = 2446.0
-offset_bottom = 614.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 1060.0
+offset_bottom = 434.0
 scale = Vector2(0.05, 0.05)
 theme = ExtResource("2_643j3")
 theme_type_variation = &"LocationLabel"
