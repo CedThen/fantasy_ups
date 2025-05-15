@@ -7,6 +7,7 @@ enum LocationSize {small, medium, large}
 @onready var halo_light: PointLight2D = $HighlightArea/HaloLight
 @onready var highlight_area: Area2D = $HighlightArea
 @onready var mouse_collision_shape: CollisionShape2D = $HighlightArea/MouseCollisionShape
+@onready var map_icon: Sprite2D = %MapIcon
 
 @export var location_def:LocationDef = null
 
@@ -22,7 +23,9 @@ var LocationSizeDict: Dictionary[LocationDef.Size, int] = {
 # var prereqs = [] # check if pc has required key items 
 func render_on_map():
 	location_label.text = location_def.name
-	
+	if location_def.default_texture:
+		map_icon.texture = location_def.default_texture
+		#map_icon.
 	if mouse_collision_shape:
 		var collision_shape = mouse_collision_shape.shape
 		var new_radius = float(LocationSizeDict[location_def.size])

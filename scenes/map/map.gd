@@ -67,12 +67,10 @@ func build_graph():
 			if not adjacency_graph.has(route.origin):
 				adjacency_graph[route.origin] = []
 			adjacency_graph[route.origin].append(route)
-
-			# If routes are bidirectional, also add reverse
+			# add reverse cause bidirectional
 			if not adjacency_graph.has(route.destination):
 				adjacency_graph[route.destination] = []
 			adjacency_graph[route.destination].append(route)
-
 
 func build_locations_list():
 	var locations_children = locations.get_children()
@@ -82,10 +80,8 @@ func build_locations_list():
 			
 		locations_list.append(loc)
 
-
 func get_starting_location() -> Location:
 	return starting_location
-
 
 func get_location_by_def(def:LocationDef) -> Location:
 	for location:Location in locations_list:
@@ -93,14 +89,11 @@ func get_location_by_def(def:LocationDef) -> Location:
 			return location
 			
 	return
-	
 
 # Very rough for now - all actual validity checking done before this
 func move_player(dest_location:Location):
 	var player = Global.get_player()
 	player.entered_location(dest_location)
-	
-
 
 func on_location_clicked(loc: Location):
 	move_player(loc)

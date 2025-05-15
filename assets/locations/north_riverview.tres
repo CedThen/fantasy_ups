@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LocationDef" load_steps=3 format=3 uid="uid://dqw5a60qc081t"]
+
+[ext_resource type="Texture2D" uid="uid://bt2b0c3qycp2r" path="res://assets/Images/Maps/Map Icons/Capital_normal.png" id="1_iamaf"]
+[ext_resource type="Script" uid="uid://k2ffxolblejc" path="res://scripts/defs/location_def.gd" id="2_6m1x1"]
+
+[resource]
+script = ExtResource("2_6m1x1")
+name = "North Riverview"
+size = 0
+has_quest_box = false
+default_texture = ExtResource("1_iamaf")
+metadata/_custom_type_script = "uid://k2ffxolblejc"

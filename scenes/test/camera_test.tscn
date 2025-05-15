@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmrlquspbbibp"]
+
+[ext_resource type="Script" uid="uid://bi74skiv3gv57" path="res://camera_2d.gd" id="1_qvggw"]
+[ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="2_fgtim"]
+[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/locations/varmecht.tres" id="3_n6ujp"]
+[ext_resource type="Texture2D" uid="uid://srd6pdcmbqu8" path="res://assets/Images/Maps/Hestia/Hestia_empty.png" id="3_rlavo"]
+[ext_resource type="Resource" uid="uid://dqw5a60qc081t" path="res://assets/locations/north_riverview.tres" id="5_3hweu"]
+[ext_resource type="Texture2D" uid="uid://bt2b0c3qycp2r" path="res://assets/Images/Maps/Map Icons/Capital_normal.png" id="6_lwppm"]
+[ext_resource type="Script" uid="uid://k2ffxolblejc" path="res://scripts/defs/location_def.gd" id="7_xx54j"]
+[ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="8_48ob1"]
+
+[sub_resource type="Resource" id="Resource_nrve7"]
+script = ExtResource("7_xx54j")
+name = "South Riverview"
+size = 0
+has_quest_box = false
+default_texture = ExtResource("6_lwppm")
+metadata/_custom_type_script = "uid://k2ffxolblejc"
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(940, 523)
+script = ExtResource("1_qvggw")
+target_zoom = Vector2(2.5, 2.5)
+
+[node name="HestiaEmpty" type="Sprite2D" parent="."]
+position = Vector2(958, 513)
+texture = ExtResource("3_rlavo")
+
+[node name="Locations" type="Node2D" parent="."]
+
+[node name="Varmecht" parent="Locations" instance=ExtResource("2_fgtim")]
+position = Vector2(913, 793)
+location_def = ExtResource("3_n6ujp")
+
+[node name="NorthRiverview" parent="Locations" instance=ExtResource("2_fgtim")]
+position = Vector2(559, 927)
+location_def = ExtResource("5_3hweu")
+
+[node name="SouthRiverview" parent="Locations" instance=ExtResource("2_fgtim")]
+position = Vector2(584, 974)
+location_def = SubResource("Resource_nrve7")
+
+[node name="Routes" type="Node2D" parent="."]
+
+[node name="Route" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("8_48ob1")]
+points = PackedVector2Array(559, 927, 584, 974)
+origin = NodePath("../../Locations/NorthRiverview")
+destination = NodePath("../../Locations/SouthRiverview")

@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://1l725le05o1t"]
+[gd_scene load_steps=12 format=3 uid="uid://1l725le05o1t"]
 
-[ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/map.gd" id="2_4mxxn"]
 [ext_resource type="FontFile" uid="uid://dym61d2hhvhxw" path="res://assets/fonts/magical-world/Magical World.otf" id="2_fcby6"]
 [ext_resource type="Script" uid="uid://8isakybea124" path="res://scenes/map/map_camera.gd" id="2_x2kg6"]
-[ext_resource type="Texture2D" uid="uid://bl4u4m3rxhoc1" path="res://assets/Dalu/Map_Hestia03.png" id="3_fcby6"]
 [ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="3_p3hjx"]
 [ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="4_jw7gq"]
+[ext_resource type="Texture2D" uid="uid://srd6pdcmbqu8" path="res://assets/Images/Maps/Hestia/Hestia_empty.png" id="4_x2kg6"]
 [ext_resource type="Resource" uid="uid://bqbonpy0etsaw" path="res://assets/locations/cropsby.tres" id="5_b56te"]
 [ext_resource type="Resource" uid="uid://b0arv51yvow0i" path="res://assets/locations/spiregap.tres" id="5_x2kg6"]
 [ext_resource type="Resource" uid="uid://bpp1l41wehjnt" path="res://assets/locations/riversend.tres" id="6_x2kg6"]
@@ -13,10 +12,7 @@
 [ext_resource type="Resource" uid="uid://dha704gsleytf" path="res://assets/locations/immalia.tres" id="8_mgs8m"]
 [ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/locations/varmecht.tres" id="9_mrjnl"]
 
-[node name="Map" type="Node2D" node_paths=PackedStringArray("starting_location")]
-script = ExtResource("2_4mxxn")
-mode = 0
-starting_location = NodePath("Locations/RiversEnd")
+[node name="Map" type="Node2D"]
 
 [node name="CameraNode" type="Node2D" parent="."]
 script = ExtResource("2_x2kg6")
@@ -66,7 +62,7 @@ text = "Toggle Map Mode"
 [node name="MapImage" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.721569)
 position = Vector2(1013, 531)
-texture = ExtResource("3_fcby6")
+texture = ExtResource("4_x2kg6")
 
 [node name="Locations" type="Node2D" parent="."]
 unique_name_in_owner = true
