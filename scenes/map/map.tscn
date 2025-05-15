@@ -29,7 +29,6 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 z_index = 1
@@ -71,7 +70,6 @@ texture = ExtResource("3_fcby6")
 
 [node name="Locations" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
 
 [node name="SpireGap" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(1092, 991)
@@ -103,7 +101,6 @@ location_def = ExtResource("9_mrjnl")
 
 [node name="Routes" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
 
 [node name="Varmecht_Telarys" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("4_jw7gq")]
 points = PackedVector2Array(965, 794, 522, 293)
