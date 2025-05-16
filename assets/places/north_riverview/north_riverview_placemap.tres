@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlaceMapDef" load_steps=4 format=3 uid="uid://dbs4e7tnho78q"]
+
+[ext_resource type="Resource" uid="uid://dqw5a60qc081t" path="res://assets/locations/north_riverview.tres" id="1_6bow7"]
+[ext_resource type="Texture2D" uid="uid://dlb07b2w5utoj" path="res://assets/Images/place_maps/river_town.png" id="2_2ueur"]
+[ext_resource type="Script" uid="uid://dkheklccqq3jj" path="res://scripts/defs/place_map_def.gd" id="3_imgoj"]
+
+[resource]
+script = ExtResource("3_imgoj")
+parent_location = ExtResource("1_6bow7")
+place_map_texture = ExtResource("2_2ueur")
+metadata/_custom_type_script = "uid://dkheklccqq3jj"

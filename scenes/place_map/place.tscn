@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvgcbclm2gcnr"]
+
+[ext_resource type="Script" uid="uid://chh4j6wcahstq" path="res://scenes/place_map/place.gd" id="1_aiag7"]
+[ext_resource type="Resource" uid="uid://csmrrpl6hk45i" path="res://assets/places/varmecht/varmecht_castle.tres" id="2_kcypn"]
+[ext_resource type="Texture2D" uid="uid://bt2b0c3qycp2r" path="res://assets/Images/Maps/Map Icons/Capital_normal.png" id="3_kcypn"]
+
+[node name="Place" type="Node2D"]
+script = ExtResource("1_aiag7")
+place_def = ExtResource("2_kcypn")
+
+[node name="PlaceSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_kcypn")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -150.0
+offset_top = 30.0
+offset_right = 150.0
+offset_bottom = 130.0
+
+[node name="PlaceLabel" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.5
+offset_top = -16.5
+offset_right = 38.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sample"
+horizontal_alignment = 1

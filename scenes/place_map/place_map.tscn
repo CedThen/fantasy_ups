@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca6tbfo8jbbrl"]
+
+[ext_resource type="Script" uid="uid://dbl3s53erkonj" path="res://scenes/place_map/place_map.gd" id="1_lcthw"]
+[ext_resource type="Resource" uid="uid://dbs4e7tnho78q" path="res://assets/places/north_riverview/north_riverview_placemap.tres" id="2_fhqg7"]
+[ext_resource type="Texture2D" uid="uid://ic8d8xs5box8" path="res://assets/Images/place_maps/anime_town_map.png" id="4_4wnfp"]
+[ext_resource type="Theme" uid="uid://csby7h0aegpyx" path="res://assets/main_theme.tres" id="4_fhqg7"]
+[ext_resource type="PackedScene" uid="uid://bvgcbclm2gcnr" path="res://scenes/place_map/place.tscn" id="5_4wnfp"]
+
+[node name="PlaceMap" type="Node2D"]
+script = ExtResource("1_lcthw")
+place_map_def = ExtResource("2_fhqg7")
+
+[node name="PlaceMapTexture" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.929412)
+position = Vector2(963, 589)
+texture = ExtResource("4_4wnfp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -190.0
+offset_right = 190.0
+offset_bottom = 250.0
+grow_horizontal = 2
+theme = ExtResource("4_fhqg7")
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/Control/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_fhqg7")
+theme_type_variation = &"PlaceTitleLabel"
+text = "Title"
+horizontal_alignment = 1
+
+[node name="Places" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Place" parent="Places" instance=ExtResource("5_4wnfp")]
+position = Vector2(325, 484)

@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmrlquspbbibp"]
+[gd_scene load_steps=11 format=3 uid="uid://dmrlquspbbibp"]
 
 [ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/world_map.gd" id="1_rke7p"]
 [ext_resource type="Script" uid="uid://bi74skiv3gv57" path="res://scenes/map/map_camera.gd" id="2_34u3e"]
 [ext_resource type="Texture2D" uid="uid://srd6pdcmbqu8" path="res://assets/Images/Maps/Hestia/Hestia_empty.png" id="3_mp47u"]
 [ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="4_077py"]
 [ext_resource type="Resource" uid="uid://dqw5a60qc081t" path="res://assets/locations/north_riverview.tres" id="6_03syf"]
+[ext_resource type="Resource" uid="uid://bbtv5c84oavjt" path="res://assets/locations/riverin.tres" id="7_rke7p"]
 [ext_resource type="Resource" uid="uid://chvsggwqlgl2g" path="res://assets/locations/south_riverview.tres" id="7_txgco"]
+[ext_resource type="Resource" uid="uid://dxeviakon82ln" path="res://assets/locations/kings_rest.tres" id="8_by8o0"]
 [ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="9_mvgwk"]
 [ext_resource type="PackedScene" uid="uid://cc7ijrqyd1q04" path="res://scenes/map/zoom_controller.tscn" id="10_odxk7"]
 
@@ -41,6 +43,14 @@ location_def = ExtResource("6_03syf")
 [node name="SouthRiverview" parent="Locations" instance=ExtResource("4_077py")]
 position = Vector2(400, 1475)
 location_def = ExtResource("7_txgco")
+
+[node name="RiverIn" parent="Locations" instance=ExtResource("4_077py")]
+position = Vector2(386, 1082)
+location_def = ExtResource("7_rke7p")
+
+[node name="KingsRest" parent="Locations" instance=ExtResource("4_077py")]
+position = Vector2(828, 980)
+location_def = ExtResource("8_by8o0")
 
 [node name="Routes" type="Node2D" parent="."]
 unique_name_in_owner = true
