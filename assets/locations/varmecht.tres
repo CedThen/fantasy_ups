@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("1_wcs1m")
-name = "Varmecht"
+name = "VARMECHT"
 size = 2
 has_quest_box = false
 default_texture = ExtResource("3_hvg0b")

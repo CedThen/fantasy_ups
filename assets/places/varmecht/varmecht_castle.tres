@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlaceDef" load_steps=3 format=3 uid="uid://csmrrpl6hk45i"]
+
+[ext_resource type="Texture2D" uid="uid://bt2b0c3qycp2r" path="res://assets/Images/Maps/Map Icons/Capital_normal.png" id="1_qjl02"]
+[ext_resource type="Script" uid="uid://dwnrgtmng1x5f" path="res://scripts/defs/place_def.gd" id="2_jfn36"]
+
+[resource]
+script = ExtResource("2_jfn36")
+id = "Varmecht Castle"
+size = 0
+default_texture = ExtResource("1_qjl02")
+metadata/_custom_type_script = "uid://dwnrgtmng1x5f"

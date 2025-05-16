@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://csby7h0aegpyx"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://csby7h0aegpyx"]
 
 [ext_resource type="Texture2D" uid="uid://ccc3h0jmlehhv" path="res://assets/Dalu/worldmap_UI_draftblank.png" id="1_d80jv"]
 [ext_resource type="FontFile" uid="uid://dym61d2hhvhxw" path="res://assets/fonts/magical-world/Magical World.otf" id="1_xgdp2"]
@@ -31,6 +31,26 @@ shadow_offset = Vector2(1.5, 1.5)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0arac"]
 texture = ExtResource("1_d80jv")
 region_rect = Rect2(1474, 867, 404, 354)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_611f8"]
+bg_color = Color(0.811765, 0.745098, 0.643137, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.8, 0.576, 0.576, 1)
+border_blend = true
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+shadow_color = Color(0.21, 0.1596, 0.1596, 0.733333)
+shadow_size = 11
+shadow_offset = Vector2(9.195, 2.935)
 
 [resource]
 default_font = ExtResource("1_xgdp2")
@@ -73,3 +93,10 @@ ParchmentButton/constants/h_separation = 0
 ParchmentButton/constants/icon_max_width = 0
 ParchmentButton/constants/outline_size = 0
 ParchmentButton/styles/normal = SubResource("StyleBoxTexture_0arac")
+PlaceTitleLabel/base_type = &"Label"
+PlaceTitleLabel/colors/font_color = Color(0.501333, 1, 0.32, 1)
+PlaceTitleLabel/colors/font_shadow_color = Color(0.20088, 0.31, 0.1612, 0.87451)
+PlaceTitleLabel/constants/shadow_offset_x = 6
+PlaceTitleLabel/constants/shadow_offset_y = 2
+PlaceTitleLabel/font_sizes/font_size = 200
+PlaceTitleLabel/styles/normal = SubResource("StyleBoxFlat_611f8")
