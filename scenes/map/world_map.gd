@@ -2,16 +2,13 @@ class_name WorldMap extends Node
 
 enum MapMode {PlottingRoutes, SelectingDestination, Traveling}
 
-#@onready var map_mode_label: RichTextLabel = %MapModeLabel
 @onready var locations: Node = %Locations
 @onready var routes: Node = %Routes
 
 @export var mode: MapMode = MapMode.PlottingRoutes
-
 @export var starting_location: Location
 
 var locations_list:Array[Location]
-
 var adjacency_graph = {} # Dictionary[Location, Array[Route]]
 
 func _ready() -> void:

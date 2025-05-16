@@ -3,16 +3,16 @@
 [ext_resource type="Script" uid="uid://jbu7ts4fegu" path="res://scripts/main.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://xecnd1uo1uvp" path="res://scenes/quest_manager.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://da51l63yp03rf" path="res://scenes/npc_manager.tscn" id="3"]
-[ext_resource type="PackedScene" uid="uid://dbgfluksyrlnq" path="res://scenes/map/world_map.tscn" id="4_trceg"]
+[ext_resource type="PackedScene" uid="uid://dmrlquspbbibp" path="res://scenes/map/world_map.tscn" id="4_trceg"]
 [ext_resource type="PackedScene" uid="uid://bmew1ypnbxmml" path="res://scenes/map/world_map_menu_layer.tscn" id="5_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://c3s2crba5220h" path="res://scenes/hud_quest_box_button.tscn" id="7_85g3d"]
+[ext_resource type="PackedScene" path="res://scenes/hud_quest_box_button.tscn" id="7_85g3d"]
 [ext_resource type="Script" uid="uid://6p33tccjcg0s" path="res://scripts/main_hud.gd" id="7_choun"]
 [ext_resource type="PackedScene" uid="uid://cwnm5s0iupeql" path="res://scenes/hud_world_map_button.tscn" id="8_choun"]
 [ext_resource type="Texture2D" uid="uid://dhq7f3msf5rtp" path="res://assets/Images/HUD/quest_box.png" id="9_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://jova5xbqlp5i" path="res://assets/Images/HUD/quest_box_hover.png" id="10_trceg"]
-[ext_resource type="PackedScene" uid="uid://b1pvm4pyyy08c" path="res://scenes/hud_inventory_button.tscn" id="12_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://cppk8wcsqrohx" path="res://scenes/hud_quest_log_button.tscn" id="13_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://ddbihxsbp23c2" path="res://scenes/hud_journal_button.tscn" id="14_a8y0u"]
+[ext_resource type="PackedScene" path="res://scenes/hud_inventory_button.tscn" id="12_a8y0u"]
+[ext_resource type="PackedScene" path="res://scenes/hud_quest_log_button.tscn" id="13_a8y0u"]
+[ext_resource type="PackedScene" path="res://scenes/hud_journal_button.tscn" id="14_a8y0u"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1")
@@ -47,7 +47,9 @@ layout_mode = 1
 anchors_preset = 6
 anchor_top = 0.5
 anchor_bottom = 0.5
+offset_left = -300.0
 offset_top = 500.0
+offset_right = 0.0
 offset_bottom = 800.0
 grow_vertical = 2
 texture_normal = ExtResource("9_eb6dy")
@@ -59,7 +61,9 @@ layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
 offset_top = 780.0
+offset_right = 300.0
 offset_bottom = 1080.0
 grow_vertical = 1
 
@@ -70,17 +74,21 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -300.0
+offset_top = 0.0
 offset_right = 0.0
+offset_bottom = 300.0
 grow_horizontal = 0
 
 [node name="QuestLogButton" parent="MainHudLayer/Control" instance=ExtResource("13_a8y0u")]
 unique_name_in_owner = true
 layout_mode = 0
+offset_left = 0.0
 offset_top = -300.0
+offset_right = 300.0
 offset_bottom = 0.0
 
 [node name="JournalButton" parent="MainHudLayer/Control" instance=ExtResource("14_a8y0u")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_top = -300.0
-offset_bottom = 0.0
+offset_left = 0.0
+offset_right = 300.0

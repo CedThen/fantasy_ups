@@ -2,12 +2,13 @@ extends Node
 
 @export var target_zoom: Vector2 = Vector2(2.0, 2.0)  # default zoom
 @export var zoom_step: float = 0.1
-#TODO will need to grab this from wherever we're keeping player/quest data
-@export var min_zoom: float = 0.5
-@export var max_zoom: float = 2.0
+# TODO will need to grab this from wherever we're keeping player/quest data
+var min_zoom: float = Global.MIN_ZOOM
+var max_zoom: float = Global.MAX_ZOOM
 
 func _ready() -> void:
 	SignalBus.zoom_updated.emit(target_zoom)
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

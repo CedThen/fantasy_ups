@@ -1,23 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbgfluksyrlnq"]
+[gd_scene load_steps=9 format=3 uid="uid://dmrlquspbbibp"]
 
-[ext_resource type="Script" path="res://scenes/map/world_map.gd" id="1_rke7p"]
+[ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/world_map.gd" id="1_rke7p"]
 [ext_resource type="Script" uid="uid://bi74skiv3gv57" path="res://scenes/map/map_camera.gd" id="2_34u3e"]
 [ext_resource type="Texture2D" uid="uid://srd6pdcmbqu8" path="res://assets/Images/Maps/Hestia/Hestia_empty.png" id="3_mp47u"]
 [ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="4_077py"]
-[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/locations/varmecht.tres" id="5_tdc55"]
 [ext_resource type="Resource" uid="uid://dqw5a60qc081t" path="res://assets/locations/north_riverview.tres" id="6_03syf"]
-[ext_resource type="Texture2D" uid="uid://bt2b0c3qycp2r" path="res://assets/Images/Maps/Map Icons/Capital_normal.png" id="7_p7cqt"]
-[ext_resource type="Script" uid="uid://k2ffxolblejc" path="res://scripts/defs/location_def.gd" id="8_ets3u"]
+[ext_resource type="Resource" uid="uid://chvsggwqlgl2g" path="res://assets/locations/south_riverview.tres" id="7_txgco"]
 [ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="9_mvgwk"]
-[ext_resource type="PackedScene" path="res://scenes/map/zoom_controller.tscn" id="10_odxk7"]
-
-[sub_resource type="Resource" id="Resource_nrve7"]
-script = ExtResource("8_ets3u")
-name = "South Riverview"
-size = 0
-has_quest_box = false
-default_texture = ExtResource("7_p7cqt")
-metadata/_custom_type_script = "uid://k2ffxolblejc"
+[ext_resource type="PackedScene" uid="uid://cc7ijrqyd1q04" path="res://scenes/map/zoom_controller.tscn" id="10_odxk7"]
 
 [node name="WorldMap" type="Node2D" node_paths=PackedStringArray("starting_location")]
 script = ExtResource("1_rke7p")
@@ -25,37 +15,38 @@ mode = 1
 starting_location = NodePath("Locations/Varmecht")
 
 [node name="MapCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
 z_index = 1
-position = Vector2(790, 805)
-zoom = Vector2(2, 2)
+position = Vector2(574, 1411)
+zoom = Vector2(3, 3)
 script = ExtResource("2_34u3e")
 target_zoom = Vector2(2.5, 2.5)
 drag_lerp_speed = 5.0
 
-[node name="HestiaEmpty" type="Sprite2D" parent="."]
-position = Vector2(958, 513)
+[node name="MapSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture = ExtResource("3_mp47u")
+centered = false
 
 [node name="Locations" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Varmecht" parent="Locations" instance=ExtResource("4_077py")]
-position = Vector2(913, 793)
-location_def = ExtResource("5_tdc55")
+position = Vector2(731, 1302)
 
 [node name="NorthRiverview" parent="Locations" instance=ExtResource("4_077py")]
-position = Vector2(559, 927)
+position = Vector2(367, 1442)
 location_def = ExtResource("6_03syf")
 
 [node name="SouthRiverview" parent="Locations" instance=ExtResource("4_077py")]
-position = Vector2(584, 974)
-location_def = SubResource("Resource_nrve7")
+position = Vector2(400, 1475)
+location_def = ExtResource("7_txgco")
 
 [node name="Routes" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Route" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("9_mvgwk")]
-points = PackedVector2Array(559, 927, 584, 974)
+points = PackedVector2Array(367, 1442, 400, 1475)
 origin = NodePath("../../Locations/NorthRiverview")
 destination = NodePath("../../Locations/SouthRiverview")
 

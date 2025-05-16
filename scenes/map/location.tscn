@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://doxwbfg3pfc73"]
+[gd_scene load_steps=7 format=3 uid="uid://doxwbfg3pfc73"]
 
 [ext_resource type="Script" uid="uid://bmi3ifaa5xjhy" path="res://scripts/map/location.gd" id="1_hccqc"]
 [ext_resource type="Theme" uid="uid://csby7h0aegpyx" path="res://assets/main_theme.tres" id="2_643j3"]
-[ext_resource type="Resource" uid="uid://brkjtqckyqsy" path="res://assets/locations/colbyjack.tres" id="2_tmhpo"]
 [ext_resource type="Texture2D" uid="uid://bt2b0c3qycp2r" path="res://assets/Images/Maps/Map Icons/Capital_normal.png" id="4_0ub1r"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0ub1r"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmhpo"]
 radius = 15.0
 
 [sub_resource type="Gradient" id="Gradient_643j3"]
@@ -19,25 +18,30 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="Location" type="Node2D"]
 script = ExtResource("1_hccqc")
-location_def = ExtResource("2_tmhpo")
 metadata/_custom_type_script = "uid://bmi3ifaa5xjhy"
 
-[node name="LocationLabel" type="Label" parent="."]
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 3
+offset_top = -20.0
+
+[node name="LocationLabel" type="Label" parent="Control"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(10, 10)
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 1060.0
-offset_bottom = 434.0
-scale = Vector2(0.05, 0.05)
+z_index = 1
+offset_left = 21.0
+offset_top = 5.0
+offset_right = 1234.0
+offset_bottom = 319.0
+scale = Vector2(0.1, 0.1)
 theme = ExtResource("2_643j3")
 theme_type_variation = &"LocationLabel"
-text = "Colby Jack"
+text = "Varmecht"
+horizontal_alignment = 1
 
 [node name="HighlightArea" type="Area2D" parent="."]
 
 [node name="MouseCollisionShape" type="CollisionShape2D" parent="HighlightArea"]
-shape = SubResource("CircleShape2D_0ub1r")
+shape = SubResource("CircleShape2D_tmhpo")
 
 [node name="HaloLight" type="PointLight2D" parent="HighlightArea"]
 visible = false
@@ -48,8 +52,7 @@ texture_scale = 3.0
 
 [node name="MapIcon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1, 0)
-scale = Vector2(0.07, 0.07)
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("4_0ub1r")
 
 [connection signal="input_event" from="HighlightArea" to="." method="_on_highlight_area_input_event"]
