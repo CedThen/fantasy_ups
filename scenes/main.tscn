@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bmew1ypnbxmml" path="res://scenes/map/world_map_menu_layer.tscn" id="5_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://c3s2crba5220h" path="res://scenes/hud_quest_box_button.tscn" id="7_85g3d"]
 [ext_resource type="Script" uid="uid://6p33tccjcg0s" path="res://scripts/main_hud.gd" id="7_choun"]
+[ext_resource type="PackedScene" uid="uid://dsag0gnxk58x8" path="res://scenes/hud_calendar_button.tscn" id="7_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://cwnm5s0iupeql" path="res://scenes/hud_world_map_button.tscn" id="8_choun"]
-[ext_resource type="Texture2D" uid="uid://dhq7f3msf5rtp" path="res://assets/Images/HUD/quest_box.png" id="9_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://jova5xbqlp5i" path="res://assets/Images/HUD/quest_box_hover.png" id="10_trceg"]
+[ext_resource type="PackedScene" uid="uid://bjeahv10ohem1" path="res://scenes/hud_location_map_button.tscn" id="8_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://b1pvm4pyyy08c" path="res://scenes/hud_inventory_button.tscn" id="12_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cppk8wcsqrohx" path="res://scenes/hud_quest_log_button.tscn" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://ddbihxsbp23c2" path="res://scenes/hud_journal_button.tscn" id="14_a8y0u"]
@@ -41,46 +41,88 @@ grow_vertical = 2
 size_flags_horizontal = 4
 mouse_filter = 1
 
-[node name="QuestBoxButton" parent="MainHudLayer/Control" instance=ExtResource("7_85g3d")]
-unique_name_in_owner = true
+[node name="BottomLeft" type="VBoxContainer" parent="MainHudLayer/Control"]
 layout_mode = 1
-anchors_preset = 6
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = 500.0
-offset_bottom = 800.0
-grow_vertical = 2
-texture_normal = ExtResource("9_eb6dy")
-texture_hover = ExtResource("10_trceg")
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -223.0
+offset_right = 232.0
+grow_vertical = 0
 
-[node name="WorldMapButton" parent="MainHudLayer/Control" instance=ExtResource("8_choun")]
+[node name="LocationMapCon" type="MarginContainer" parent="MainHudLayer/Control/BottomLeft"]
+layout_mode = 2
+
+[node name="LocationMapButton" parent="MainHudLayer/Control/BottomLeft/LocationMapCon" instance=ExtResource("8_jbj1t")]
 unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="WorldMapCon" type="MarginContainer" parent="MainHudLayer/Control/BottomLeft"]
+layout_mode = 2
+
+[node name="WorldMapButton" parent="MainHudLayer/Control/BottomLeft/WorldMapCon" instance=ExtResource("8_choun")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TopLeft" type="HBoxContainer" parent="MainHudLayer/Control"]
 layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_top = 780.0
-offset_bottom = 1080.0
-grow_vertical = 1
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="InventoryButton" parent="MainHudLayer/Control" instance=ExtResource("12_a8y0u")]
+[node name="CalendarCon" type="MarginContainer" parent="MainHudLayer/Control/TopLeft"]
+layout_mode = 2
+
+[node name="CalendarButton" parent="MainHudLayer/Control/TopLeft/CalendarCon" instance=ExtResource("7_jkv2x")]
 unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BottomRight" type="VBoxContainer" parent="MainHudLayer/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -156.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="InventoryCon" type="MarginContainer" parent="MainHudLayer/Control/BottomRight"]
+layout_mode = 2
+
+[node name="InventoryButton" parent="MainHudLayer/Control/BottomRight/InventoryCon" instance=ExtResource("12_a8y0u")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TopRight" type="HBoxContainer" parent="MainHudLayer/Control"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -300.0
-offset_right = 0.0
+offset_left = -383.0
+offset_bottom = 131.0
 grow_horizontal = 0
 
-[node name="QuestLogButton" parent="MainHudLayer/Control" instance=ExtResource("13_a8y0u")]
-unique_name_in_owner = true
-layout_mode = 0
-offset_top = -300.0
-offset_bottom = 0.0
+[node name="QuestBoxCon" type="MarginContainer" parent="MainHudLayer/Control/TopRight"]
+layout_mode = 2
 
-[node name="JournalButton" parent="MainHudLayer/Control" instance=ExtResource("14_a8y0u")]
+[node name="QuestBoxButton" parent="MainHudLayer/Control/TopRight/QuestBoxCon" instance=ExtResource("7_85g3d")]
 unique_name_in_owner = true
-layout_mode = 0
-offset_top = -300.0
-offset_bottom = 0.0
+layout_mode = 2
+
+[node name="QuestLogCon" type="MarginContainer" parent="MainHudLayer/Control/TopRight"]
+layout_mode = 2
+
+[node name="QuestLogButton" parent="MainHudLayer/Control/TopRight/QuestLogCon" instance=ExtResource("13_a8y0u")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="JournalCon" type="MarginContainer" parent="MainHudLayer/Control/TopRight"]
+layout_mode = 2
+
+[node name="JournalButton" parent="MainHudLayer/Control/TopRight/JournalCon" instance=ExtResource("14_a8y0u")]
+unique_name_in_owner = true
+layout_mode = 2

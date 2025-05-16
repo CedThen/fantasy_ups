@@ -72,8 +72,8 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://assets/styles/quest_box_style.tres", "res://assets/styles/npc_chat_style.tres"]
+layout/default_style="res://assets/styles/quest_box_style.tres"
 
 [display]
 
