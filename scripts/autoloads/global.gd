@@ -22,3 +22,7 @@ func get_map() -> WorldMap:
 	
 func get_npc_manager() -> NPCManager:
 	return npc_manager
+
+# Map Stuff
+const MIN_ZOOM = 0.85
+const MAX_ZOOM = 3.0
