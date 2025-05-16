@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1320, -300)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_hcgvu"]
@@ -32,7 +32,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1320, -300), Vector2(1320, 0)]
+"values": [Vector2(0, -117), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_u4bsk"]
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1320, 0), Vector2(1320, -300)]
+"values": [Vector2(0, 0), Vector2(0, -117)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ug6kk"]
@@ -58,9 +58,8 @@ _data = {
 }
 
 [node name="QuestLogButton" type="TextureButton"]
-offset_left = 1320.0
-offset_right = 1620.0
-offset_bottom = 300.0
+offset_top = -117.0
+offset_right = 133.0
 texture_normal = ExtResource("1_3v4g2")
 texture_hover = ExtResource("2_x8ykq")
 script = ExtResource("3_x8ykq")

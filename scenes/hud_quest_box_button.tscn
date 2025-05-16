@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3s2crba5220h"]
+[gd_scene load_steps=9 format=3 uid="uid://c3s2crba5220h"]
 
-[ext_resource type="Texture2D" uid="uid://8htcw4oxpu06" path="res://assets/Images/HUD/inventory.png" id="1_tyhd0"]
+[ext_resource type="Texture2D" uid="uid://dhq7f3msf5rtp" path="res://assets/Images/HUD/quest_box.png" id="1_w16a3"]
+[ext_resource type="Texture2D" uid="uid://jova5xbqlp5i" path="res://assets/Images/HUD/quest_box_hover.png" id="2_64pxf"]
 [ext_resource type="Script" uid="uid://lvmdn8q3fkyc" path="res://scripts/hud_quest_box_button.gd" id="2_w16a3"]
 [ext_resource type="Script" uid="uid://b7rpout8nbs1m" path="res://scripts/hud_animation_player.gd" id="3_64pxf"]
 
@@ -16,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1920, 1040)]
+"values": [Vector2(0, -96)]
 }
 
 [sub_resource type="Animation" id="Animation_o6xl0"]
@@ -31,7 +32,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1920, 780), Vector2(1620, 780)]
+"values": [Vector2(0, -96), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_trceg"]
@@ -46,7 +47,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1620, 780), Vector2(1920, 780)]
+"values": [Vector2(0, 0), Vector2(0, -96)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_85g3d"]
@@ -57,16 +58,10 @@ _data = {
 }
 
 [node name="QuestBoxButton" type="TextureButton"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -300.0
-offset_right = 300.0
-grow_horizontal = 0
-grow_vertical = 0
-texture_normal = ExtResource("1_tyhd0")
+offset_top = -96.0
+offset_right = 119.0
+texture_normal = ExtResource("1_w16a3")
+texture_hover = ExtResource("2_64pxf")
 script = ExtResource("2_w16a3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
