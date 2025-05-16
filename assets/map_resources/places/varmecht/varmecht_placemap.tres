@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlaceMapDef" load_steps=4 format=3 uid="uid://coye88ymm4hpe"]
 
-[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/locations/varmecht.tres" id="1_3h8qf"]
+[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/map_resources/locations/varmecht.tres" id="1_3h8qf"]
 [ext_resource type="Texture2D" uid="uid://ic8d8xs5box8" path="res://assets/Images/place_maps/anime_town_map.png" id="2_l61so"]
 [ext_resource type="Script" uid="uid://dkheklccqq3jj" path="res://scripts/defs/place_map_def.gd" id="2_u3itw"]
 

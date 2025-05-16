@@ -1,19 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://3ojardfd50o2"]
+[gd_scene load_steps=4 format=3 uid="uid://3ojardfd50o2"]
 
 [ext_resource type="Script" uid="uid://ccfo2ng6uaybn" path="res://scripts/map/route.gd" id="1_vidnp"]
+[ext_resource type="Texture2D" uid="uid://cmtlw8w4e7qu" path="res://assets/Images/Maps/Routes/route_002a.png" id="2_42oy2"]
 [ext_resource type="Theme" uid="uid://csby7h0aegpyx" path="res://assets/main_theme.tres" id="2_np6wd"]
 
-[node name="Route" type="Line2D"]
-visible = false
-points = PackedVector2Array(185, 190, 0, 0)
-width = 2.0
-default_color = Color(0.347183, 0.74, 0.259, 1)
+[node name="Route" type="Node2D"]
 script = ExtResource("1_vidnp")
-line_color = Color(0.347183, 0.74, 0.259, 1)
-isVisible = false
+
+[node name="RouteTexture" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.53, 0.53, 0.53, 0.47451)
+self_modulate = Color(0.529412, 0.529412, 0.529412, 0.47451)
+texture = ExtResource("2_42oy2")
+centered = false
 
 [node name="InfoPanel" type="PanelContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(200, 100)
 offset_right = 40.0
 offset_bottom = 40.0
@@ -44,3 +47,9 @@ layout_mode = 2
 theme_type_variation = &"InfoLabel"
 text = "Cost: 10"
 horizontal_alignment = 1
+
+[node name="MouseDetectionArea2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[connection signal="mouse_entered" from="MouseDetectionArea2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="MouseDetectionArea2D" to="." method="_on_area_2d_mouse_exited"]

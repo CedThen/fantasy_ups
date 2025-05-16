@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="QuestDef" load_steps=7 format=3 uid="uid://77lnn7tfh7t"]
 
-[ext_resource type="Script" uid="uid://b1j22sthjw83y" path="res://scripts/defs/req_def.gd" id="1_hjpx6"]
-[ext_resource type="Resource" uid="uid://bpp1l41wehjnt" path="res://assets/locations/riversend.tres" id="2_18ohf"]
-[ext_resource type="Script" uid="uid://b407s51qncg8f" path="res://scripts/defs/item_def.gd" id="2_ul2j8"]
+[ext_resource type="Script" path="res://scripts/defs/req_def.gd" id="1_hjpx6"]
+[ext_resource type="Resource" uid="uid://bpp1l41wehjnt" path="res://assets/map_resources/locations/riversend.tres" id="2_18ohf"]
+[ext_resource type="Script" path="res://scripts/defs/item_def.gd" id="2_ul2j8"]
 [ext_resource type="Resource" uid="uid://dbuajmg2ifiwp" path="res://assets/items/danie_letter_tutorial.tres" id="3_18ohf"]
 [ext_resource type="Script" uid="uid://cmqlrln467ark" path="res://scripts/defs/quest_def.gd" id="4_d7spk"]
 [ext_resource type="Resource" uid="uid://kdjgoalpf2ul" path="res://timelines/tut_danie_letter_1.dtl" id="5_ul2j8"]
