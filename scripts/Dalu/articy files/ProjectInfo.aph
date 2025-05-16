@@ -1,0 +1,19 @@
+<ProjectInfo Version="1">
+  <Signature>5E70BD815566B2A033ED5A756ED8BC209B400DF67F76A93B81ED288093D3E1C8</Signature>
+  <Content>
+    <Project Guid="0faf138f-8d4a-44e4-9eb0-de5d852fe998">
+      <DisplayName Value="Fantasy UPS"/>
+      <DetailName Value=""/>
+      <MainProjectGuid Value="1e09c32c-eb72-4b92-b89b-5888b4a41527"/>
+      <IconType Value="0"/>
+      <IdProjectIcon Value="00000000-0000-0000-0000-000000000000"/>
+      <ScmProviderGuid Value="0745c2ee-abe3-451b-934e-7f597f56c0d7"/>
+      <ScmConfiguration Value=""/>
+      <CreationTimeStamp Value="638828298597927136"/>
+      <PartitionHash Value="DB947701D21B44C113773DDFB759FAC8094102DF4AA8A1E07D80D98C0EA6F065"/>
+      <SaveFileVersion Value="56"/>
+      <ProjectType Value="0"/>
+      <IsOnlineProject Value="False"/>
+    </Project>
+  </Content>
+</ProjectInfo>

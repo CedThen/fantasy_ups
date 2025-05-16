@@ -1,0 +1,14 @@
+<ExportPresets LastType="JsonExport">
+  <Preset DisplayName="" Type="JsonExport">
+    <ExportSettings Type="JsonExport">
+      <Filename>C:\Users\Leafy\Documents\Fantasy UPS.json</Filename>
+      <CustomSettings>
+        <Option Name="set_Localization" Value="False"/>
+        <Option Name="set_TextFormatter" Value=""/>
+        <Option Name="set_IncludedNodes" Value="Settings, Project, GlobalVariables, ObjectDefinitions, Packages, ScriptMethods, Hierarchy, Assets"/>
+      </CustomSettings>
+      <PackageStates/>
+      <SelectedRuleSet>72057594037928191</SelectedRuleSet>
+    </ExportSettings>
+  </Preset>
+</ExportPresets>
