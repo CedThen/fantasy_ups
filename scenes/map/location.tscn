@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bt2b0c3qycp2r" path="res://assets/Images/Maps/Map Icons/Capital_normal.png" id="4_0ub1r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmhpo"]
-radius = 15.0
+radius = 45.0
 
 [sub_resource type="Gradient" id="Gradient_643j3"]
 offsets = PackedFloat32Array(0.503759, 0.823308)
@@ -23,11 +23,13 @@ metadata/_custom_type_script = "uid://bmi3ifaa5xjhy"
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 3
+anchors_preset = 0
 offset_top = -20.0
 
 [node name="LocationLabel" type="Label" parent="Control"]
 unique_name_in_owner = true
 z_index = 1
+layout_mode = 0
 offset_left = 21.0
 offset_top = 5.0
 offset_right = 1234.0
@@ -35,6 +37,7 @@ offset_bottom = 319.0
 scale = Vector2(0.1, 0.1)
 theme = ExtResource("2_643j3")
 theme_type_variation = &"LocationLabel"
+theme_override_font_sizes/font_size = 353
 text = "Varmecht"
 horizontal_alignment = 1
 
@@ -52,7 +55,7 @@ texture_scale = 3.0
 
 [node name="MapIcon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-scale = Vector2(1e-05, 1e-05)
+scale = Vector2(0.145116, 0.145116)
 texture = ExtResource("4_0ub1r")
 
 [connection signal="input_event" from="HighlightArea" to="." method="_on_highlight_area_input_event"]
