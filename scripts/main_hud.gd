@@ -30,31 +30,33 @@ func _process(delta: float) -> void:
 
 
 func is_everything_out() -> bool:
-	if quest_box_button.is_out() and \
-		world_map_button.is_out() and \
+	if calendar_button.is_out() and \
+		journal_button.is_out() and \
 		quest_log_button.is_out() and \
+		world_map_button.is_out() and \
 		inventory_button.is_out() and \
-		location_map_button.is_out() and \
-		calendar_button.is_out() and \
-		journal_button.is_out():
+		quest_box_button.is_out() and \
+		location_map_button.is_out():
 		return true
 		
 	return false
 	
 
 func is_everything_in() -> bool:
-	if world_map_button.is_in() and \
-		inventory_button.is_in() and \
+	var quest_box_in: bool = true
+	if show_quest_box:
+		quest_box_in = quest_box_button.is_in()
+	
+	var location_map_in: bool = true
+	if show_location_map:
+		location_map_in = location_map_button.is_in()
+		
+	if calendar_button.is_in() and \
+		journal_button.is_in() and \
 		quest_log_button.is_in() and \
-		calendar_button.is_in() and \
-		location_map_button.is_in() and \
-		journal_button.is_in():
-		if show_quest_box:
-			if quest_box_button.is_in():
-				return true
-			else:
-				return false
-				
+		world_map_button.is_in() and \
+		inventory_button.is_in() and \
+		quest_box_in and location_map_in:
 		return true
 		
 	return false
@@ -69,24 +71,26 @@ func open(quest_box:bool = true, location_map:bool = true) -> void:
 	if show_quest_box:
 		quest_box_button.intro()
 		
+	if show_location_map:
+		location_map_button.intro()
+	
+	calendar_button.intro()
+	journal_button.intro()
+	quest_log_button.intro()
 	world_map_button.intro()
 	inventory_button.intro()
-	quest_log_button.intro()
-	journal_button.intro()
-	location_map_button.intro()
-	calendar_button.intro()
-
+	
 
 func close() -> void:
 	anim_state = Global.AnimState.ANIMATING
+	calendar_button.outro()
 	quest_box_button.outro()
+	journal_button.outro()
+	quest_log_button.outro()
+	location_map_button.outro()
 	world_map_button.outro()
 	inventory_button.outro()
-	quest_log_button.outro()
-	journal_button.outro()
-	location_map_button.outro()
-	calendar_button.outro()
-
+	
 
 func on_world_map_pressed():
 	close()

@@ -6,8 +6,13 @@ signal dialogic_quest_rejected()
 signal dialogic_quest_completed()
 
 # Main hud signals
+signal calendar_pressed()
 signal quest_box_pressed()
+signal journal_pressed()
+signal quest_log_pressed()
+signal location_map_pressed()
 signal world_map_pressed()
+signal inventory_pressed()
 
 
 signal quest_completed(quest: QuestInstance)

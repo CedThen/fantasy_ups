@@ -24,4 +24,4 @@ func is_out() -> bool:
 
 
 func _on_pressed() -> void:
-	SignalBus.quest_box_pressed.emit()
+	SignalBus.inventory_pressed.emit()
