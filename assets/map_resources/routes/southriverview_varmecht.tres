@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RouteDef" load_steps=6 format=3 uid="uid://cmmnj06lqj2fy"]
+
+[ext_resource type="Texture2D" uid="uid://cmtlw8w4e7qu" path="res://assets/Images/Maps/Routes/route_002a.png" id="1_f2iwd"]
+[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/map_resources/locations/varmecht.tres" id="2_j4fqi"]
+[ext_resource type="Texture2D" uid="uid://oqmfft157xry" path="res://assets/Images/Maps/Routes/route_002b.png" id="2_p7gh0"]
+[ext_resource type="Script" uid="uid://buxicw1elcle" path="res://scripts/defs/route_def.gd" id="3_j4fqi"]
+[ext_resource type="Resource" uid="uid://chvsggwqlgl2g" path="res://assets/map_resources/locations/south_riverview.tres" id="4_58k4x"]
+
+[resource]
+script = ExtResource("3_j4fqi")
+origin = ExtResource("4_58k4x")
+destination = ExtResource("2_j4fqi")
+route_name = "South Riverview / Varmecht"
+default_route = ExtResource("1_f2iwd")
+highlighted_route = ExtResource("2_p7gh0")
+color = Color(0, 0, 0, 1)
+supply_cost = 5.5
+time_cost = 6.0
+route_type = 0
+is_in_fog = false
+collision_polygon = [Vector2(679, 1306), Vector2(558, 1348), Vector2(555, 1348), Vector2(551, 1352), Vector2(551, 1355), Vector2(542, 1355), Vector2(539, 1355), Vector2(536, 1360), Vector2(536, 1362), Vector2(512, 1370), Vector2(510, 1370), Vector2(507, 1376), Vector2(507, 1377), Vector2(498, 1378), Vector2(496, 1378), Vector2(493, 1384), Vector2(493, 1385), Vector2(484, 1386), Vector2(482, 1386), Vector2(479, 1392), Vector2(479, 1394), Vector2(472, 1394), Vector2(469, 1394), Vector2(466, 1399), Vector2(466, 1403), Vector2(457, 1404), Vector2(455, 1404), Vector2(454, 1413), Vector2(454, 1414), Vector2(448, 1414), Vector2(445, 1414), Vector2(442, 1424), Vector2(442, 1425), Vector2(437, 1426), Vector2(434, 1426), Vector2(431, 1435), Vector2(431, 1437), Vector2(422, 1440), Vector2(421, 1440), Vector2(421, 1448), Vector2(421, 1450), Vector2(410, 1456), Vector2(409, 1456), Vector2(412, 1464), Vector2(412, 1465), Vector2(422, 1465), Vector2(424, 1465), Vector2(426, 1456), Vector2(426, 1454), Vector2(435, 1451), Vector2(436, 1451), Vector2(437, 1445), Vector2(437, 1442), Vector2(445, 1440), Vector2(446, 1440), Vector2(447, 1431), Vector2(447, 1430), Vector2(454, 1429), Vector2(456, 1429), Vector2(458, 1420), Vector2(458, 1419), Vector2(466, 1418), Vector2(468, 1418), Vector2(484, 1402), Vector2(484, 1401), Vector2(490, 1401), Vector2(493, 1401), Vector2(497, 1395), Vector2(497, 1393), Vector2(504, 1393), Vector2(507, 1393), Vector2(511, 1387), Vector2(511, 1385), Vector2(518, 1385), Vector2(521, 1385), Vector2(525, 1379), Vector2(525, 1377), Vector2(531, 1378), Vector2(534, 1378), Vector2(553, 1365), Vector2(553, 1363), Vector2(557, 1365), Vector2(561, 1365), Vector2(568, 1358), Vector2(568, 1357), Vector2(572, 1359), Vector2(577, 1359), Vector2(582, 1355), Vector2(582, 1352), Vector2(587, 1354), Vector2(591, 1354), Vector2(598, 1347), Vector2(598, 1346), Vector2(602, 1348), Vector2(607, 1348), Vector2(628, 1336), Vector2(628, 1335), Vector2(632, 1337), Vector2(637, 1337), Vector2(643, 1331), Vector2(643, 1330), Vector2(673, 1323), Vector2(673, 1320), Vector2(682, 1322), Vector2(685, 1322), Vector2(688, 1312), Vector2(688, 1309), Vector2(679, 1305)]
+metadata/_custom_type_script = "uid://buxicw1elcle"

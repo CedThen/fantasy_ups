@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmew1ypnbxmml"]
 
-[ext_resource type="Texture2D" uid="uid://ccc3h0jmlehhv" path="res://assets/Dalu/worldmap_UI_draftblank.png" id="1_0hapb"]
+[ext_resource type="Texture2D" uid="uid://c4mbkoame5ie7" path="res://assets/Images/Menus/Inventory/maininventory_usewindow.png" id="2_cos8k"]
 [ext_resource type="Theme" uid="uid://csby7h0aegpyx" path="res://assets/main_theme.tres" id="2_ghicc"]
 
-[node name="MapMenuLayer" type="CanvasLayer"]
+[node name="RouteLogMenuLayer" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -34,12 +34,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 1.0
 theme = ExtResource("2_ghicc")
-texture = ExtResource("1_0hapb")
-region_rect = Rect2(1474, 867, 404, 354)
-patch_margin_left = 59
+texture = ExtResource("2_cos8k")
+region_rect = Rect2(0, 1, 318, 387)
+patch_margin_left = 81
 patch_margin_top = 111
-patch_margin_right = 68
-patch_margin_bottom = 32
+patch_margin_right = 148
+patch_margin_bottom = 144
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 metadata/_edit_use_anchors_ = true
@@ -60,6 +60,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Control/MarginContainer/Control/RoutesMenu/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Hello"
 
@@ -71,12 +72,12 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.6
 grow_horizontal = 0
-texture = ExtResource("1_0hapb")
-region_rect = Rect2(1474, 867, 404, 354)
-patch_margin_left = 70
-patch_margin_top = 111
-patch_margin_right = 66
-patch_margin_bottom = 32
+texture = ExtResource("2_cos8k")
+region_rect = Rect2(0, 1, 318, 387)
+patch_margin_left = 87
+patch_margin_top = 132
+patch_margin_right = 149
+patch_margin_bottom = 141
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 metadata/_edit_use_anchors_ = true
@@ -90,12 +91,12 @@ anchor_top = 0.62
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
-texture = ExtResource("1_0hapb")
-region_rect = Rect2(1474, 867, 404, 354)
-patch_margin_left = 72
+texture = ExtResource("2_cos8k")
+region_rect = Rect2(0, 1, 318, 387)
+patch_margin_left = 85
 patch_margin_top = 111
-patch_margin_right = 72
-patch_margin_bottom = 32
+patch_margin_right = 146
+patch_margin_bottom = 149
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 metadata/_edit_use_anchors_ = true

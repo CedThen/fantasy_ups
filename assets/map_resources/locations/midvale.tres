@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="LocationDef" load_steps=5 format=3 uid="uid://sb2f8rrcvkig"]
+
+[ext_resource type="Texture2D" uid="uid://db5rpfis4yb3y" path="res://assets/Images/Maps/Map Icons/Capital_click.png" id="1_cw62x"]
+[ext_resource type="Texture2D" uid="uid://bt2b0c3qycp2r" path="res://assets/Images/Maps/Map Icons/Capital_normal.png" id="2_fpakl"]
+[ext_resource type="Texture2D" uid="uid://cj2t61qlbowol" path="res://assets/Images/Maps/Map Icons/Capital_hover.png" id="3_fd6wr"]
+[ext_resource type="Script" uid="uid://k2ffxolblejc" path="res://scripts/defs/location_def.gd" id="4_8im7e"]
+
+[resource]
+script = ExtResource("4_8im7e")
+name = "Midvale"
+size = 1
+has_quest_box = false
+default_texture = ExtResource("2_fpakl")
+hover_texture = ExtResource("3_fd6wr")
+click_texture = ExtResource("1_cw62x")
+metadata/_custom_type_script = "uid://k2ffxolblejc"

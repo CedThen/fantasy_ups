@@ -7,7 +7,7 @@ class_name Location extends Node2D
 @onready var mouse_collision_shape: CollisionShape2D = $HighlightArea/MouseCollisionShape
 @onready var map_icon: Sprite2D = %MapIcon
 
-@export var location_def:LocationDef = preload("res://assets/locations/varmecht.tres")
+@export var location_def:LocationDef
 var isMouseHovering := false
 var base_scale := Vector2(1,1)
 var zoom_level := Vector2(1,1)

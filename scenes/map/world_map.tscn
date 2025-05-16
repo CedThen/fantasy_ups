@@ -1,15 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmrlquspbbibp"]
+[gd_scene load_steps=15 format=3 uid="uid://dmrlquspbbibp"]
 
 [ext_resource type="Script" uid="uid://b6tpwfv0cd8b6" path="res://scenes/map/world_map.gd" id="1_rke7p"]
 [ext_resource type="Script" uid="uid://bi74skiv3gv57" path="res://scenes/map/map_camera.gd" id="2_34u3e"]
 [ext_resource type="Texture2D" uid="uid://srd6pdcmbqu8" path="res://assets/Images/Maps/Hestia/Hestia_empty.png" id="3_mp47u"]
 [ext_resource type="PackedScene" uid="uid://doxwbfg3pfc73" path="res://scenes/map/location.tscn" id="4_077py"]
-[ext_resource type="Resource" uid="uid://dqw5a60qc081t" path="res://assets/locations/north_riverview.tres" id="6_03syf"]
-[ext_resource type="Resource" uid="uid://bbtv5c84oavjt" path="res://assets/locations/riverin.tres" id="7_rke7p"]
-[ext_resource type="Resource" uid="uid://chvsggwqlgl2g" path="res://assets/locations/south_riverview.tres" id="7_txgco"]
-[ext_resource type="Resource" uid="uid://dxeviakon82ln" path="res://assets/locations/kings_rest.tres" id="8_by8o0"]
+[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/map_resources/locations/varmecht.tres" id="5_by8o0"]
+[ext_resource type="Resource" uid="uid://dqw5a60qc081t" path="res://assets/map_resources/locations/north_riverview.tres" id="6_03syf"]
+[ext_resource type="Resource" uid="uid://bbtv5c84oavjt" path="res://assets/map_resources/locations/riverin.tres" id="7_rke7p"]
+[ext_resource type="Resource" uid="uid://chvsggwqlgl2g" path="res://assets/map_resources/locations/south_riverview.tres" id="7_txgco"]
+[ext_resource type="Resource" uid="uid://dxeviakon82ln" path="res://assets/map_resources/locations/kings_rest.tres" id="8_by8o0"]
 [ext_resource type="PackedScene" uid="uid://3ojardfd50o2" path="res://scenes/map/route.tscn" id="9_mvgwk"]
+[ext_resource type="Resource" uid="uid://sb2f8rrcvkig" path="res://assets/map_resources/locations/midvale.tres" id="10_j24bx"]
 [ext_resource type="PackedScene" uid="uid://cc7ijrqyd1q04" path="res://scenes/map/zoom_controller.tscn" id="10_odxk7"]
+[ext_resource type="Resource" uid="uid://drewmcwlw2enr" path="res://assets/map_resources/routes/southriverview_midvale.tres" id="12_5yl0k"]
+[ext_resource type="Resource" uid="uid://cmmnj06lqj2fy" path="res://assets/map_resources/routes/southriverview_varmecht.tres" id="12_xx134"]
 
 [node name="WorldMap" type="Node2D" node_paths=PackedStringArray("starting_location")]
 script = ExtResource("1_rke7p")
@@ -35,6 +39,7 @@ unique_name_in_owner = true
 
 [node name="Varmecht" parent="Locations" instance=ExtResource("4_077py")]
 position = Vector2(731, 1302)
+location_def = ExtResource("5_by8o0")
 
 [node name="NorthRiverview" parent="Locations" instance=ExtResource("4_077py")]
 position = Vector2(367, 1442)
@@ -52,12 +57,21 @@ location_def = ExtResource("7_rke7p")
 position = Vector2(828, 980)
 location_def = ExtResource("8_by8o0")
 
+[node name="Midvale" parent="Locations" instance=ExtResource("4_077py")]
+position = Vector2(853, 1485)
+location_def = ExtResource("10_j24bx")
+
 [node name="Routes" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Route" parent="Routes" node_paths=PackedStringArray("origin", "destination") instance=ExtResource("9_mvgwk")]
-points = PackedVector2Array(367, 1442, 400, 1475)
-origin = NodePath("../../Locations/NorthRiverview")
-destination = NodePath("../../Locations/SouthRiverview")
+[node name="SouthRiverview_Midvale" parent="Routes" instance=ExtResource("9_mvgwk")]
+route_def = ExtResource("12_5yl0k")
+
+[node name="SouthRiverview_Varmecht" parent="Routes" instance=ExtResource("9_mvgwk")]
+route_def = ExtResource("12_xx134")
 
 [node name="ZoomController" parent="." instance=ExtResource("10_odxk7")]
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(679, 1309, 674, 1312, 674, 1316, 678, 1319, 678, 1320, 685, 1316, 686, 1316, 686, 1312, 679, 1308)
