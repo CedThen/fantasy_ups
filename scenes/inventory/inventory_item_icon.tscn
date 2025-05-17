@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfv55w834drau"]
+
+[ext_resource type="Script" uid="uid://g4jlqow8315n" path="res://scripts/inventory_item_icon.gd" id="1_jqnkm"]
+
+[node name="InventoryItemIcon" type="ColorRect"]
+custom_minimum_size = Vector2(50, 50)
+mouse_filter = 2
+color = Color(1, 0.462745, 1, 1)
+script = ExtResource("1_jqnkm")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

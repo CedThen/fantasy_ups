@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdon4wu8it8fh"]
+
+[ext_resource type="Script" uid="uid://othjl4bdoxmv" path="res://scripts/inventory_slot.gd" id="1_5agom"]
+
+[node name="InventorySlot" type="PanelContainer"]
+custom_minimum_size = Vector2(50, 50)
+script = ExtResource("1_5agom")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

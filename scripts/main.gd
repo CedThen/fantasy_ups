@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 	# Temp
 	var coin_def = load("res://assets/items/coin.tres")
-	player.add_item(coin_def)
+	player.inventory.add_item(coin_def)
 
 	player.entered_location(world_map.get_starting_location())	
 	
@@ -59,6 +59,7 @@ func on_quest_box_pressed():
 
 
 func on_inventory_pressed():
+	%Inventory.toggle(player.inventory)
 	pass
 	
 func on_journal_pressed():

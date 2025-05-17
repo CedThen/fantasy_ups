@@ -1,6 +1,7 @@
 [gd_resource type="StyleBoxFlat" format=3 uid="uid://dpahfmenrsfjb"]
 
 [resource]
+content_margin_bottom = 15.0
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5

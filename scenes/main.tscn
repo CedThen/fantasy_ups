@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvmkml3g4fb5p"]
+[gd_scene load_steps=15 format=3 uid="uid://dvmkml3g4fb5p"]
 
 [ext_resource type="Script" uid="uid://jbu7ts4fegu" path="res://scripts/main.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://xecnd1uo1uvp" path="res://scenes/quest_manager.tscn" id="2"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b1pvm4pyyy08c" path="res://scenes/hud_inventory_button.tscn" id="12_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cppk8wcsqrohx" path="res://scenes/hud_quest_log_button.tscn" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://ddbihxsbp23c2" path="res://scenes/hud_journal_button.tscn" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://bifubn63flr72" path="res://scenes/inventory/inventory.tscn" id="14_jkv2x"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1")
@@ -128,4 +129,24 @@ size_flags_vertical = 8
 
 [node name="JournalButton" parent="MainHudLayer/Control/TopRight/JournalCon" instance=ExtResource("14_a8y0u")]
 unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventoryHolder" type="MarginContainer" parent="MainHudLayer/Control"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" parent="MainHudLayer/Control/InventoryHolder" instance=ExtResource("14_jkv2x")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2

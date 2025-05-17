@@ -38,7 +38,7 @@ scale = Vector2(0.1, 0.1)
 theme = ExtResource("2_643j3")
 theme_type_variation = &"LocationLabel"
 theme_override_font_sizes/font_size = 353
-text = "Varmecht"
+text = "VARMECHT"
 horizontal_alignment = 1
 
 [node name="HighlightArea" type="Area2D" parent="."]
