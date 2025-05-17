@@ -7,7 +7,7 @@ class_name Location extends Node2D
 @onready var mouse_collision_shape: CollisionShape2D = $HighlightArea/MouseCollisionShape
 @onready var map_icon: Sprite2D = %MapIcon
 
-@export var location_def:LocationDef = preload("res://assets/locations/varmecht.tres")
+@export var location_def:LocationDef
 var isMouseHovering := false
 var base_scale := Vector2(1,1)
 var zoom_level := Vector2(1,1)
@@ -74,7 +74,8 @@ func get_size(location_size: int):
 
 func _ready() -> void:
 	render_on_map()
-	SignalBus.zoom_updated.connect(on_zoom_update)
+	if not Engine.is_editor_hint():
+		SignalBus.zoom_updated.connect(on_zoom_update)
 
 func scale_values():
 	var min_zoom: float = Global.MIN_ZOOM

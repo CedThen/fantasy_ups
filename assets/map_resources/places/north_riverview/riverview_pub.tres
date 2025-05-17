@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlaceDef" load_steps=3 format=3 uid="uid://dgmu2fnexsukk"]
+
+[ext_resource type="Texture2D" uid="uid://b5yrgewxwiy1s" path="res://assets/Images/place_icons/pub_icon.png" id="1_0nmbv"]
+[ext_resource type="Script" uid="uid://dwnrgtmng1x5f" path="res://scripts/defs/place_def.gd" id="2_i8mcs"]
+
+[resource]
+script = ExtResource("2_i8mcs")
+id = "Beeg Pub"
+size = 2
+default_texture = ExtResource("1_0nmbv")
+metadata/_custom_type_script = "uid://dwnrgtmng1x5f"

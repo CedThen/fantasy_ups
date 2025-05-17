@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="QuestDef" load_steps=12 format=3 uid="uid://c6hdb4yxcjvlc"]
 
-[ext_resource type="Script" uid="uid://b407s51qncg8f" path="res://scripts/defs/item_def.gd" id="1_554so"]
+[ext_resource type="Script" path="res://scripts/defs/item_def.gd" id="1_554so"]
 [ext_resource type="Script" uid="uid://cmqlrln467ark" path="res://scripts/defs/quest_def.gd" id="1_gxktd"]
 [ext_resource type="Resource" uid="uid://bsumobqngerjj" path="res://timelines/test_timeline.dtl" id="2_gwmgi"]
 [ext_resource type="Resource" uid="uid://dqtvu1inpq0wc" path="res://assets/items/test_potion.tres" id="2_kfk3o"]
 [ext_resource type="Resource" uid="uid://c2s0c2ou32o2p" path="res://assets/npcs/luis_shopkeep.tres" id="2_lnhmh"]
-[ext_resource type="Resource" uid="uid://dha704gsleytf" path="res://assets/locations/immalia.tres" id="3_46k65"]
+[ext_resource type="Resource" uid="uid://dha704gsleytf" path="res://assets/map_resources/locations/immalia.tres" id="3_46k65"]
 [ext_resource type="Resource" uid="uid://dnl0suy71cj6t" path="res://timelines/test_timeline_end.dtl" id="3_lql0e"]
-[ext_resource type="Script" uid="uid://b1j22sthjw83y" path="res://scripts/defs/req_def.gd" id="5_d4yd8"]
+[ext_resource type="Script" path="res://scripts/defs/req_def.gd" id="5_d4yd8"]
 [ext_resource type="Resource" uid="uid://dmvhv37p0fkba" path="res://assets/npcs/mary_alchemist.tres" id="6_46k65"]
 [ext_resource type="Resource" uid="uid://gqus4bllen1g" path="res://assets/items/coin.tres" id="6_t5pcm"]
 

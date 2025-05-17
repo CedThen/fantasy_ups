@@ -52,7 +52,7 @@ func enter_plot_mode():
 func set_route_visibility(routes_array: Array, visible: bool):
 	for route in routes_array:
 		if route is Route:
-			route.isVisible = visible
+			route.is_visible = visible
 
 func build_graph():
 	adjacency_graph.clear()

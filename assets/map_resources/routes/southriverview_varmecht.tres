@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RouteDef" load_steps=5 format=3 uid="uid://cmmnj06lqj2fy"]
+
+[ext_resource type="Texture2D" uid="uid://3dd88x5wcldr" path="res://assets/Images/Maps/Routes/sriverview-varmecht.png" id="1_p7gh0"]
+[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/map_resources/locations/varmecht.tres" id="2_j4fqi"]
+[ext_resource type="Script" uid="uid://buxicw1elcle" path="res://scripts/defs/route_def.gd" id="3_j4fqi"]
+[ext_resource type="Resource" uid="uid://chvsggwqlgl2g" path="res://assets/map_resources/locations/south_riverview.tres" id="4_58k4x"]
+
+[resource]
+script = ExtResource("3_j4fqi")
+origin = ExtResource("4_58k4x")
+destination = ExtResource("2_j4fqi")
+route_name = "South Riverview / Varmecht"
+default_route = ExtResource("1_p7gh0")
+color = Color(0, 0, 0, 1)
+supply_cost = 5.5
+time_cost = 6.0
+route_type = 0
+is_in_fog = false
+collision_polygon = [Vector2(689, 1302), Vector2(682, 1308), Vector2(682, 1312), Vector2(673, 1306), Vector2(672, 1306), Vector2(664, 1314), Vector2(663, 1314), Vector2(670, 1325), Vector2(670, 1326), Vector2(683, 1318), Vector2(683, 1316), Vector2(693, 1320), Vector2(696, 1320), Vector2(701, 1309), Vector2(701, 1306), Vector2(689, 1301)]
+metadata/_custom_type_script = "uid://buxicw1elcle"
