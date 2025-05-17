@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RouteDef" load_steps=5 format=3 uid="uid://ovn2urwrqb0q"]
+
+[ext_resource type="Texture2D" uid="uid://0k0jle87i8ts" path="res://assets/Images/Maps/Routes/varmecht-midvale.png" id="1_pqoqg"]
+[ext_resource type="Resource" uid="uid://sb2f8rrcvkig" path="res://assets/map_resources/locations/midvale.tres" id="2_s1olv"]
+[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/map_resources/locations/varmecht.tres" id="3_4swu3"]
+[ext_resource type="Script" uid="uid://buxicw1elcle" path="res://scripts/defs/route_def.gd" id="4_43vlu"]
+
+[resource]
+script = ExtResource("4_43vlu")
+origin = ExtResource("3_4swu3")
+destination = ExtResource("2_s1olv")
+route_name = "Varmecht / Midvale"
+default_route = ExtResource("1_pqoqg")
+color = Color(0, 0, 0, 1)
+supply_cost = 0.0
+time_cost = 0.0
+route_type = 0
+is_in_fog = false
+collision_polygon = [Vector2(689, 1302), Vector2(682, 1308), Vector2(682, 1312), Vector2(673, 1306), Vector2(672, 1306), Vector2(664, 1314), Vector2(663, 1314), Vector2(670, 1325), Vector2(670, 1326), Vector2(683, 1318), Vector2(683, 1316), Vector2(693, 1320), Vector2(696, 1320), Vector2(701, 1309), Vector2(701, 1306), Vector2(689, 1301)]
+metadata/_custom_type_script = "uid://buxicw1elcle"

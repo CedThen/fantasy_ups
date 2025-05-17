@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RouteDef" load_steps=5 format=3 uid="uid://spxo1igje3m7"]
+
+[ext_resource type="Texture2D" uid="uid://cuioyhx5kuv0e" path="res://assets/Images/Maps/Routes/varmecht-riverin.png" id="1_e30ps"]
+[ext_resource type="Resource" uid="uid://bbtv5c84oavjt" path="res://assets/map_resources/locations/riverin.tres" id="2_ureki"]
+[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/map_resources/locations/varmecht.tres" id="3_a0jhl"]
+[ext_resource type="Script" uid="uid://buxicw1elcle" path="res://scripts/defs/route_def.gd" id="4_ihpuf"]
+
+[resource]
+script = ExtResource("4_ihpuf")
+origin = ExtResource("3_a0jhl")
+destination = ExtResource("2_ureki")
+route_name = "Varmecht / Riverin"
+default_route = ExtResource("1_e30ps")
+color = Color(0, 0, 0, 1)
+supply_cost = 0.0
+time_cost = 0.0
+route_type = 0
+is_in_fog = false
+collision_polygon = [Vector2(395, 1103), Vector2(389, 1114), Vector2(389, 1117), Vector2(405, 1120), Vector2(406, 1120), Vector2(407, 1135), Vector2(407, 1136), Vector2(416, 1137), Vector2(419, 1137), Vector2(424, 1129), Vector2(425, 1129), Vector2(421, 1120), Vector2(421, 1119), Vector2(409, 1119), Vector2(407, 1119), Vector2(405, 1104), Vector2(405, 1103), Vector2(395, 1102)]
+metadata/_custom_type_script = "uid://buxicw1elcle"

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca2b5b83egn1w"]
+
+[ext_resource type="Script" uid="uid://r027pyxicp6v" path="res://scenes/map/route_manager.gd" id="1_aebaj"]
+
+[node name="RouteManager" type="Node"]
+script = ExtResource("1_aebaj")

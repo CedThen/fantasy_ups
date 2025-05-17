@@ -74,7 +74,8 @@ func get_size(location_size: int):
 
 func _ready() -> void:
 	render_on_map()
-	SignalBus.zoom_updated.connect(on_zoom_update)
+	if not Engine.is_editor_hint():
+		SignalBus.zoom_updated.connect(on_zoom_update)
 
 func scale_values():
 	var min_zoom: float = Global.MIN_ZOOM
