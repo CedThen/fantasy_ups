@@ -1,38 +1,63 @@
 class_name InventoryData 
 
-var items:Dictionary[ItemDef, int]
+#var items:Dictionary[ItemDef, int]
+var items:Array[Item]
+
+
+func setup():
+	pass
 
 
 func has_item(item_def:ItemDef) -> int:
-	if items.has(item_def):
-		return items[item_def]
+	for item:Item in items:
+		if item.def == item_def:
+			return item.count
 		
 	return 0
 
 
-func add_item(item_def:ItemDef, count:int = 1):
-	if items.has(item_def):
-		items[item_def] += count
-	else:
-		items[item_def] = count
+func get_item(item_def:ItemDef) -> Item:
+	for item:Item in items:
+		if item.def == item_def:
+			return item
+	return null
+	
 
-	print_inventory()
+func add_item(item_def:ItemDef, count:int = 1):
+	var item = get_item(item_def)
+	if item:
+		item.count += count
+	else:
+		var new_item:Item = Item.new(item_def)
+		new_item.count = count
+		items.append(new_item)
+
+	SignalBus.inventory_updated.emit(self)
 
 
 func remove_item(item_def:ItemDef, count:int = 1):
-	items[item_def] -= count
-	if items[item_def] == 0:
-		items.erase(item_def)
+	var item = get_item(item_def)
+	item.count -= count
+	if item.count < 0:
+		for i:Item in items:
+			if i.def != item.def:
+				continue
+				
+			items.erase(i)
+	
+	SignalBus.inventory_updated.emit(self)
 
 
-func get_item_count(item_def:ItemDef) -> int:
-	if items.has(item_def):
-		return items[item_def]
+func get_inventory_items(item_type:InventoryManager.ItemType) -> Array[Item]:
+	var ret:Array[Item]
+	for item:Item in items:
+		if item.def.item_type == item_type:
+			ret.append(item)
 		
-	return 0
+	return ret
 
 
 func print_inventory():
 	print("INVENTORY")
-	for item in items.keys():
-		print(item.name + ":" + str(items[item]))
+	for item:Item in items:
+		print(item.def.name + ":" + str(item.count))

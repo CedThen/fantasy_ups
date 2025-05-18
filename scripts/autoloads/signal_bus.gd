@@ -14,6 +14,9 @@ signal location_map_pressed()
 signal world_map_pressed()
 signal inventory_pressed()
 
+signal main_inventory_opened()
+signal inventory_updated()
+
 
 signal quest_completed(quest: QuestInstance)
 signal quest_accepted(quest: QuestInstance)

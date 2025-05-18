@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bifubn63flr72"]
+
+[ext_resource type="Script" uid="uid://c13lmqwc6trjf" path="res://scripts/inventory.gd" id="1_4axmw"]
+[ext_resource type="PackedScene" uid="uid://bdon4wu8it8fh" path="res://scenes/inventory/inventory_slot.tscn" id="2_el5y6"]
+[ext_resource type="PackedScene" uid="uid://bfv55w834drau" path="res://scenes/inventory/inventory_item_icon.tscn" id="3_el5y6"]
+[ext_resource type="Texture2D" uid="uid://cf0nagxoa7rg2" path="res://assets/Images/Menus/Inventory/maininventory_window.png" id="4_tvok8"]
+
+[node name="Inventory" type="PanelContainer"]
+self_modulate = Color(0, 0, 0, 0)
+custom_minimum_size = Vector2(600, 380)
+script = ExtResource("1_4axmw")
+inventory_slot_scene = ExtResource("2_el5y6")
+inventory_item_icon_scene = ExtResource("3_el5y6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("4_tvok8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Inventory"
+
+[node name="Slots" type="GridContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 8
+
+[node name="ItemHeldHolder" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2

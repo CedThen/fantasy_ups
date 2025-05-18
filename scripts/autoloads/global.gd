@@ -5,6 +5,7 @@ extends Node
 var player:Player
 var map:WorldMap
 var npc_manager:NPCManager
+var inventory_manager:InventoryManager
 
 
 # Hud Animation Stuff
@@ -20,8 +21,13 @@ func get_player() -> Player:
 func get_map() -> WorldMap:
 	return map
 	
+	
 func get_npc_manager() -> NPCManager:
 	return npc_manager
+	
+	
+func get_inventory_manager() -> InventoryManager:
+	return inventory_manager
 
 # Map Stuff
 const MIN_ZOOM = 0.85

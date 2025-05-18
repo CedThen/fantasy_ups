@@ -6,6 +6,7 @@ var inventory:InventoryData
 
 
 func _init() -> void:
+	Global.player = self
 	SignalBus.quest_completed.connect(on_quest_completed)
 	SignalBus.quest_accepted.connect(on_quest_accepted)
 	inventory = InventoryData.new()
@@ -24,7 +25,7 @@ func use_item(item_def:ItemDef, count:int = 1) -> bool:
 		printerr("Missing item")
 		return false
 	
-	if inventory.get_item_count(item_def) >= count:
+	if inventory.get_item(item_def).count >= count:
 		inventory.remove_item(item_def, count)
 	else:
 		printerr("Not enough of item")

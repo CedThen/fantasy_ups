@@ -52,13 +52,13 @@ func render_on_map():
 		map_icon.texture = location_def.default_texture
 		map_icon.scale = scaled_values["icon_scale"]
 	
-	
 	if mouse_collision_shape:
 		var new_radius = float(size_data["area_radius"])
 		if mouse_collision_shape.shape is CircleShape2D:
 			var shape := CircleShape2D.new()
 			shape.radius = new_radius
 			mouse_collision_shape.shape = shape
+
 
 func get_size(location_size: int):
 	match location_size:

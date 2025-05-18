@@ -8,6 +8,8 @@ class_name MainHud extends CanvasLayer
 @onready var location_map_button: TextureButton = %LocationMapButton
 @onready var calendar_button: TextureButton = %CalendarButton
 
+@onready var inventory_holder: MarginContainer = %InventoryHolder
+
 var show_quest_box:bool = true
 var show_location_map:bool = true
 
@@ -16,6 +18,7 @@ var anim_state:Global.AnimState = Global.AnimState.OUT
 func _ready() -> void:
 	open()
 	
+	#SignalBus.inventory_pressed.connect(on_inventory_pressed)
 	SignalBus.world_map_pressed.connect(on_world_map_pressed)
 	pass
 	
@@ -90,6 +93,10 @@ func close() -> void:
 	location_map_button.outro()
 	world_map_button.outro()
 	inventory_button.outro()
+
+
+#func on_inventory_pressed():
+	#inventory_holder.visible = not inventory_holder.visible
 	
 
 func on_world_map_pressed():

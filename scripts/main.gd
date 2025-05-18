@@ -2,6 +2,7 @@ extends Node
 
 @onready var quest_manager: QuestManager = %QuestManager
 @onready var world_map: WorldMap = %WorldMap
+@onready var inventory_manager: InventoryManager = %InventoryManager
 
 @export var player:Player
 
@@ -9,14 +10,14 @@ var time:int # Some global time? in game time, hours? minutes?
 
 func _ready() -> void:
 	player = Player.new()
-	Global.player = player
 	
 	# Temp
 	var coin_def = load("res://assets/items/coin.tres")
+	var pot_def = load("res://assets/items/test_potion.tres")
 	player.inventory.add_item(coin_def)
+	player.inventory.add_item(pot_def)
 
 	player.entered_location(world_map.get_starting_location())	
-	
 	
 	SignalBus.player_location_updated.connect(on_player_location_updated)
 	
@@ -31,10 +32,6 @@ func _ready() -> void:
 	
 	# Connect Dialogic Generic signal
 	Dialogic.signal_event.connect(_on_dialogic_signal)
-
-	
-	#Dialogic.start("intro_1")
-	pass
 
 
 func on_player_location_updated():
@@ -59,7 +56,7 @@ func on_quest_box_pressed():
 
 
 func on_inventory_pressed():
-	%Inventory.toggle(player.inventory)
+	Global.get_inventory_manager().toggle_player_inventory()
 	pass
 	
 func on_journal_pressed():
