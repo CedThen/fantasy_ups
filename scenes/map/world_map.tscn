@@ -58,7 +58,6 @@ unique_name_in_owner = true
 
 [node name="Varmecht" parent="Locations" instance=ExtResource("4_077py")]
 position = Vector2(731, 1302)
-location_def = ExtResource("5_by8o0")
 
 [node name="NorthRiverview" parent="Locations" instance=ExtResource("4_077py")]
 position = Vector2(367, 1442)

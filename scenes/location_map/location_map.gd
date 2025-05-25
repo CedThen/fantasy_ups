@@ -1,5 +1,5 @@
 @tool
-class_name PlaceMap extends Node2D
+class_name LocationMap extends Node2D
 
 @onready var places: Node2D = %Places
 @onready var title_label: Label = %TitleLabel

@@ -18,27 +18,7 @@ var scaled_values = {
 	"icon_scale": 1,
 	"font_size": 1,
 }
-var LocationSmall = {
-	"area_radius": 15,
-	"text_font_min": 250,
-	"text_font_max":400,
-	"icon_scale_min": Vector2(0.03, 0.03),
-	"icon_scale_max": Vector2(0.08,0.08)
-}
-var LocationMedium = {
-	"area_radius": 30,
-	"text_font_min": 300,
-	"text_font_max":400,
-	"icon_scale_min": Vector2(0.05, 0.05),
-	"icon_scale_max": Vector2(0.13,0.13)
-}
-var LocationLarge = {
-	"area_radius": 45,
-	"text_font_min": 350,
-	"text_font_max":400,
-	"icon_scale_min": Vector2(0.08, 0.08),
-	"icon_scale_max": Vector2(0.15,0.15)
-}
+
 # TODO use these to hide things at certain zoom scale levels
 var zoom_scale_breakpoints = [0.3, 0.6]
 
@@ -62,20 +42,20 @@ func render_on_map():
 
 func get_size(location_size: int):
 	match location_size:
-		LocationDef.Size.SMALL:
-			return LocationSmall
-		LocationDef.Size.MEDIUM:
-			return LocationMedium
-		LocationDef.Size.LARGE:
-			return LocationLarge
+		LocationData.Size.SMALL:
+			return LocationData.LocationSmall
+		LocationData.Size.MEDIUM:
+			return LocationData.LocationMedium
+		LocationData.Size.LARGE:
+			return LocationData.LocationLarge
 		_:
 			return {}
 
 
 func _ready() -> void:
 	render_on_map()
-	if not Engine.is_editor_hint():
-		SignalBus.zoom_updated.connect(on_zoom_update)
+	#if not Engine.is_editor_hint():
+	SignalBus.zoom_updated.connect(on_zoom_update)
 
 func scale_values():
 	var min_zoom: float = Global.MIN_ZOOM

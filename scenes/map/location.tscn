@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://doxwbfg3pfc73"]
+[gd_scene load_steps=8 format=3 uid="uid://doxwbfg3pfc73"]
 
 [ext_resource type="Script" uid="uid://bmi3ifaa5xjhy" path="res://scripts/map/location.gd" id="1_hccqc"]
+[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/map_resources/locations/varmecht.tres" id="2_0ub1r"]
 [ext_resource type="Theme" uid="uid://csby7h0aegpyx" path="res://assets/main_theme.tres" id="2_643j3"]
 [ext_resource type="Texture2D" uid="uid://bt2b0c3qycp2r" path="res://assets/Images/Maps/Map Icons/Capital_normal.png" id="4_0ub1r"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tmhpo"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ub1r"]
 radius = 45.0
 
 [sub_resource type="Gradient" id="Gradient_643j3"]
@@ -18,6 +19,7 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="Location" type="Node2D"]
 script = ExtResource("1_hccqc")
+location_def = ExtResource("2_0ub1r")
 metadata/_custom_type_script = "uid://bmi3ifaa5xjhy"
 
 [node name="Control" type="Control" parent="."]
@@ -44,7 +46,7 @@ horizontal_alignment = 1
 [node name="HighlightArea" type="Area2D" parent="."]
 
 [node name="MouseCollisionShape" type="CollisionShape2D" parent="HighlightArea"]
-shape = SubResource("CircleShape2D_tmhpo")
+shape = SubResource("CircleShape2D_0ub1r")
 
 [node name="HaloLight" type="PointLight2D" parent="HighlightArea"]
 visible = false
