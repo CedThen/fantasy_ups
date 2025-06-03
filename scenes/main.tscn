@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dvmkml3g4fb5p"]
+[gd_scene load_steps=18 format=3 uid="uid://dvmkml3g4fb5p"]
 
 [ext_resource type="Script" uid="uid://jbu7ts4fegu" path="res://scripts/main.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://xecnd1uo1uvp" path="res://scenes/quest_manager.tscn" id="2"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cppk8wcsqrohx" path="res://scenes/hud_quest_log_button.tscn" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://ddbihxsbp23c2" path="res://scenes/hud_journal_button.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bifubn63flr72" path="res://scenes/inventory/inventory.tscn" id="14_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://ccvgp8c6rwbyi" path="res://scenes/world_hud/world_hud_inventory.tscn" id="16_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://bgyd2wmhjf3vq" path="res://scenes/world_hud/world_hud_calendar_questlog.tscn" id="17_muem4"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1")
@@ -34,6 +36,7 @@ unique_name_in_owner = true
 [node name="MapMenuLayer" parent="." instance=ExtResource("5_a8y0u")]
 
 [node name="MainHudLayer" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("7_choun")
 
 [node name="Control" type="Control" parent="MainHudLayer"]
@@ -158,3 +161,21 @@ layout_mode = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+
+[node name="WorldHudLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Control" type="Control" parent="WorldHudLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="WorldHudInventory" parent="WorldHudLayer/Control" instance=ExtResource("16_jbj1t")]
+layout_mode = 1
+
+[node name="WorldHudCalendarQuestlog" parent="WorldHudLayer/Control" instance=ExtResource("17_muem4")]
+layout_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://du5uu4qwyixad"]
+[gd_scene load_steps=12 format=3 uid="uid://du5uu4qwyixad"]
 
 [ext_resource type="FontFile" uid="uid://dym61d2hhvhxw" path="res://assets/fonts/magical-world/Magical World.otf" id="2_fcby6"]
 [ext_resource type="Script" uid="uid://bi74skiv3gv57" path="res://scenes/map/map_camera.gd" id="2_x2kg6"]
@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://bpp1l41wehjnt" path="res://assets/map_resources/locations/riversend.tres" id="6_x2kg6"]
 [ext_resource type="Resource" uid="uid://mdre481ot0l6" path="res://assets/map_resources/locations/telarys.tres" id="7_cumk7"]
 [ext_resource type="Resource" uid="uid://dha704gsleytf" path="res://assets/map_resources/locations/immalia.tres" id="8_mgs8m"]
-[ext_resource type="Resource" uid="uid://boxef2vsy281f" path="res://assets/map_resources/locations/varmecht.tres" id="10_x2kg6"]
 [ext_resource type="Resource" uid="uid://brkjtqckyqsy" path="res://assets/map_resources/locations/colbyjack.tres" id="11_cumk7"]
 
 [node name="Map" type="Node2D"]
@@ -90,7 +89,6 @@ location_def = ExtResource("8_mgs8m")
 
 [node name="Varmecht" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(965, 794)
-location_def = ExtResource("10_x2kg6")
 
 [node name="ColbyJack" parent="Locations" instance=ExtResource("3_p3hjx")]
 position = Vector2(350, 693)

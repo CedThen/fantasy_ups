@@ -66,6 +66,7 @@ layout_mode = 2
 text = "Hello"
 
 [node name="QuestsMenu" type="NinePatchRect" parent="Control/MarginContainer/Control"]
+visible = false
 custom_minimum_size = Vector2(330, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -84,6 +85,7 @@ axis_stretch_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMenu" type="NinePatchRect" parent="Control/MarginContainer/Control"]
+visible = false
 custom_minimum_size = Vector2(330, 0)
 layout_mode = 1
 anchors_preset = -1

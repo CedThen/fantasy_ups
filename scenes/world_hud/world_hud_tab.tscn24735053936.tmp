@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=3 uid="uid://x4qktsksj8uv"]
+
+[ext_resource type="Script" uid="uid://d3dv2l5puap2f" path="res://scripts/world_hud_tab.gd" id="1_w2bmj"]
+[ext_resource type="Texture2D" uid="uid://dlkmd5jjsg1d6" path="res://assets/Images/Menus/world map menus/inventory_couriertab_inactive.png" id="2_w2bmj"]
+
+[sub_resource type="Animation" id="Animation_pm3ni"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_og1vs"]
+resource_name = "intro"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30)]
+}
+
+[sub_resource type="Animation" id="Animation_y6deb"]
+resource_name = "outro"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -30), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2wyq8"]
+_data = {
+&"RESET": SubResource("Animation_pm3ni"),
+&"intro": SubResource("Animation_og1vs"),
+&"outro": SubResource("Animation_y6deb")
+}
+
+[sub_resource type="GDScript" id="GDScript_une00"]
+script/source = "class_name HudAnimationPlayer extends AnimationPlayer
+
+var anim_state:Global.AnimState = Global.AnimState.OUT
+
+func _ready():
+	self.animation_finished.connect(on_finished)
+	self.speed_scale = 5
+
+
+func intro() -> void:
+	if anim_state == Global.AnimState.IN:
+		return
+		
+	play(Global.ANIM_NAME_INTRO)
+	anim_state = Global.AnimState.ANIMATING
+	
+	
+func outro() -> void:
+	if anim_state == Global.AnimState.OUT:
+		return
+		
+	play(Global.ANIM_NAME_OUTRO)
+	anim_state = Global.AnimState.ANIMATING
+
+
+func on_finished(anim_name:String):
+	if anim_name == Global.ANIM_NAME_INTRO:
+		anim_state = Global.AnimState.IN
+	elif anim_name == Global.ANIM_NAME_OUTRO:
+		anim_state = Global.AnimState.OUT
+"
+
+[node name="TabScene" type="Control"]
+custom_minimum_size = Vector2(83, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 83.0
+mouse_filter = 1
+script = ExtResource("1_w2bmj")
+
+[node name="TabButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 83.0
+offset_bottom = 100.0
+texture_normal = ExtResource("2_w2bmj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("../TabButton")
+libraries = {
+&"": SubResource("AnimationLibrary_2wyq8")
+}
+script = SubResource("GDScript_une00")
+
+[connection signal="gui_input" from="TabButton" to="." method="_on_tab_button_gui_input"]
+[connection signal="pressed" from="TabButton" to="." method="_on_tab_button_pressed"]

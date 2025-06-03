@@ -16,7 +16,7 @@ var show_location_map:bool = true
 var anim_state:Global.AnimState = Global.AnimState.OUT
 
 func _ready() -> void:
-	open()
+	#open()
 	
 	#SignalBus.inventory_pressed.connect(on_inventory_pressed)
 	SignalBus.world_map_pressed.connect(on_world_map_pressed)

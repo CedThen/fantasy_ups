@@ -1,4 +1,4 @@
-extends AnimationPlayer
+class_name HudAnimationPlayer extends AnimationPlayer
 
 var anim_state:Global.AnimState = Global.AnimState.OUT
 

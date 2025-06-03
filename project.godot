@@ -80,6 +80,10 @@ layout/default_style="res://assets/styles/quest_box_style.tres"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[editor]
+
+movie_writer/movie_file="D:/Github/fantasy_ups/clips/world_hud_inventory.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")

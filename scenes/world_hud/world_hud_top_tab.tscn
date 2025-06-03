@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlq3iacb7q8ij"]
+
+[ext_resource type="Script" uid="uid://d3dv2l5puap2f" path="res://scripts/world_hud_tab.gd" id="1_c3gxc"]
+[ext_resource type="Texture2D" uid="uid://ddri2xmdo8rjd" path="res://assets/Images/Menus/world map menus/calendar_arrowdown.png" id="1_une00"]
+[ext_resource type="Script" uid="uid://b7rpout8nbs1m" path="res://scripts/hud_animation_player.gd" id="3_c3gxc"]
+
+[sub_resource type="Animation" id="Animation_gatv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TabButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -60)]
+}
+
+[sub_resource type="Animation" id="Animation_c3gxc"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TabButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -60), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kran7"]
+resource_name = "outro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TabButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -60)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g3je3"]
+_data = {
+&"RESET": SubResource("Animation_gatv1"),
+&"intro": SubResource("Animation_c3gxc"),
+&"outro": SubResource("Animation_kran7")
+}
+
+[node name="CalendarTab" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_c3gxc")
+
+[node name="TabButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = -60.0
+offset_right = 92.0
+offset_bottom = 33.0
+texture_normal = ExtResource("1_une00")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_g3je3")
+}
+script = ExtResource("3_c3gxc")
+metadata/_custom_type_script = "uid://b7rpout8nbs1m"
+
+[connection signal="pressed" from="TabButton" to="." method="_on_tab_button_pressed"]

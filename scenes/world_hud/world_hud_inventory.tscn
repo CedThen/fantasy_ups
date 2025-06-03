@@ -1,0 +1,210 @@
+[gd_scene load_steps=17 format=3 uid="uid://ccvgp8c6rwbyi"]
+
+[ext_resource type="Script" uid="uid://q3fu1b63juk3" path="res://scripts/world_hud_inventory.gd" id="1_e0yw3"]
+[ext_resource type="PackedScene" uid="uid://x4qktsksj8uv" path="res://scenes/world_hud/world_hud_tab.tscn" id="2_3030e"]
+[ext_resource type="Texture2D" uid="uid://d4hy2yawguqhc" path="res://assets/Images/Menus/world map menus/inventory_arrowdown.png" id="2_hn1xn"]
+[ext_resource type="Texture2D" uid="uid://dpoabjfird2h0" path="res://assets/Images/Menus/world map menus/inventory_backpacktab_active.png" id="3_hn1xn"]
+[ext_resource type="Texture2D" uid="uid://dijtlqvvcu21f" path="res://assets/Images/Menus/world map menus/inventory_backpacktab_inactive.png" id="4_vhlrm"]
+[ext_resource type="Texture2D" uid="uid://dx4687lb2xt1r" path="res://assets/Images/Menus/world map menus/inventory_pouchtab_active.png" id="5_dyx14"]
+[ext_resource type="Texture2D" uid="uid://fk6q4knfpwu3" path="res://assets/Images/Menus/world map menus/inventory_pouchtab_inactive.png" id="6_h2whg"]
+[ext_resource type="Texture2D" uid="uid://cms3wbu3s0h3i" path="res://assets/Images/Menus/world map menus/inventory_couriertab_active.png" id="7_h6qrb"]
+[ext_resource type="Texture2D" uid="uid://dlkmd5jjsg1d6" path="res://assets/Images/Menus/world map menus/inventory_couriertab_inactive.png" id="8_oiwuv"]
+[ext_resource type="Texture2D" uid="uid://chwxeltqcitrb" path="res://assets/Images/Menus/world map menus/inventory_window.png" id="9_k1aky"]
+[ext_resource type="Texture2D" uid="uid://bojnryxjccepj" path="res://assets/Images/Menus/world map menus/inventory_arrowup.png" id="10_121xs"]
+[ext_resource type="Script" uid="uid://b7rpout8nbs1m" path="res://scripts/hud_animation_player.gd" id="12_hn1xn"]
+
+[sub_resource type="Animation" id="Animation_vhlrm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%InventoryButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1463, 1080)]
+}
+
+[sub_resource type="Animation" id="Animation_hn1xn"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%InventoryButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1463, 1080), Vector2(1463, 407)]
+}
+
+[sub_resource type="Animation" id="Animation_dyx14"]
+resource_name = "outro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%InventoryButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1463, 407), Vector2(1463, 1080)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2whg"]
+_data = {
+&"RESET": SubResource("Animation_vhlrm"),
+&"intro": SubResource("Animation_hn1xn"),
+&"outro": SubResource("Animation_dyx14")
+}
+
+[node name="WorldHudInventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_e0yw3")
+inventory_button_active_img = ExtResource("2_hn1xn")
+inventory_button_inactive_img = ExtResource("10_121xs")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -457.0
+offset_bottom = 673.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="TabContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="TabHBox" type="HBoxContainer" parent="MarginContainer/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="BackpackTab" parent="MarginContainer/TabContainer/TabHBox" instance=ExtResource("2_3030e")]
+unique_name_in_owner = true
+layout_mode = 2
+active_img = ExtResource("3_hn1xn")
+inactive_img = ExtResource("4_vhlrm")
+
+[node name="PouchTab" parent="MarginContainer/TabContainer/TabHBox" instance=ExtResource("2_3030e")]
+unique_name_in_owner = true
+layout_mode = 2
+active_img = ExtResource("5_dyx14")
+inactive_img = ExtResource("6_h2whg")
+
+[node name="CourierTab" parent="MarginContainer/TabContainer/TabHBox" instance=ExtResource("2_3030e")]
+unique_name_in_owner = true
+layout_mode = 2
+active_img = ExtResource("7_h6qrb")
+inactive_img = ExtResource("8_oiwuv")
+
+[node name="BgImgCon" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="BgImage" type="TextureRect" parent="MarginContainer/BgImgCon"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("9_k1aky")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = -94.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="BottomRight" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer2/BottomRight"]
+custom_minimum_size = Vector2(92, 93)
+layout_mode = 2
+
+[node name="InventoryButton" type="TextureButton" parent="MarginContainer2/BottomRight/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 60.0
+offset_right = 92.0
+offset_bottom = 153.0
+texture_normal = ExtResource("10_121xs")
+
+[node name="InventoryButtonAnimationPlayer" type="AnimationPlayer" parent="MarginContainer2/BottomRight/Control"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_h2whg")
+}
+script = ExtResource("12_hn1xn")
+
+[connection signal="pressed" from="MarginContainer2/BottomRight/Control/InventoryButton" to="." method="_on_inventory_button_pressed"]
