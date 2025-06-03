@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgyd2wmhjf3vq"]
+[gd_scene load_steps=14 format=3 uid="uid://bgyd2wmhjf3vq"]
 
 [ext_resource type="Script" uid="uid://c6x466a04a38k" path="res://scripts/world_hud_calendar_questlog.gd" id="1_3rwt4"]
 [ext_resource type="PackedScene" uid="uid://dlq3iacb7q8ij" path="res://scenes/world_hud/world_hud_top_tab.tscn" id="1_jxmw0"]
-[ext_resource type="Texture2D" uid="uid://bi1p0p41hw1v7" path="res://assets/Images/Menus/world map menus/calendar_window.png" id="1_pjmon"]
 [ext_resource type="Texture2D" uid="uid://ddri2xmdo8rjd" path="res://assets/Images/Menus/world map menus/calendar_arrowdown.png" id="2_7c1q6"]
+[ext_resource type="Texture2D" uid="uid://chwxeltqcitrb" path="res://assets/Images/Menus/world map menus/inventory_window.png" id="2_ivpix"]
 [ext_resource type="Texture2D" uid="uid://wnoyutn3wrtc" path="res://assets/Images/Menus/world map menus/calendar_arrowup.png" id="2_siwep"]
 [ext_resource type="Script" uid="uid://b7rpout8nbs1m" path="res://scripts/hud_animation_player.gd" id="3_m8acj"]
 [ext_resource type="Texture2D" uid="uid://b0o17ia6rqk15" path="res://assets/Images/Menus/world map menus/questlog_arrowup.png" id="4_motb1"]
+[ext_resource type="Texture2D" uid="uid://c760mw70ql3w2" path="res://assets/Images/Menus/world map menus/questlog_window.png" id="4_v4bsa"]
 [ext_resource type="Texture2D" uid="uid://b1kgr8f014mqn" path="res://assets/Images/Menus/world map menus/questlog_arrowdown.png" id="5_pjmon"]
 
 [sub_resource type="Animation" id="Animation_ivpix"]
@@ -21,7 +22,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-457, -403), Vector2(-457, 0)]
+"values": [Vector2(-457, -613), Vector2(-457, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_v4bsa"]
@@ -36,7 +37,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-457, -403)]
+"values": [Vector2(-457, -613)]
 }
 
 [sub_resource type="Animation" id="Animation_ivx00"]
@@ -51,7 +52,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-457, 0), Vector2(-457, -403)]
+"values": [Vector2(-457, 0), Vector2(-457, -613)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgqd1"]
@@ -69,22 +70,25 @@ anchor_right = 1.0
 grow_horizontal = 0
 script = ExtResource("1_3rwt4")
 
-[node name="MainContainer" type="MarginContainer" parent="."]
+[node name="CalendarCon" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -457.0
-offset_top = -403.0
+offset_top = -613.0
 grow_horizontal = 0
+grow_vertical = 0
 theme_override_constants/margin_top = 40
 
-[node name="TextureRect" type="TextureRect" parent="MainContainer"]
+[node name="TextureRect" type="TextureRect" parent="CalendarCon"]
 layout_mode = 2
 size_flags_horizontal = 8
-texture = ExtResource("1_pjmon")
+texture = ExtResource("2_ivpix")
 
-[node name="Label" type="Label" parent="MainContainer/TextureRect"]
+[node name="CalendarLabel" type="Label" parent="CalendarCon/TextureRect"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 40.0
@@ -93,7 +97,40 @@ offset_right = 80.0
 offset_bottom = 73.0
 text = "TITLE"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MainContainer"]
+[node name="CalendarAnimationPlayer" type="AnimationPlayer" parent="CalendarCon"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_mgqd1")
+}
+script = ExtResource("3_m8acj")
+metadata/_custom_type_script = "uid://b7rpout8nbs1m"
+
+[node name="QuestlogCon" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -457.0
+offset_top = -613.0
+offset_bottom = -210.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 40
+
+[node name="TextureRect" type="TextureRect" parent="QuestlogCon"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("4_v4bsa")
+
+[node name="QuestlogLabel" type="Label" parent="QuestlogCon/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 80.0
+offset_bottom = 73.0
+text = "TITLE"
+
+[node name="QuestlogAnimationPlayer" type="AnimationPlayer" parent="QuestlogCon"]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_mgqd1")
