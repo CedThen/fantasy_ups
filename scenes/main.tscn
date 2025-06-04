@@ -35,7 +35,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="MapMenuLayer" parent="." instance=ExtResource("5_a8y0u")]
-visible = false
 
 [node name="MainHudLayer" type="CanvasLayer" parent="."]
 visible = false
