@@ -3,27 +3,12 @@
 [ext_resource type="Script" uid="uid://c6x466a04a38k" path="res://scripts/world_hud_calendar_questlog.gd" id="1_3rwt4"]
 [ext_resource type="PackedScene" uid="uid://dlq3iacb7q8ij" path="res://scenes/world_hud/world_hud_top_tab.tscn" id="1_jxmw0"]
 [ext_resource type="Texture2D" uid="uid://ddri2xmdo8rjd" path="res://assets/Images/Menus/world map menus/calendar_arrowdown.png" id="2_7c1q6"]
-[ext_resource type="Texture2D" uid="uid://chwxeltqcitrb" path="res://assets/Images/Menus/world map menus/inventory_window.png" id="2_ivpix"]
+[ext_resource type="Texture2D" uid="uid://bi1p0p41hw1v7" path="res://assets/Images/Menus/world map menus/calendar_window.png" id="2_ivpix"]
 [ext_resource type="Texture2D" uid="uid://wnoyutn3wrtc" path="res://assets/Images/Menus/world map menus/calendar_arrowup.png" id="2_siwep"]
 [ext_resource type="Script" uid="uid://b7rpout8nbs1m" path="res://scripts/hud_animation_player.gd" id="3_m8acj"]
 [ext_resource type="Texture2D" uid="uid://b0o17ia6rqk15" path="res://assets/Images/Menus/world map menus/questlog_arrowup.png" id="4_motb1"]
 [ext_resource type="Texture2D" uid="uid://c760mw70ql3w2" path="res://assets/Images/Menus/world map menus/questlog_window.png" id="4_v4bsa"]
 [ext_resource type="Texture2D" uid="uid://b1kgr8f014mqn" path="res://assets/Images/Menus/world map menus/questlog_arrowdown.png" id="5_pjmon"]
-
-[sub_resource type="Animation" id="Animation_ivpix"]
-resource_name = "intro"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-457, -613), Vector2(-457, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_v4bsa"]
 length = 0.001
@@ -37,7 +22,22 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-457, -613)]
+"values": [Vector2(-457, -403)]
+}
+
+[sub_resource type="Animation" id="Animation_ivpix"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-457, -403), Vector2(-457, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ivx00"]
@@ -52,7 +52,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-457, 0), Vector2(-457, -613)]
+"values": [Vector2(-457, 0), Vector2(-457, -403)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgqd1"]
@@ -78,7 +78,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -457.0
-offset_top = -613.0
+offset_top = -403.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_top = 40
@@ -88,13 +88,22 @@ layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("2_ivpix")
 
-[node name="CalendarLabel" type="Label" parent="CalendarCon/TextureRect"]
+[node name="MarginContainer" type="MarginContainer" parent="CalendarCon/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 40
+
+[node name="CalendarLabel" type="Label" parent="CalendarCon/TextureRect/MarginContainer"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 80.0
-offset_bottom = 73.0
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 text = "TITLE"
 
 [node name="CalendarAnimationPlayer" type="AnimationPlayer" parent="CalendarCon"]
@@ -111,8 +120,7 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -457.0
-offset_top = -613.0
-offset_bottom = -210.0
+offset_top = -403.0
 grow_horizontal = 0
 theme_override_constants/margin_top = 40
 
@@ -121,13 +129,24 @@ layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("4_v4bsa")
 
-[node name="QuestlogLabel" type="Label" parent="QuestlogCon/TextureRect"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 40.0
-offset_top = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="QuestlogCon/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_right = 80.0
-offset_bottom = 73.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 40
+
+[node name="QuestlogLabel" type="Label" parent="QuestlogCon/TextureRect/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 text = "TITLE"
 
 [node name="QuestlogAnimationPlayer" type="AnimationPlayer" parent="QuestlogCon"]
