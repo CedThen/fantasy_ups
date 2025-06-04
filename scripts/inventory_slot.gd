@@ -13,6 +13,8 @@ var moving_icon:bool = false
 
 var touch_offset:Vector2
 
+var clickable:bool = true 	# main_hud inventory -> true, world_hud inventory -> false
+
 func has_icon() -> bool:
 	return icon != null
 
@@ -38,6 +40,9 @@ func remove_icon() -> InventoryItemIcon:
 	
 
 func _on_gui_input(event: InputEvent) -> void:
+	if not clickable:
+		return
+		
 	if event is InputEventMouseButton:
 		if event.pressed:
 			if icon:

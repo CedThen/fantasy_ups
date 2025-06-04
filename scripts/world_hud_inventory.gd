@@ -8,10 +8,16 @@ extends Control
 @onready var inventory_button_animation_player: HudAnimationPlayer = %InventoryButtonAnimationPlayer
 @onready var inventory_type_label: Label = %InventoryTypeLabel
 
+@onready var inventory_grid: GridContainer = %InventoryGrid
+
 @export var inventory_button_active_img:Texture2D
 @export var inventory_button_inactive_img:Texture2D
+@export var inventory_slot_scene:PackedScene
+@export var inventory_item_icon_scene:PackedScene
 
 var last_tab:WorldHudTab = null
+
+var slots:Array[InventorySlot]
 
 func _ready() -> void:
 	backpack_tab.tab_pressed.connect(on_tab_pressed)
@@ -20,9 +26,6 @@ func _ready() -> void:
 	
 	inventory_button_animation_player.animation_finished.connect(on_inventory_animation_finished)
 	last_tab = backpack_tab
-	
-
-	
 
 
 func open() -> void:
@@ -46,12 +49,30 @@ func close_other_tabs(current_tab:WorldHudTab = null):
 func populate_inventory(tab:WorldHudTab):
 	var player_inventory:InventoryData = Global.player.inventory
 	
+	for s in slots:
+		inventory_grid.remove_child(s)
+	slots.clear()
+	
+	var items:Array[Item]
 	if tab == backpack_tab:
 		inventory_type_label.text = "Backpack"
+		items = player_inventory.get_inventory_items(InventoryManager.ItemType.ALL)
 	elif tab == pouch_tab:
 		inventory_type_label.text = "Pouch"
 	elif tab == courier_tab:
 		inventory_type_label.text = "Courier"
+
+	for item:Item in items:
+		var slot:InventorySlot = inventory_slot_scene.instantiate()
+		var icon:InventoryItemIcon = inventory_item_icon_scene.instantiate()
+		icon.item = item
+		icon.set_count_label(item.count)
+		slot.add_icon(icon)
+		slot.clickable = false
+		inventory_grid.add_child(slot)
+		slots.append(slot)
+		pass
+	
 
 
 func on_tab_pressed(tab:WorldHudTab, opening:bool):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ccvgp8c6rwbyi"]
+[gd_scene load_steps=19 format=3 uid="uid://ccvgp8c6rwbyi"]
 
 [ext_resource type="Script" uid="uid://q3fu1b63juk3" path="res://scripts/world_hud_inventory.gd" id="1_e0yw3"]
 [ext_resource type="PackedScene" uid="uid://x4qktsksj8uv" path="res://scenes/world_hud/world_hud_tab.tscn" id="2_3030e"]
@@ -6,12 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://dpoabjfird2h0" path="res://assets/Images/Menus/world map menus/inventory_backpacktab_active.png" id="3_hn1xn"]
 [ext_resource type="Texture2D" uid="uid://dijtlqvvcu21f" path="res://assets/Images/Menus/world map menus/inventory_backpacktab_inactive.png" id="4_vhlrm"]
 [ext_resource type="Texture2D" uid="uid://dx4687lb2xt1r" path="res://assets/Images/Menus/world map menus/inventory_pouchtab_active.png" id="5_dyx14"]
+[ext_resource type="PackedScene" uid="uid://bfv55w834drau" path="res://scenes/inventory/inventory_item_icon.tscn" id="5_h2whg"]
 [ext_resource type="Texture2D" uid="uid://fk6q4knfpwu3" path="res://assets/Images/Menus/world map menus/inventory_pouchtab_inactive.png" id="6_h2whg"]
 [ext_resource type="Texture2D" uid="uid://cms3wbu3s0h3i" path="res://assets/Images/Menus/world map menus/inventory_couriertab_active.png" id="7_h6qrb"]
 [ext_resource type="Texture2D" uid="uid://dlkmd5jjsg1d6" path="res://assets/Images/Menus/world map menus/inventory_couriertab_inactive.png" id="8_oiwuv"]
 [ext_resource type="Texture2D" uid="uid://chwxeltqcitrb" path="res://assets/Images/Menus/world map menus/inventory_window.png" id="9_k1aky"]
 [ext_resource type="Texture2D" uid="uid://bojnryxjccepj" path="res://assets/Images/Menus/world map menus/inventory_arrowup.png" id="10_121xs"]
 [ext_resource type="Script" uid="uid://b7rpout8nbs1m" path="res://scripts/hud_animation_player.gd" id="12_hn1xn"]
+[ext_resource type="PackedScene" uid="uid://bdon4wu8it8fh" path="res://scenes/inventory/inventory_slot.tscn" id="12_vhlrm"]
 
 [sub_resource type="Animation" id="Animation_vhlrm"]
 length = 0.001
@@ -112,6 +114,8 @@ mouse_filter = 1
 script = ExtResource("1_e0yw3")
 inventory_button_active_img = ExtResource("2_hn1xn")
 inventory_button_inactive_img = ExtResource("10_121xs")
+inventory_slot_scene = ExtResource("12_vhlrm")
+inventory_item_icon_scene = ExtResource("5_h2whg")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -175,11 +179,22 @@ theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 40
 
-[node name="InventoryTypeLabel" type="Label" parent="MarginContainer/BgImgCon/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BgImgCon/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="InventoryTypeLabel" type="Label" parent="MarginContainer/BgImgCon/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 text = "Consumables"
+
+[node name="InventoryGrid" type="GridContainer" parent="MarginContainer/BgImgCon/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 5
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
